@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.adcure.adminactivity.AdminCategoryActivity"
+    android:gravity="center"
+    android:orientation="vertical"
+    >
+
+    <Button
+        android:id="@+id/btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="6dp"
+        android:layout_marginRight="15dp"
+        android:background="#673AB7"
+        android:padding="20dp"
+        android:text="Add Doctor"
+        android:textAllCaps="false"
+        android:textColor="@android:color/white"
+        android:textSize="15sp" />
+    <Button
+         android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="6dp"
+        android:layout_marginRight="15dp"
+        android:background="#673AB7"
+        android:padding="20dp"
+        android:text="Lab Tests"
+        android:onClick="viewLabTest"
+        android:textAllCaps="false"
+        android:textColor="@android:color/white"
+        android:textSize="15sp" />
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="6dp"
+        android:layout_marginRight="15dp"
+        android:background="#673AB7"
+        android:padding="20dp"
+        android:text="Pharmacy"
+        android:onClick="pharma"
+        android:textAllCaps="false"
+        android:textColor="@android:color/white"
+        android:textSize="15sp" />
+<Button
+android:layout_width="match_parent"
+android:layout_height="wrap_content"
+android:id="@+id/btn1"
+android:layout_below="@id/btn"
+android:layout_marginLeft="15dp"
+android:layout_marginRight="15dp"
+android:layout_marginTop="6dp"
+android:background="#673AB7"
+android:textAllCaps="false"
+android:padding="20dp"
+android:textSize="15sp"
+android:textColor="@android:color/white"
+    android:text="My Doctor"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/excel"
+        android:layout_below="@id/btn1"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="6dp"
+        android:background="#673AB7"
+        android:textAllCaps="false"
+        android:padding="20dp"
+        android:textSize="15sp"
+        android:onClick="downloadbtn"
+        android:textColor="@android:color/white"
+        android:text="Download"/>
+
+</LinearLayout>

@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".RegisterActivity">
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:textSize="30sp"
+            android:textColor="@color/colorPrimaryDark"
+            android:text="Hi, Admin"
+            android:id="@+id/login_app_logo"
+
+
+       />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="name"
+            android:layout_below="@id/login_app_logo"
+            android:id="@+id/register_name"
+            android:inputType="text"
+            android:padding="20dp"
+            android:textColor="@color/colorPrimaryDark"
+            android:textColorHint="@color/colorPrimaryDark"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:textSize="17sp"
+            android:textStyle="bold"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/layout_design"
+            />  <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Password"
+        android:layout_below="@id/register_name"
+        android:id="@+id/register_password"
+        android:inputType="number"
+        android:padding="20dp"
+        android:textColor="@color/colorPrimaryDark"
+        android:textColorHint="@color/colorPrimaryDark"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:textSize="17sp"
+        android:textStyle="bold"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/layout_design"
+        />
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Re-Enter Password"
+            android:layout_below="@id/register_password"
+            android:id="@+id/register_repassword"
+            android:inputType="number"
+            android:padding="20dp"
+            android:textColor="@color/colorPrimaryDark"
+            android:textColorHint="@color/colorPrimaryDark"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:textSize="17sp"
+            android:textStyle="bold"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/layout_design"
+            />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/main_register"
+            android:layout_below="@id/register_repassword"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginTop="6dp"
+            android:background="#673AB7"
+            android:textAllCaps="false"
+            android:padding="20dp"
+            android:textSize="15sp"
+            android:textColor="@android:color/white"
+            android:text="Register"/>
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/to_Loginlnk"
+            android:layout_below="@id/main_register"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginTop="6dp"
+            android:background="#673AB7"
+            android:textAllCaps="false"
+            android:padding="20dp"
+            android:textSize="15sp"
+            android:textColor="@android:color/white"
+            android:text="Admin Login"/>
+    </RelativeLayout>
+</RelativeLayout>

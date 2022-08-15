@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView   android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+
+
+    android:layout_margin="10dp"
+    app:cardElevation="10dp"
+     xmlns:android="http://schemas.android.com/apk/res/android">
+   <LinearLayout
+       android:background="#2203A9F4"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:padding="5dp"
+       android:orientation="vertical">
+       <LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:src="@drawable/profile_image"/>
+  <LinearLayout
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+       android:orientation="vertical">
+      <LinearLayout
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+      android:orientation="horizontal"
+          > <TextView
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:text="Naveen kumar"
+       android:id="@+id/unme"
+        android:layout_marginLeft="15dp"
+       android:textSize="18sp"
+       android:textStyle="bold"
+       android:textColor="#BF000000"
+       />
+          <LinearLayout
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:gravity="end"><TextView
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:textSize="15sp"
+      android:text="18:08"
+          android:layout_marginLeft="10dp"
+      android:layout_marginRight="10dp"
+      android:id="@+id/utme"
+      />       <TextView
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:textSize="15sp"
+      android:id="@+id/udte"
+      android:text="18/07/2021"
+              /></LinearLayout> </LinearLayout>  <TextView
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text="Naveen kumar"
+      android:id="@+id/p_id"
+      android:layout_marginLeft="15dp"
+      android:textSize="15sp"
+
+      android:textColor="#BF000000"
+      />
+     </LinearLayout>
+
+   </LinearLayout>
+
+       <TextView
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:text="Comment : Good doctor for conultingyyuyuiy."
+            android:layout_marginTop="10dp"
+           android:layout_marginLeft="10dp"
+             android:textSize="18sp"
+           android:id="@+id/cmnt"
+           android:textStyle="bold"
+           android:textColor="#B2000000"
+           />
+   </LinearLayout>
+</androidx.cardview.widget.CardView>

@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+
+
+    android:layout_margin="10dp"
+    app:cardElevation="10dp"
+    >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        >
+      <RelativeLayout
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+        ><TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Name:"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            android:id="@+id/nme"
+            android:layout_marginLeft="10dp"
+
+          android:textColor="#050839"/>
+          <TextView
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:text="Naveen Kumar"
+              android:textStyle="bold"
+              android:textSize="16sp"
+              android:layout_toRightOf="@id/nme"
+              android:id="@+id/name_user"
+              android:layout_marginLeft="10dp"
+
+              android:textColor="#050839"/>
+      </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="10dp"
+            android:textColor="#050839"
+            android:textSize="14sp"
+            android:id="@+id/gen"
+            android:text="Gender:"/><TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        android:textColor="#050839"
+        android:textSize="14sp"
+            android:layout_toRightOf="@id/gen"
+        android:id="@+id/gender_user"
+            android:text="Male"/></RelativeLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:layout_marginTop="5dp"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/date"
+                android:layout_marginLeft="10dp"
+                android:textColor="#050839"
+                android:textSize="14sp"
+                android:text="Date : 20/08/2021"/>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="end" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Time: 20:00" android:textAlignment="textEnd"
+                    android:textColor="#050839"
+                    android:id="@+id/time_d"
+
+                    android:layout_marginRight="20dp"
+
+                    /></RelativeLayout>
+        </LinearLayout>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/paid"
+            android:textAlignment="textEnd"
+            android:textColor="#050839"
+           android:text="Paid : 200 ₹ "
+            android:layout_margin="10dp"/>
+<TextView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+android:id="@+id/consulted"
+
+    android:layout_margin="10dp"/>
+
+
+    </LinearLayout>
+
+
+</androidx.cardview.widget.CardView>

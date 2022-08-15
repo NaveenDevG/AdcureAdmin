@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/AdCureAdmin/app/src/main/res/drawable-v24/layout_design.xml" value="0.2111111111111111" />
+        <entry key="..\:/AdCureAdmin/app/src/main/res/drawable/bg_edit.xml" value="0.2111111111111111" />
+        <entry key="..\:/AdCureAdmin/app/src/main/res/drawable/box_style.xml" value="0.2111111111111111" />
+        <entry key="..\:/AdCureAdmin/app/src/main/res/drawable/btnlt.xml" value="0.2203125" />
+        <entry key="..\:/AdCureAdmin/app/src/main/res/drawable/button.xml" value="0.2203125" />
+        <entry key="..\:/AdCureAdmin/app/src/main/res/drawable/button_normal.xml" value="0.2203125" />
+        <entry key="..\:/AdCureAdmin/app/src/main/res/drawable/button_pressed.xml" value="0.2203125" />
+        <entry key="..\:/AdCureAdmin/app/src/main/res/drawable/distag.xml" value="0.2203125" />
+        <entry key="..\:/AdCureAdmin/app/src/main/res/drawable/distag1.xml" value="0.2203125" />
+        <entry key="..\:/AdCureAdmin/app/src/main/res/drawable/fbc.xml" value="0.2203125" />
+        <entry key="..\:/AdCureAdmin/app/src/main/res/drawable/ic_baseline_arrow_forward_24.xml" value="0.1125" />
+        <entry key="..\:/AdCureAdmin/app/src/main/res/layout/activity_add_doctor.xml" value="0.1" />
+        <entry key="..\:/AdCureAdmin/app/src/main/res/layout/activity_add_lab_test.xml" value="0.25" />
+        <entry key="..\:/AdCureAdmin/app/src/main/res/layout/activity_added_labtests.xml" value="0.1" />
+        <entry key="..\:/AdCureAdmin/app/src/main/res/layout/activity_admin_category.xml" value="0.17753623188405798" />
+        <entry key="..\:/AdCureAdmin/app/src/main/res/layout/activity_displaying_added_doctors.xml" value="0.10869565217391304" />
+        <entry key="..\:/AdCureAdmin/app/src/main/res/layout/activity_item_view.xml" value="0.25" />
+        <entry key="..\:/AdCureAdmin/app/src/main/res/layout/activity_lab_test_categories.xml" value="0.18" />
+        <entry key="..\:/AdCureAdmin/app/src/main/res/layout/activity_main.xml" value="0.20416666666666666" />
+        <entry key="..\:/AdCureAdmin/app/src/main/res/layout/activity_medicine_view.xml" value="0.1" />
+        <entry key="..\:/AdCureAdmin/app/src/main/res/layout/activity_notify.xml" value="0.1921875" />
+        <entry key="..\:/AdCureAdmin/app/src/main/res/layout/activity_phara_category.xml" value="0.1921875" />
+        <entry key="..\:/AdCureAdmin/app/src/main/res/layout/activity_pharma_section.xml" value="0.21263157894736842" />
+        <entry key="..\:/AdCureAdmin/app/src/main/res/layout/activity_update_medicines.xml" value="0.1921875" />
+        <entry key="..\:/AdCureAdmin/app/src/main/res/layout/activity_view_medicines.xml" value="0.1" />
+        <entry key="..\:/AdCureAdmin/app/src/main/res/layout/doctor_layout.xml" value="0.22" />
+        <entry key="..\:/AdCureAdmin/app/src/main/res/layout/labtest_view.xml" value="0.22" />
+        <entry key="..\:/AdCureAdmin/app/src/main/res/layout/medicine_view.xml" value="0.25" />
+        <entry key="..\:/AdCureAdmin/app/src/main/res/layout/shopsview.xml" value="0.16574074074074074" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="11" project-jdk-type="JavaSDK" />
+</project>

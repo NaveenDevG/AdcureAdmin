@@ -1,0 +1,353 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AddLabTest" >
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/notDeliverd"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="20dp"
+                android:text="- Add Medicine -"
+                android:textStyle="bold"
+                android:textColor="#E8000000"
+                android:textSize="18sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="30dp"
+                android:padding="10dp" android:layout_marginRight="10dp"
+                android:background="@drawable/layout_design"
+                android:orientation="vertical">
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:gravity="center"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:id="@+id/select_Image"
+                        android:layout_width="100dp"
+                        android:layout_height="110dp"
+                        android:layout_marginTop="15dp"
+                        android:layout_marginRight="15dp"
+                        android:cropToPadding="false"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/uploade"
+
+                        />
+
+                    <ImageView
+                        android:id="@+id/select_Image2"
+                        android:layout_width="100dp"
+                        android:layout_height="110dp"
+                        android:layout_marginLeft="10dp"
+
+                        android:layout_marginTop="15dp"
+                        android:layout_toRightOf="@id/select_Image1"
+                        android:cropToPadding="false"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/uploade" />
+
+                    <ImageView
+                        android:id="@+id/select_Image1"
+                        android:layout_width="100dp"
+                        android:layout_height="110dp"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="15dp"
+                        android:layout_marginRight="15dp"
+                        android:layout_toRightOf="@id/select_Image"
+                        android:cropToPadding="false"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/uploade"
+
+                        /></RelativeLayout>
+
+                <EditText
+                    android:id="@+id/med_no"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:background="@drawable/box_style"
+                    android:hint="No"
+                    android:inputType="number"
+                    android:lineHeight="2dp"
+                    android:padding="10dp"
+                    android:textAlignment="center"
+                    android:textColorHint="#9A6C6C" />
+
+                <EditText
+                    android:id="@+id/med_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:background="@drawable/box_style"
+                    android:hint="Medicine Name "
+                    android:inputType="text"
+                    android:lineHeight="2dp"
+                    android:padding="10dp"
+                    android:textAlignment="center"
+                    android:textColorHint="#9A6C6C" />
+
+                <com.toptoche.searchablespinnerlibrary.SearchableSpinner
+                    android:id="@+id/category"
+                     app:hintText="Category"
+                    android:textAlignment="center"
+                    android:layout_width="match_parent"
+                    android:layout_margin="10dp"
+                    android:layout_height="40dp"
+                      android:layout_gravity="center"
+                   android:background="@drawable/box_style" />
+                <com.toptoche.searchablespinnerlibrary.SearchableSpinner
+                    android:id="@+id/sub_cat"
+                    app:hintText="Sub-Category"
+                    android:textAlignment="center"
+                    android:layout_width="match_parent"
+                    android:layout_margin="10dp"
+                    android:layout_height="40dp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/box_style" />
+
+
+                <EditText
+                    android:id="@+id/company"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:background="@drawable/box_style"
+
+                    android:hint="Company Name"
+                    android:inputType="text"
+                    android:padding="10dp"
+                    android:textAlignment="center"
+                    android:textColorHint="#9A6C6C" />
+                <EditText
+                    android:id="@+id/des"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:background="@drawable/box_style"
+                    android:hint="Description"
+                    android:inputType="textMultiLine"
+                    android:padding="10dp"
+
+                    android:textAlignment="center"
+                    android:textColorHint="#9A6C6C" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:textSize="12sp"
+                    android:layout_marginBottom="5dp"
+                    android:text="Sentences must be divide with symbol ' , '(comma) ."
+                    />
+                <Button
+                    android:id="@+id/pur_date"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/box_style"
+                    android:layout_margin="10dp"
+android:textAllCaps="false"
+                    android:textColor="#70000000"
+
+                    android:textSize="16sp"
+                    android:text="Purchase Date"
+                       android:padding="10dp"
+                    android:textAlignment="center"
+                    android:textColorHint="#9A6C6C" />
+
+
+                <EditText
+                    android:id="@+id/price_pe"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:background="@drawable/box_style"
+
+                    android:hint="Price "
+                    android:inputType="number"
+                    android:padding="10dp"
+                    android:textAlignment="center"
+                    android:textColorHint="#9A6C6C" />
+
+
+                <Button
+                    android:id="@+id/exp_date"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:background="@drawable/box_style"
+android:textSize="16sp"
+                    android:textColor="#70000000"
+                    android:text="Expired Date"
+           android:textAllCaps="false"
+                    android:padding="10dp"
+                    android:textAlignment="center"
+                    android:textColorHint="#9A6C6C" />
+                <com.toptoche.searchablespinnerlibrary.SearchableSpinner
+                    android:id="@+id/stock"
+                    app:hintText="Stock"
+                    android:textAlignment="center"
+                    android:layout_width="match_parent"
+                    android:layout_margin="10dp"
+                    android:layout_height="40dp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/box_style" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:gravity="center_horizontal"
+                    android:orientation="horizontal">
+
+
+                    <com.toptoche.searchablespinnerlibrary.SearchableSpinner
+                        android:id="@+id/sp2"
+                        android:padding="10dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        />
+                    <com.toptoche.searchablespinnerlibrary.SearchableSpinner
+                        android:id="@+id/retunpol"
+                        android:padding="10dp"
+                        android:layout_marginLeft="15dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        />
+
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                 android:layout_marginBottom="10dp"
+                 >   <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Prescription ?"
+                    android:textSize="16sp"
+
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="15dp"
+                    android:textColor="#F5000000"/> <RadioGroup
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:orientation="horizontal"
+                    android:id="@+id/rg"
+                    android:layout_marginLeft="10dp" >
+                    <RadioButton
+                        android:id="@+id/ypre"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Yes"
+
+                        />
+                    <RadioButton
+                        android:id="@+id/npre"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="No"
+                        android:layout_marginLeft="10dp"
+                        /></RadioGroup>
+
+                </LinearLayout>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:textSize="14sp"
+                    android:id="@+id/disprice"
+                    android:textAlignment="center"
+                    android:textColor="@color/colorPrimary"
+                    android:layout_margin="10dp"
+                    android:text="Discount Price : --"
+                    />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:orientation="horizontal"
+                    android:gravity="center_horizontal"
+                    android:weightSum="2"
+                    android:visibility="gone"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="10dp"
+                        android:text="Shipping Calculation : "
+                        android:textSize="18sp"
+                         android:textColor="#79000000"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginTop="10dp"
+                        android:text="Free"
+                        android:id="@+id/free"
+                        android:tag="1"
+                        android:background="#23000000"
+                        android:textSize="16sp"
+                        android:padding="10dp"
+                        android:textColor="#EB000000"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginTop="10dp"
+                        android:text="Flat Rate"
+                        android:id="@+id/flatrate"
+                        android:padding="10dp"
+                        android:background="#23000000"
+                        android:textSize="16sp"
+                        android:textColor="#EB000000"/>
+                </LinearLayout>
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                     android:inputType="number"
+                    android:padding="20dp"
+                    android:layout_marginTop="20dp"
+                    android:textColorHint="#3F51B5"
+                    android:textColor="#000"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:visibility="gone"
+                    android:hint="Delivery Charge..\n (should be in INR) "
+                    android:id="@+id/deliveryCharge"
+                    android:layout_marginLeft="50dp"
+                    android:layout_marginRight="50dp"
+                    />
+                <Button
+                    android:id="@+id/submit_btn"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_margin="10dp"
+                    android:background="@drawable/buttonsstyle"
+                    android:text="Submit"
+                    android:textColor="@android:color/white" />
+            </LinearLayout>
+        </LinearLayout></RelativeLayout>
+</ScrollView>

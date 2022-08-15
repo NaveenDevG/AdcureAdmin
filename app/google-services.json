@@ -1,0 +1,114 @@
+{
+  "project_info": {
+    "project_number": "425043183942",
+    "firebase_url": "https://adcureapp-default-rtdb.firebaseio.com",
+    "project_id": "adcureapp",
+    "storage_bucket": "adcureapp.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:425043183942:android:f8de20feac6c80aee3bd47",
+        "android_client_info": {
+          "package_name": "com.adcure.adcureapplication"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "425043183942-bi4qfgc313be3e70hk5dtih7mscu4jap.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.adcure.adcureapplication",
+            "certificate_hash": "509c620994ca87feb56514d881be6794482de2e5"
+          }
+        },
+        {
+          "client_id": "425043183942-ijlg2j9n5b06pe65ku601chrnlripo22.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDO8c64_Nh4pXr0N3eFJ4lM_ol7NyG41us"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "425043183942-ijlg2j9n5b06pe65ku601chrnlripo22.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:425043183942:android:522ee6e103c2b312e3bd47",
+        "android_client_info": {
+          "package_name": "com.adcure.adcuredoctorapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "425043183942-g12cl2klsqbgcq4ir7rslle22l5ksoc2.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.adcure.adcuredoctorapp",
+            "certificate_hash": "509c620994ca87feb56514d881be6794482de2e5"
+          }
+        },
+        {
+          "client_id": "425043183942-ijlg2j9n5b06pe65ku601chrnlripo22.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDO8c64_Nh4pXr0N3eFJ4lM_ol7NyG41us"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "425043183942-ijlg2j9n5b06pe65ku601chrnlripo22.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:425043183942:android:092fdae4c552544ee3bd47",
+        "android_client_info": {
+          "package_name": "com.adcure.adminactivity"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "425043183942-ijlg2j9n5b06pe65ku601chrnlripo22.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDO8c64_Nh4pXr0N3eFJ4lM_ol7NyG41us"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "425043183942-ijlg2j9n5b06pe65ku601chrnlripo22.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

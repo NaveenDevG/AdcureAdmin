@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AddLabTest" >
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/notDeliverd"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                 android:layout_gravity="center"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="20dp"
+                android:text="- Add Lab Test -"
+                android:textStyle="bold"
+                android:textColor="#E8000000"
+                android:textSize="18sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="30dp"
+                android:padding="10dp" android:layout_marginRight="10dp"
+                android:background="@drawable/layout_design"
+                android:orientation="vertical">
+
+                <EditText
+                    android:id="@+id/txt_lt_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+android:background="@drawable/box_style"
+                    android:hint="Lab test Name"
+                    android:inputType="text"
+                    android:lineHeight="2dp"
+                    android:padding="10dp"
+                    android:textAlignment="center"
+                    android:textColorHint="#9A6C6C" />
+
+                <EditText
+                    android:id="@+id/txt_lt_testsIncluded"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:background="@drawable/box_style"
+                    android:hint="How many Tests Included ?"
+                    android:inputType="number"
+                    android:lineHeight="2dp"
+                    android:padding="10dp"
+                    android:textAlignment="center"
+                    android:textColorHint="#9A6C6C" />
+                <EditText
+                    android:id="@+id/txt_lt_testsnames"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="10dp"
+                     android:layout_marginRight="10dp"
+                    android:background="@drawable/box_style"
+                    android:hint="Test Names ?"
+                    android:inputType="textMultiLine"
+                     android:padding="10dp"
+
+                     android:textAlignment="center"
+                    android:textColorHint="#9A6C6C" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:textSize="12sp"
+                    android:text="Test name must be divide with symbol ' , '(comma) ."
+                    />
+                <EditText
+                    android:id="@+id/txt_lt_pc"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:background="@drawable/box_style"
+
+                    android:hint="Package covers ? "
+                    android:inputType="textMultiLine"
+                     android:padding="10dp"
+                    android:textAlignment="center"
+                    android:textColorHint="#9A6C6C" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:textSize="12sp"
+                    android:text="sentences must be divide with symbol ' , '(comma) ."
+                    />
+                <EditText
+                    android:id="@+id/txt_packagewhy"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                     android:background="@drawable/box_style"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:hint="why this package ? "
+                    android:inputType="textMultiLine"
+                     android:padding="10dp"
+                    android:textAlignment="center"
+                    android:textColorHint="#9A6C6C" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:textSize="12sp"
+                    android:text="sentences must be divide with symbol ' , '(comma) ."
+                    />
+
+                <EditText
+                    android:id="@+id/price_lt"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:background="@drawable/box_style"
+
+                    android:hint="Actual Price ? "
+                    android:inputType="number"
+                     android:padding="10dp"
+                    android:textAlignment="center"
+                    android:textColorHint="#9A6C6C" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:gravity="center_horizontal"
+                    android:orientation="horizontal">
+
+                    <com.toptoche.searchablespinnerlibrary.SearchableSpinner
+                        android:id="@+id/sp1"
+                        android:padding="10dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        />
+
+                <com.toptoche.searchablespinnerlibrary.SearchableSpinner
+                        android:id="@+id/subcat"
+                        android:padding="10dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="15dp" />
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:gravity="center_horizontal"
+                    android:orientation="horizontal">
+
+
+                    <com.toptoche.searchablespinnerlibrary.SearchableSpinner
+                        android:id="@+id/sp2"
+                        android:padding="10dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        />
+                    <com.toptoche.searchablespinnerlibrary.SearchableSpinner
+                        android:id="@+id/retunpol"
+                        android:padding="10dp"
+                        android:layout_marginLeft="15dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        />
+
+
+                </LinearLayout>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:textSize="14sp"
+                    android:id="@+id/disprice"
+                    android:textAlignment="center"
+                    android:textColor="@color/colorPrimary"
+                    android:layout_margin="10dp"
+                    android:text="Discount Price : --"
+                    />
+
+                <Button
+                    android:id="@+id/submit_btn"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_margin="10dp"
+                    android:background="@drawable/buttonsstyle"
+                    android:text="Submit"
+                    android:textColor="@android:color/white" />
+            </LinearLayout>
+        </LinearLayout></RelativeLayout>
+</ScrollView>

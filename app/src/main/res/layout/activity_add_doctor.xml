@@ -1,0 +1,295 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AddDoctorActivity" >
+ <RelativeLayout
+     android:layout_width="match_parent"
+     android:layout_height="wrap_content">
+
+     <LinearLayout
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         android:orientation="vertical">
+
+         <de.hdodenhof.circleimageview.CircleImageView
+             android:id="@+id/dctr_img"
+             android:layout_width="150dp"
+             android:layout_height="150dp"
+             android:layout_gravity="center"
+             android:layout_marginTop="50dp"
+             android:layout_marginBottom="25dp"
+             android:src="@drawable/uploade"
+             app:civ_border_color="#673AB7"
+             app:civ_border_width="2dp" />
+
+         <EditText
+             android:id="@+id/name_dctr"
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:layout_margin="10dp"
+             android:background="@drawable/layout_design"
+
+             android:hint="Name"
+             android:inputType="text"
+             android:lineHeight="2dp"
+             android:padding="10dp"
+             android:textAlignment="center"
+             android:textColorHint="#9A6C6C" />
+
+         <EditText
+             android:id="@+id/number"
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:layout_margin="10dp"
+             android:background="@drawable/layout_design"
+
+             android:hint="Doctor Number"
+             android:inputType="number"
+             android:lineHeight="2dp"
+             android:padding="10dp"
+             android:textAlignment="center"
+             android:textColorHint="#9A6C6C" />
+
+         <EditText
+             android:id="@+id/email"
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:layout_margin="10dp"
+             android:background="@drawable/layout_design"
+
+             android:hint="Doctor Email id"
+             android:inputType="textEmailAddress"
+             android:lineHeight="2dp"
+             android:padding="10dp"
+             android:textAlignment="center"
+             android:textColorHint="#9A6C6C" />
+
+         <EditText
+             android:id="@+id/qual_dctr"
+
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:layout_margin="10dp"
+             android:background="@drawable/layout_design"
+             android:hint="Qualification"
+             android:inputType="text"
+             android:lineHeight="2dp"
+             android:padding="10dp"
+             android:textAlignment="center"
+             android:textColorHint="#9A6C6C" />
+
+
+         <EditText
+             android:id="@+id/hsptl_nme"
+
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:layout_margin="10dp"
+             android:background="@drawable/layout_design"
+             android:hint="Hospital/Clinic Name"
+             android:inputType="text"
+             android:lineHeight="2dp"
+             android:padding="10dp"
+             android:textAlignment="center"
+             android:textColorHint="#9A6C6C" />
+
+         <EditText
+             android:id="@+id/adress_hsptl"
+
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:layout_margin="10dp"
+             android:background="@drawable/layout_design"
+             android:hint="Hospital/Clinic Address"
+             android:inputType="text"
+             android:lineHeight="2dp"
+             android:padding="10dp"
+             android:textAlignment="center"
+             android:textColor="@android:color/black"
+             android:textColorHint="#9A6C6C" />
+
+         <LinearLayout
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:layout_margin="10dp"
+             android:gravity="center_horizontal"
+             android:orientation="horizontal">
+
+             <com.toptoche.searchablespinnerlibrary.SearchableSpinner
+                 android:id="@+id/sp1"
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+
+                 android:layout_marginRight="10dp" />
+
+             <com.toptoche.searchablespinnerlibrary.SearchableSpinner
+                 android:id="@+id/sp2"
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 android:layout_marginLeft="5dp" />
+         </LinearLayout>
+
+         <EditText
+             android:id="@+id/amount"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:layout_gravity="center"
+             android:background="@drawable/layout_design"
+             android:hint="Amount"
+             android:inputType="number"
+             android:padding="5dp"
+             android:textColorHint="#9A6C6C"
+             android:textAlignment="center" />
+
+         <LinearLayout
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:layout_margin="10dp"
+             android:gravity="center"
+             android:orientation="horizontal">
+
+             <EditText
+                 android:id="@+id/country_nme"
+                 android:layout_width="150dp"
+                 android:layout_height="wrap_content"
+                 android:hint="Country"
+                 android:textAlignment="center"
+               android:layout_marginRight="20dp"
+                  android:padding="7dp"
+                 android:textColorHint="#9A6C6C"
+                 android:background="@drawable/layout_design"
+                  />
+
+             <EditText
+                 android:id="@+id/state_nme"
+                 android:background="@drawable/layout_design"
+                 android:layout_width="150dp"                        
+                 android:layout_height="wrap_content"
+                 android:hint="State"
+                 android:textColorHint="#9A6C6C"
+                 android:textAlignment="center"
+                 android:layout_marginLeft="10dp"
+                 android:padding="7dp"
+                 />
+         </LinearLayout>
+
+         <EditText
+             android:id="@+id/city_nme"
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:layout_gravity="center"
+ android:layout_margin="10dp"
+             android:textColorHint="#9A6C6C"
+             android:background="@drawable/layout_design"
+             android:padding="7dp"
+             android:textAlignment="center"
+             android:hint="City"
+             />
+
+
+         <LinearLayout
+         android:layout_width="match_parent"
+         android:orientation="horizontal"
+        android:layout_gravity="center"
+             android:gravity="center_horizontal"
+         android:weightSum="2"
+             android:layout_margin="10dp"
+         android:layout_height="wrap_content">
+         <TextView
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+                android:text="24/7  Available?"
+             android:textSize="18sp"
+             android:textStyle="bold"
+             android:textColor="#79000000"/>
+         <TextView
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:layout_marginLeft="15dp"
+               android:text="Yes"
+             android:id="@+id/yesavail"
+             android:tag="1"
+             android:background="#23000000"
+             android:textSize="16sp"
+             android:padding="10dp"
+             android:textColor="#EB000000"/>
+         <TextView
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:layout_marginLeft="15dp"
+              android:text="No"
+             android:id="@+id/noavial"
+             android:padding="10dp"
+             android:background="#23000000"
+             android:textSize="16sp"
+             android:textColor="#EB000000"/>
+     </LinearLayout>
+
+         <LinearLayout
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:layout_margin="10dp"
+             android:gravity="center"
+             android:id="@+id/timings"
+             android:visibility="gone"
+             android:orientation="horizontal">
+             <TextView
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 android:text="Available"
+                 android:textSize="18sp"
+                 android:layout_gravity="center"/>
+             <EditText
+                 android:id="@+id/from"
+                 android:layout_width="130dp"
+                 android:layout_height="wrap_content"
+                 android:layout_gravity="center"
+android:layout_marginLeft="5dp"
+                 android:background="@drawable/layout_design"
+                 android:padding="7dp"
+                 android:textColorHint="#9A6C6C"
+                 android:textAlignment="center"
+                 android:hint="From"
+                 />
+             <EditText
+                 android:id="@+id/to"
+                 android:layout_width="130dp"
+                 android:layout_height="wrap_content"
+                 android:layout_gravity="center"
+                 android:layout_marginLeft="5dp"
+                 android:background="@drawable/layout_design"
+                 android:padding="7dp"
+                 android:textColorHint="#9A6C6C"
+                 android:textAlignment="center"
+                 android:hint="To"
+                 />
+         </LinearLayout>
+
+         <EditText
+             android:id="@+id/noof_patients"
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:layout_gravity="center"
+             android:layout_margin="10dp"
+             android:background="@drawable/layout_design"
+             android:padding="7dp"
+             android:textColorHint="#9A6C6C"
+             android:inputType="number"
+             android:textAlignment="center"
+             android:hint="No Of Patients"
+             />
+
+         <Button
+             android:id="@+id/submit_btn"
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:layout_alignParentBottom="true"
+             android:layout_margin="10dp"
+             android:background="@drawable/buttonsstyle"
+             android:text="Submit"
+             android:textColor="@android:color/white" />
+     </LinearLayout>
+ </RelativeLayout>    </ScrollView>
