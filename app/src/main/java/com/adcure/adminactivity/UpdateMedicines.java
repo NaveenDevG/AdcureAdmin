@@ -25,7 +25,7 @@ import de.hdodenhof.circleimageview.CircleImageView;
 
 public class UpdateMedicines extends AppCompatActivity {
     private DatabaseReference databaseReference;
-    private String value;
+    private String value,sub,cat;
     private DatabaseReference databaseReference1;
     private String pid;
     CircleImageView Image;                int disp,sd;
@@ -50,7 +50,7 @@ public class UpdateMedicines extends AppCompatActivity {
         update=findViewById(R.id.updatebtn);
         dp=findViewById(R.id.discntPrice);
         Image=findViewById(R.id.productImg);
-        databaseReference = FirebaseDatabase.getInstance().getReference().child("All Medicines");
+        databaseReference = FirebaseDatabase.getInstance().getReference().child("Pharmacy").child("All Medicines");
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -70,7 +70,10 @@ public class UpdateMedicines extends AppCompatActivity {
                         num.getEditText().setText(dataSnapshot.child("No").getValue().toString());
                         dp.setText(dataSnapshot.child("Discount_price").getValue().toString());
 //                                    doctorDate.setText(dataSnapshot.child("Date").getValue().toString());
-//                                    doctorTime.setText(dataSnapshot.child("Time").getValue().toString());
+//                                    doctorTime.setText(dataSnapshot.child("Time").getValue().toString())
+//                                    ;
+                        sub=dataSnapshot.child("Subcategory").getValue().toString();
+                        cat=dataSnapshot.child("Category").getValue().toString();
                         Picasso.get().load(dataSnapshot.child("Img1").getValue().toString()).into(Image);
                         return;
                     }
@@ -146,7 +149,7 @@ public class UpdateMedicines extends AppCompatActivity {
             public void onClick(View view) {
 
 
-                DatabaseReference databaseReference2 = FirebaseDatabase.getInstance().getReference().child("").child("All Products");
+                DatabaseReference databaseReference2 = FirebaseDatabase.getInstance().getReference().child("Pharmacy").child("All Medicines");
                 databaseReference2.addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -159,10 +162,12 @@ public class UpdateMedicines extends AppCompatActivity {
                             if (pid.equals(value4)){
 
 
-                                DatabaseReference databaseReference4 = FirebaseDatabase.getInstance().getReference().child("All Medicines").child(value4);
+                                DatabaseReference databaseReference4 = FirebaseDatabase.getInstance().getReference().child("Pharmacy").child("All Medicines").child(value4);
                               //  DatabaseReference db5=FirebaseDatabase.getInstance().getReference().child("").child("Products in Sub-Category").child(dataSnapshot1.child("Category").getValue().toString()).child(dataSnapshot1.child("Sub_category").getValue().toString()).child(value4);
                                // DatabaseReference db6=FirebaseDatabase.getInstance().getReference().child("").child("Products in Category").child(dataSnapshot1.child("Category").getValue().toString()).child(value4);
-
+                                DatabaseReference databaseReference5 = FirebaseDatabase.getInstance().getReference().child("Pharmacy").child("Sub Category").child(sub).child(value4);
+                                DatabaseReference databaseReference6 = FirebaseDatabase.getInstance().getReference().child("Pharmacy").child(cat).child(sub).child(value4);
+//
                                 final HashMap<String,Object> productMap=new HashMap<>();
 
                                 String disd=dis.getEditText().getText().toString().replace("%","");
@@ -185,8 +190,8 @@ public class UpdateMedicines extends AppCompatActivity {
                                 productMap.put("No",num.getEditText().getText().toString());
                                 productMap.put( "Discount_price", String.valueOf(disp));
                                 Log.i("hashmap", "onDataChange: "+ databaseReference4.updateChildren(productMap));
-                               // Log.i("hashmap", "onDataChange: "+ db5.updateChildren(productMap));
-                             //   Log.i("hashmap", "onDataChange: "+ db6.updateChildren(productMap));
+                                Log.i("hashmap", "onDataChange: "+ databaseReference5.updateChildren(productMap));
+                                Log.i("hashmap", "onDataChange: "+ databaseReference6.updateChildren(productMap));
 
                                 Toast.makeText(UpdateMedicines.this, "Your item Updated.", Toast.LENGTH_SHORT).show();
 

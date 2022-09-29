@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.adcure.adminactivity" >
-
+    package="com.adcure.adminactivity">
+<uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"></uses-permission>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"></uses-permission>
+<uses-permission android:name="android.permission.MANAGE_EXTERNAL_STORAGE"></uses-permission>
     <application
         android:allowBackup="true"
         android:icon="@drawable/app_logo"
@@ -9,7 +11,10 @@
         android:requestLegacyExternalStorage="true"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme" >
+        android:theme="@style/AppTheme">
+        <activity
+            android:name=".OrderSection"
+            android:exported="false" />
         <activity
             android:name=".MedicineView"
             android:exported="false" />
@@ -34,17 +39,25 @@
         <activity
             android:name=".AddLabTest"
             android:exported="false" />
+        <activity android:name=".TodayOrders">
+
+        </activity>
+
         <activity android:name=".DownloadCategory" />
         <activity android:name=".DisplayingIssues" />
         <activity android:name=".Notify" />
         <activity android:name=".Empty" />
+        <activity android:name=".TotalOrders">
+
+        </activity>
+<activity android:name=".ShipOrder"></activity>
         <activity android:name=".DisplayingAddedDoctors" />
         <activity android:name=".AddDoctorActivity" />
         <activity android:name=".Feedback.PatientStories" />
         <activity android:name=".AdminCategoryActivity" />
         <activity android:name=".Appointment.AppointmentActivity" />
         <activity android:name=".RegisterActivity" />
-        <activity android:name=".MainActivity" >
+        <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

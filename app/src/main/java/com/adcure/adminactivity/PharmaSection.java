@@ -890,7 +890,7 @@ StoreProductInfo();
         rootRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                if(!(snapshot.child("All Medicines").child(userRandomKey).exists())){
+                if(!(snapshot.child("Pharmacy").child("All Medicines").child(userRandomKey).exists())){
                     final HashMap<String, Object> hashMap = new HashMap<>();
                     hashMap.put("Img1",DownloadUri);
                     hashMap.put("Img2", DownloadUri1);
@@ -914,7 +914,10 @@ StoreProductInfo();
                     hashMap.put("Flat_discount",discount.getSelectedItem().toString());
                     hashMap.put("Extra_discount",return_policcy.getSelectedItem().toString());
                     hashMap.put( "Discount_price",String.valueOf(dis));
-                    rootRef.child("All Medicines").child(userRandomKey).updateChildren(hashMap).addOnCompleteListener(new OnCompleteListener<Void>() {
+                    rootRef.child("Pharmacy").child(cat.getSelectedItem().toString()).child(sub_cat.getSelectedItem().toString()).child(userRandomKey).updateChildren(hashMap);
+
+                    rootRef.child("Pharmacy").child("Sub Category").child(sub_cat.getSelectedItem().toString()).child(userRandomKey).updateChildren(hashMap);
+                    rootRef.child("Pharmacy").child("All Medicines").child(userRandomKey).updateChildren(hashMap).addOnCompleteListener(new OnCompleteListener<Void>() {
                         @Override
                         public void onComplete(@NonNull Task<Void> task) {
                             if (task.isSuccessful()){

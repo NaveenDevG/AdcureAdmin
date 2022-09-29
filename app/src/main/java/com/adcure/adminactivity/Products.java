@@ -2,8 +2,16 @@ package com.adcure.adminactivity;
 
 public class Products {
     private String Category,Company,Date,Time,
-            Description,Img1,img2,Img3,Name,No,Pdate,Edate,Price,Prescription,Stock,Pid;
+            Description,Img1,img2,Img3,Name,No,Pdate,Edate,Price,Prescription,Stock,Pid,Subcategory;
     public Products() {
+    }
+
+    public String getSubcategory() {
+        return Subcategory;
+    }
+
+    public void setSubcategory(String subcategory) {
+        Subcategory = subcategory;
     }
 
     public Products(String category, String company, String date, String time, String description, String img1, String img2, String img3, String name, String no, String pdate, String edate, String price, String prescription, String stock) {

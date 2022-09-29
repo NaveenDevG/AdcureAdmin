@@ -51,7 +51,7 @@ public class ViewMedicines extends AppCompatActivity {
 //
 //        }
 //        else{
-            productRef= FirebaseDatabase.getInstance().getReference().child("All Medicines");
+            productRef= FirebaseDatabase.getInstance().getReference().child("Pharmacy").child("All Medicines");
 //        }
         productRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
@@ -94,12 +94,14 @@ public class ViewMedicines extends AppCompatActivity {
                                                     .setPositiveButton("Yes",
                                                             (dialog, id) -> {
                                                                 // User wants to try giving the permissions again.
-                                                                DatabaseReference databaseReference4 = FirebaseDatabase.getInstance().getReference().child("All Medicines").child(model.getPid());
+                                                                DatabaseReference databaseReference4 = FirebaseDatabase.getInstance().getReference().child("Pharmacy").child("All Medicines").child(model.getPid());
+                                                                DatabaseReference databaseReference5 = FirebaseDatabase.getInstance().getReference().child("Pharmacy").child("Sub Category").child(model.getSubcategory()).child(model.getPid());
+                                                                                                                              DatabaseReference databaseReference6 = FirebaseDatabase.getInstance().getReference().child("Pharmacy").child(model.getCategory()).child(model.getSubcategory()).child(model.getPid());
 //                                                                DatabaseReference db5=FirebaseDatabase.getInstance().getReference().child(Constants.ADMIN_ID).child("Products in Sub-Category").child(model.getCategory()).child(model.getSub_category()).child(model.getPid());
 //                                                                DatabaseReference db6=FirebaseDatabase.getInstance().getReference().child(Constants.ADMIN_ID).child("Products in Category").child(model.getCategory()).child(model.getPid());
                                                                 databaseReference4.removeValue();
-//                                                                db5.removeValue();
-//                                                                db6.removeValue();
+                                                                databaseReference5.removeValue();
+                                                                databaseReference6.removeValue();
                                                                 dialog.cancel();
 
                                                             })
@@ -150,105 +152,106 @@ public class ViewMedicines extends AppCompatActivity {
     }
 
     public void toProductAll(View view) {
-        productRef.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                if (snapshot.exists()){
-                    File path = Environment.getExternalStoragePublicDirectory(
-                            Environment.DIRECTORY_DOWNLOADS);
-//                                                                                             File path =new File(Environment.getExternalStoragePublicDirectory(
-//                                                                                                     Environment.DIRECTORY_DOWNLOADS),"test.csv");
-                    try (PrintWriter writer = new PrintWriter(new FileOutputStream(new File(path,"All Products List.csv")))) {
-
-                        StringBuilder sb = new StringBuilder();
-
-                        sb.append("Product Name");
-                        sb.append(',');
-                        sb.append("Category");
-                        sb.append(',');
-                        sb.append("Sub-Category");
-                        sb.append(',');
-                        sb.append("Brand or Company");
-                        sb.append(',');
-                        sb.append("Color");
-                        sb.append(',');
-                        sb.append("Actual Price");
-                        sb.append(',');
-                        sb.append("Discount");
-                        sb.append(',');
-
-                        sb.append("Discount Price");
-                        sb.append(',');
-                        sb.append("Added Date");
-                        sb.append(',');
-
-                        sb.append("Quantity");
-                        sb.append(',');
-                        sb.append("Product Id");
-                        sb.append(',');
-
-
-                        sb.append('\n');
-                        for (DataSnapshot dataSnapshot : snapshot.getChildren()){
-                            Products appointments=dataSnapshot.getValue(Products.class);
-                            String pid= appointments.getPid().replace(","," ").toString();
-                            String nme= appointments.getName().toString();
-                            String cat=appointments.getCategory();
-                             String brand=appointments.getCompany();
-//                            String color=appointments.getColor();
-                            String ap=appointments.getPrice();
-                            String ad=appointments.getDate().replace(","," ");
-                            String q=appointments.getStock();
-
-                            sb.append(nme);
-                            sb.append(',');
-                            sb.append(cat);
-                            sb.append(',');
-                            sb.append(brand);
-                            sb.append(',');
-                            sb.append(ap);
-                            sb.append(',');
-                            sb.append(ad);
-                            sb.append(',');
-                            sb.append(q);
-                            sb.append(',');
-                            sb.append(pid);
-                            sb.append(',');
-                            sb.append('\n');
-
-                        }
-
-
-
-
-
-                        writer.write(sb.toString());
-                        Toast.makeText(ViewMedicines.this, "File saved as:  "+ path.getAbsolutePath()+"/All Products List.csv", Toast.LENGTH_SHORT).show();
-
+        Toast.makeText(this, "This site is in under construction", Toast.LENGTH_SHORT).show();
+//        productRef.addValueEventListener(new ValueEventListener() {
+//            @Override
+//            public void onDataChange(@NonNull DataSnapshot snapshot) {
+//                if (snapshot.exists()){
+//                    File path = Environment.getExternalStoragePublicDirectory(
+//                            Environment.DIRECTORY_DOWNLOADS);
+////                                                                                             File path =new File(Environment.getExternalStoragePublicDirectory(
+////                                                                                                     Environment.DIRECTORY_DOWNLOADS),"test.csv");
+//                    try (PrintWriter writer = new PrintWriter(new FileOutputStream(new File(path,"All Products List.csv")))) {
 //
-                        new Handler().postDelayed(new Runnable() {
-                            @Override
-                            public void run() {
-                                Intent downloadIntent = new Intent(DownloadManager.ACTION_VIEW_DOWNLOADS);
-                                downloadIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                                startActivity(downloadIntent);
-                            }},2000);
-
-                    } catch (FileNotFoundException e) {
-                        System.out.println(e.getMessage());
-                    }
-                }else {
-                    Toast.makeText(ViewMedicines.this, "Not having any Appointments", Toast.LENGTH_SHORT).show();
-                }
+//                        StringBuilder sb = new StringBuilder();
 //
-
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
-            }
-        });
+//                        sb.append("Product Name");
+//                        sb.append(',');
+//                        sb.append("Category");
+//                        sb.append(',');
+//                        sb.append("Sub-Category");
+//                        sb.append(',');
+//                        sb.append("Brand or Company");
+//                        sb.append(',');
+//                        sb.append("Color");
+//                        sb.append(',');
+//                        sb.append("Actual Price");
+//                        sb.append(',');
+//                        sb.append("Discount");
+//                        sb.append(',');
+//
+//                        sb.append("Discount Price");
+//                        sb.append(',');
+//                        sb.append("Added Date");
+//                        sb.append(',');
+//
+//                        sb.append("Quantity");
+//                        sb.append(',');
+//                        sb.append("Product Id");
+//                        sb.append(',');
+//
+//
+//                        sb.append('\n');
+//                        for (DataSnapshot dataSnapshot : snapshot.getChildren()){
+//                            Products appointments=dataSnapshot.getValue(Products.class);
+//                            String pid= appointments.getPid().replace(","," ").toString();
+//                            String nme= appointments.getName().toString();
+//                            String cat=appointments.getCategory();
+//                             String brand=appointments.getCompany();
+////                            String color=appointments.getColor();
+//                            String ap=appointments.getPrice();
+//                            String ad=appointments.getDate().replace(","," ");
+//                            String q=appointments.getStock();
+//
+//                            sb.append(nme);
+//                            sb.append(',');
+//                            sb.append(cat);
+//                            sb.append(',');
+//                            sb.append(brand);
+//                            sb.append(',');
+//                            sb.append(ap);
+//                            sb.append(',');
+//                            sb.append(ad);
+//                            sb.append(',');
+//                            sb.append(q);
+//                            sb.append(',');
+//                            sb.append(pid);
+//                            sb.append(',');
+//                            sb.append('\n');
+//
+//                        }
+//
+//
+//
+//
+//
+//                        writer.write(sb.toString());
+//                        Toast.makeText(ViewMedicines.this, "File saved as:  "+ path.getAbsolutePath()+"/All Products List.csv", Toast.LENGTH_SHORT).show();
+//
+////
+//                        new Handler().postDelayed(new Runnable() {
+//                            @Override
+//                            public void run() {
+//                                Intent downloadIntent = new Intent(DownloadManager.ACTION_VIEW_DOWNLOADS);
+//                                downloadIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+//                                startActivity(downloadIntent);
+//                            }},2000);
+//
+//                    } catch (FileNotFoundException e) {
+//                        System.out.println(e.getMessage());
+//                    }
+//                }else {
+//                    Toast.makeText(ViewMedicines.this, "Not having any Medicines", Toast.LENGTH_SHORT).show();
+//                }
+////
+//
+//            }
+//
+//            @Override
+//            public void onCancelled(@NonNull DatabaseError error) {
+//
+//            }
+//        });
 //
     }
 

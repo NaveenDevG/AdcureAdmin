@@ -7,7 +7,7 @@
     android:layout_gravity="center"
     android:gravity="center"
     android:layout_height="match_parent"
-    tools:context=".PharaCategory">
+    tools:context=".OrderSection">
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -16,11 +16,12 @@
         android:layout_marginRight="15dp"
         android:background="#673AB7"
         android:padding="20dp"
-        android:text="Add Medicine"
-        android:onClick="addMedicine"
+        android:text="Total Orders"
+        android:onClick="toTotalOrders"
         android:textAllCaps="false"
         android:textColor="@android:color/white"
-        android:textSize="15sp" />  <Button
+        android:textSize="15sp" />
+    <Button
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginLeft="15dp"
@@ -28,22 +29,11 @@
     android:layout_marginRight="15dp"
     android:background="#673AB7"
     android:padding="20dp"
-    android:text="View Medicines"
-    android:onClick="viewMedicine"
+
+    android:text="Today Orders"
+    android:onClick="toTodayOrders"
     android:textAllCaps="false"
     android:textColor="@android:color/white"
     android:textSize="15sp" />
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="15dp"
-        android:layout_marginTop="6dp"
-        android:layout_marginRight="15dp"
-        android:background="#673AB7"
-        android:padding="20dp"
-        android:text="Orders"
-        android:onClick="toOrder"
-        android:textAllCaps="false"
-        android:textColor="@android:color/white"
-        android:textSize="15sp" />
+
 </LinearLayout>
