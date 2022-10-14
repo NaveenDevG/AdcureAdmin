@@ -50,6 +50,22 @@
         <activity android:name=".TotalOrders">
 
         </activity>
+
+        <service
+            android:name=".FirebaseNotificationService"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
+        <activity android:name=".SplashActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
 <activity android:name=".ShipOrder"></activity>
         <activity android:name=".DisplayingAddedDoctors" />
         <activity android:name=".AddDoctorActivity" />
@@ -57,12 +73,10 @@
         <activity android:name=".AdminCategoryActivity" />
         <activity android:name=".Appointment.AppointmentActivity" />
         <activity android:name=".RegisterActivity" />
+        <activity android:name=".OtpActivity">
+           </activity>
         <activity android:name=".MainActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
     </application>
 

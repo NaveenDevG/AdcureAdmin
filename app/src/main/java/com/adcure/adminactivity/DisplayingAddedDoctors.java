@@ -24,6 +24,7 @@ import com.adcure.adminactivity.Prevalent.DoctorDetails;
 import com.adcure.adminactivity.Prevalent.Prevalent;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -54,7 +55,7 @@ public class DisplayingAddedDoctors extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_displaying_added_doctors);
-        Paper.init(this);
+//        Paper.init(this);
         recyclerView=(RecyclerView)findViewById(R.id.recyclerVieww);
         recyclerView.setHasFixedSize(true);
         tw=(TextView)findViewById(R.id.tvs);
@@ -67,14 +68,14 @@ public class DisplayingAddedDoctors extends AppCompatActivity {
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 //        productRef= FirebaseDatabase.getInstance().getReference().child("Admins").child(Prevalent.currentUserData.getName())
 //                .child(spe).child(id);
-//     nme= Paper.book().read(Prevalent.currentUserData.getName());
-        String phoneKey= Paper.book().read(Prevalent.usersPhoneKey);
-//Log.e("nme",nme);
+//     nme= Paper.book().read(Prevalent.currentUserData
+        FirebaseAuth auth=FirebaseAuth.getInstance();
+ //Log.e("nme",nme);
 //Log.e("ph",phoneKey);
 //        String drk=Paper.book().read(Prevalent.dRK);
 //        if(spe==null && drk==null){
- productRef = FirebaseDatabase.getInstance().getReference().child("Admins").child(phoneKey).child("My Doctors");
-
+// productRef = FirebaseDatabase.getInstance().getReference().child("Admins").child(auth.getCurrentUser().getUid()).child("My Doctors");
+ productRef = FirebaseDatabase.getInstance().getReference().child("Added Doctors");
    productRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dsnapshot) {

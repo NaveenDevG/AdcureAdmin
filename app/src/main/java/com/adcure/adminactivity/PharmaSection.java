@@ -57,6 +57,7 @@ ArrayList<String> arrayListweigh,arrayList2;
 SearchableSpinner weight,cat,sub_cat,discount,return_policcy;private static final int DATE_DIALOG_ID = 1;private static final int DATE_DIALOG_ID1 = 2;
     private int Year,Month,day;
     TextView disprice;
+
     RadioGroup radioGroup;    private AlertDialog.Builder alertDialog ;
     private Uri imageUri,imageUri1,imageUri2;
     private String productRandomKey, DownloadUri,DownloadUri2,DownloadUri1;
@@ -885,8 +886,11 @@ StoreProductInfo();
         String disd=discount.getSelectedItem().toString().replace("%","");
         String disf=return_policcy.getSelectedItem().toString().replace("%","");
         int dis,s;
+
         s=100-(Integer.parseInt(disd)+Integer.parseInt(disf));
         dis = (s*Integer.parseInt(edP.getText().toString()))/100;
+        FirebaseAuth mAuth ;
+        mAuth=FirebaseAuth.getInstance();
         rootRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -906,7 +910,7 @@ StoreProductInfo();
                     hashMap.put("Edate", ed.getText().toString());
                     hashMap.put("Stock", weight.getSelectedItem().toString());
                     hashMap.put("Prescription", value);
-
+//hashMap.put("Adminauthid",mAuth.getCurrentUser().getUid());
                     hashMap.put("Subcategory",sub_cat.getSelectedItem().toString());
                     hashMap.put("Date",saveCurrentdate);
                     hashMap.put("Time",saveCurentTime);

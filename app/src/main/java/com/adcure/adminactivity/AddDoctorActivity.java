@@ -37,6 +37,7 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -488,11 +489,9 @@ private Uri imageUri;
                                 @Override
                                 public void onComplete(@NonNull Task<Void> task) {
                                     if (task.isSuccessful()) {
-//
-                                        Paper.init(AddDoctorActivity.this);
-                                        String phoneKey= Paper.book().read(Prevalent.usersPhoneKey);
+                                        FirebaseAuth auth=FirebaseAuth.getInstance();
 
-                                        dctrrefAdmin.child(phoneKey).child("My Doctors").
+                                        dctrrefAdmin.child(auth.getCurrentUser().getUid()).child("My Doctors").
                                                 child(doctorRandomKey).updateChildren(productMap).
                                                 addOnCompleteListener(new OnCompleteListener<Void>() {
                                             @Override

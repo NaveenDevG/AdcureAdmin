@@ -17,6 +17,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.adcure.adminactivity.Constants.AllConstants;
 import com.android.volley.AuthFailureError;
 import com.android.volley.DefaultRetryPolicy;
 import com.android.volley.Request;
@@ -311,30 +312,30 @@ shipbtn.setOnClickListener(new View.OnClickListener() {
 
     private void sendNotification(JSONObject to) {
 
-//        JsonObjectRequest request = new JsonObjectRequest(Request.Method.POST,Constants.NOTIFICATION_URL, to, response -> {
-//            Log.d("notification", "sendNotification: " + response);
-//        }, error ->  {
-//            Log.d("notification", "sendNotification: " + error);
-//        }) {
-//            @Override
-//            public Map<String, String> getHeaders() throws AuthFailureError {
-//
-//                Map<String, String> map = new HashMap<>();
-//                map.put("Authorization", "key=" + SERVER_KEY);
-//                map.put("Content-Type", "application/json");
-//                return map;
-//            }
-//
-//            @Override
-//            public String getBodyContentType() {
-//                return "application/json";
-//            }
-//        };
-//
-//        RequestQueue requestQueue = Volley.newRequestQueue(this);
-//        request.setRetryPolicy(new DefaultRetryPolicy(30000,
-//                DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
-//                DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
-//        requestQueue.add(request);
+        JsonObjectRequest request = new JsonObjectRequest(Request.Method.POST, AllConstants.NOTIFICATION_URL, to, response -> {
+            Log.d("notification", "sendNotification: " + response);
+        }, error ->  {
+            Log.d("notification", "sendNotification: " + error);
+        }) {
+            @Override
+            public Map<String, String> getHeaders() throws AuthFailureError {
+
+                Map<String, String> map = new HashMap<>();
+                map.put("Authorization", "key=" + AllConstants.SERVER_KEY);
+                map.put("Content-Type", "application/json");
+                return map;
+            }
+
+            @Override
+            public String getBodyContentType() {
+                return "application/json";
+            }
+        };
+
+        RequestQueue requestQueue = Volley.newRequestQueue(this);
+        request.setRetryPolicy(new DefaultRetryPolicy(30000,
+                DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
+                DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
+        requestQueue.add(request);
     }
 }
