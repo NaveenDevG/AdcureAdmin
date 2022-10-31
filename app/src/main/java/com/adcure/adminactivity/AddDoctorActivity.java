@@ -98,7 +98,7 @@ private Uri imageUri;
           @SuppressLint("ResourceAsColor")
           @Override
           public void onClick(View view) {
-              OpenFiley();
+//              OpenFiley();
               yesavialbtn.setBackgroundColor(Color.YELLOW);
               yesavialbtn.setBackgroundColor(R.color.colorAccent);
               nobtn.setBackgroundColor(Color.parseColor("#23000000"));
@@ -139,7 +139,7 @@ private Uri imageUri;
     to=(EditText)findViewById(R.id.to);
     no_of_patients=(EditText)findViewById(R.id.noof_patients);
      spinner1.setTitle("Select Specialist Type..");
-        String namekey= Paper.book().read(Prevalent.usersPhoneKey);
+//        String namekey= Paper.book().read(Prevalent.usersPhoneKey);
         dctrref= FirebaseDatabase.getInstance().getReference().child("Doctors");
         dctrrefAdmin = FirebaseDatabase.getInstance().getReference().child("Admins");
         availRef = FirebaseDatabase.getInstance().getReference().child("Available Doctors");

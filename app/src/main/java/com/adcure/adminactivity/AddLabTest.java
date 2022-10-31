@@ -30,20 +30,23 @@ import com.google.firebase.storage.FirebaseStorage;
 import com.toptoche.searchablespinnerlibrary.SearchableSpinner;
 
 import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.HashMap;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class AddLabTest extends AppCompatActivity {
-    private SearchableSpinner spinner1,discount,amnt_spin,sub_cat,return_policcy;
+    private SearchableSpinner spinner1,discount,amnt_spin,sub_cat,return_policcy,state,city;
     private AlertDialog.Builder alertDialog ;
-    private ArrayList<String> arrayList,arrayList1,arrayList2;
+    private ArrayList<String> arrayList,arrayList1,arrayList2,cityAL,stateAL;
     DatabaseReference  root,root1,dailyRoot;    private String saveCurrentdate,saveCurentTime,productRandomKey;
 
     ProgressDialog dialog;
-    EditText priceLT,pc,wtp,ti,tnmes,ltn;
+    EditText priceLT,pc,wtp,ti,tnmes,ltn,labNme,labLoc;
     TextView disprice;
-    private DatabaseReference productref,allProductRef,productRf;
+    private DatabaseReference productref,allProductRef,productRf,stateRef,cityRef;
 Button btn;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,7 +56,16 @@ Button btn;
             dialog=new ProgressDialog(this);
             // spinner3=(Spinner)findViewById(R.id.sp3);
             alertDialog = new AlertDialog.Builder(this);
+            labNme=findViewById(R.id.labname);
+            labLoc=findViewById(R.id.testLoc);
+
             spinner1 = (SearchableSpinner) findViewById(R.id.sp1);
+          city=findViewById(R.id.city);
+          state=findViewById(R.id.state);
+
+            stateRef = FirebaseDatabase.getInstance().getReference().child("Lab Tests").child("States") ;
+            cityRef = FirebaseDatabase.getInstance().getReference().child("Lab Tests").child("Cities") ;
+
             productref = FirebaseDatabase.getInstance().getReference().child("Lab Tests").child("Labtests in Category") ;
             productRf = FirebaseDatabase.getInstance().getReference().child("Lab Tests").child("Labtests in Sub-Category") ;
 pc=findViewById(R.id.txt_lt_pc);
@@ -85,8 +97,13 @@ btn.setOnClickListener(new View.OnClickListener() {
             arrayList1 = new ArrayList<>();
             arrayList1.add("Sub-Category Type");
 
+cityAL=new ArrayList<>();
+stateAL=new ArrayList<>();
+stateAL.add("--State--");
+stateAL.add("Add State");
 
-            arrayList2 = new ArrayList<>();
+cityAL.add("--City--");
+
 
 
             final String[] itms5 = new String[]{ "Extra Discount", "0%","5%","10%","15%", "20%","25%",
@@ -94,6 +111,13 @@ btn.setOnClickListener(new View.OnClickListener() {
             ArrayAdapter <String> adapter5 = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, itms5);
             return_policcy.setAdapter(adapter5);
             return_policcy.setTitle("Select Extra Discount..");
+
+            final ArrayAdapter<String> stateAdapter = new ArrayAdapter<String>(this,   android.R.layout.simple_spinner_item, stateAL);
+            stateAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+            state.setAdapter(stateAdapter);
+            final ArrayAdapter<String> cityAdapter = new ArrayAdapter<String>(this,   android.R.layout.simple_spinner_item, cityAL);
+            cityAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+            city.setAdapter(cityAdapter);
 
             final ArrayAdapter<String> arrayAdapter3 = new ArrayAdapter<String>(this,   android.R.layout.simple_spinner_item, arrayList1);
             arrayAdapter3.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -277,6 +301,183 @@ btn.setOnClickListener(new View.OnClickListener() {
                 }
             });
 
+            state.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                @Override
+                public void onItemSelected(final AdapterView<?> parent, View view, int position, long id) {
+                    String name = parent.getItemAtPosition(position).toString();
+
+//                dialog.setTitle("Adding Specialist Type");
+//                dialog.setMessage("Dear Admin, Please wait while we are adding another Specialist.");
+//                dialog.setCanceledOnTouchOutside(false);
+//                dialog.show();
+
+
+                    final String[] sp1 = {parent.getSelectedItem().toString()};
+                    stateRef.child(parent.getSelectedItem().toString()).addValueEventListener(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot snapshot) {
+
+                            cityAL.clear();
+                            cityAL.add("--City--");
+
+
+                            cityAdapter.notifyDataSetChanged();
+                            cityAL.add("Add City");
+
+                            for (DataSnapshot childsnap: snapshot.getChildren()){
+                                String temp=childsnap.getKey();
+
+                                if(!cityAL.contains(temp)){
+
+
+                                    cityAL.add(temp);
+                                }
+
+                            }
+                        }
+
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError error) {
+
+                        }
+                    });
+                    if (sp1[0].equals("Add State") ) {
+                        alertDialog.setTitle("Add State");
+                        final EditText input = new EditText(AddLabTest.this);
+                        alertDialog.setView(input);
+                        input.setHint("Enter State name");
+                        alertDialog.setPositiveButton("YES",
+                                new DialogInterface.OnClickListener() {
+                                    public void onClick(DialogInterface dialog, int which) {
+                                        // Write your code here to execute after dialog
+//                                    To ,  V ast.makeText(getApplicationContext(), "ok", Toast.LENGTH_SHORT).show();
+                                        final String string=input.getText().toString();
+
+                                        if (TextUtils.isEmpty(string)){
+                                            Toast.makeText(AddLabTest.this, "you forget to write State name..", Toast.LENGTH_SHORT).show();
+                                            stateAdapter.notifyDataSetChanged();
+                                        } else{
+                                            final DatabaseReference rootdef;
+                                            rootdef= FirebaseDatabase.getInstance().getReference().child("Lab Tests").child("States");
+                                            rootdef.child(string).setValue(0);
+                                            //dialog.dismiss();
+
+                                            Toast.makeText(AddLabTest.this, "added..", Toast.LENGTH_SHORT).show();
+                                            stateAdapter.notifyDataSetChanged();
+                                        }
+                                    }
+                                });
+                        // Setting Negative "NO" Button
+                        alertDialog.setNegativeButton("NO",
+                                new DialogInterface.OnClickListener() {
+                                    public void onClick(DialogInterface dialog, int which) {
+                                        // Write your code here to execute after dialog
+
+                                        stateAdapter.notifyDataSetChanged();
+                                        spinner1.setSelection(stateAdapter.getPosition("--State--"));
+                                        dialog.cancel();
+
+                                    }
+                                });
+
+                        // closed
+
+                        // Showing Alert Message
+                        alertDialog.show();
+                    }
+
+
+                }
+
+
+
+                @Override
+                public void onNothingSelected(AdapterView <?> parent) {
+                }
+            });
+
+
+            city.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                @Override
+                public void onItemSelected(final AdapterView<?> parent, View view, int position, long id) {
+                    String name = parent.getItemAtPosition(position).toString();
+
+//                dialog.setTitle("Adding Specialist Type");
+//                dialog.setMessage("Dear Admin, Please wait while we are adding another Specialist.");
+//                dialog.setCanceledOnTouchOutside(false);
+//                dialog.show();
+
+                    final String[] sp1 = {parent.getSelectedItem().toString()};
+                    if (sp1[0].equals("Add City") && !state.getSelectedItem().equals("Add State") && !state.getSelectedItem().equals("--State--")) {
+                        alertDialog.setTitle("Add City");
+                        final EditText input = new EditText(AddLabTest.this);
+                        alertDialog.setView(input);
+                        input.setHint("Enter City Name");
+                        alertDialog.setPositiveButton("YES",
+                                new DialogInterface.OnClickListener() {
+                                    public void onClick(DialogInterface dialog, int which) {
+                                        // Write your code here to execute after dialog
+//                                    To ,  V ast.makeText(getApplicationContext(), "ok", Toast.LENGTH_SHORT).show();
+                                        final String string=input.getText().toString();
+
+                                        if (TextUtils.isEmpty(string)){
+                                            Toast.makeText(AddLabTest.this, "you forget to write Sub-Category Type..", Toast.LENGTH_SHORT).show();
+                                            cityAdapter.notifyDataSetChanged();
+                                        }else{
+                                            final DatabaseReference rootdef;
+                                            rootdef= FirebaseDatabase.getInstance().getReference().child("Lab Tests").child("States").child(state.getSelectedItem().toString());
+                                            rootdef.child(string).setValue(0);
+                                            //dialog.dismiss();
+                                            cityAdapter.notifyDataSetChanged();
+
+                                            Toast.makeText(AddLabTest.this, "added..", Toast.LENGTH_SHORT).show();
+
+                                        }
+                                    }
+                                });
+                        // Setting Negative "NO" Button
+                        alertDialog.setNegativeButton("NO",
+                                new DialogInterface.OnClickListener() {
+                                    public void onClick(DialogInterface dialog, int which) {
+                                        // Write your code here to execute after dialog
+                                        city.setSelection(cityAdapter.getPosition("--City--"));
+                                        dialog.cancel();
+
+
+                                    }
+                                });
+
+                        // closed
+                        // Showing Alert Message
+                        alertDialog.show();
+                        // alertDialog.setCancelable(false);
+                    }
+                    else if((sp1[0].equals("Add City") && state.getSelectedItem().equals("Add State")) || (sp1[0].equals("Add City") && state.getSelectedItem().equals("--State--"))){
+                        //  sub_cat.setSelection(arrayAdapter3.getPosition(sp));
+
+                        Toast.makeText(AddLabTest.this, "Select State...", Toast.LENGTH_SHORT).show();
+                        city.setSelection(cityAdapter.getPosition("--City--"));
+                        //arrayAdapter3.notifyDataSetChanged();
+                    }
+                    else{
+                        cityAdapter.notifyDataSetChanged();
+                    }
+
+                    if(city.getSelectedItemPosition()<2){
+                        labLoc.setBackgroundResource(R.drawable.disable);
+                        labLoc.setEnabled(false);
+                    }else{labLoc.setBackgroundResource(R.drawable.box_style);
+                        labLoc.setEnabled(true);
+
+                    }
+                }
+
+
+                @Override
+                public void onNothingSelected(AdapterView <?> parent) {
+                }
+            });
+
             final String[] itms2 = new String[]{ "Flat Discount", "0%","5%","10%","15%", "20%","25%",
                     "30%", "35%","40%","45%", "50%", "55%","60%", "65%","70%","75%", "80%","85%", "90%", "95%","100%"};
             ArrayAdapter <String> adapter2 = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, itms2);
@@ -355,7 +556,14 @@ return_policcy.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener(
             e.getMessage();
         }
     }
-
+    public static String extractDigits(final String in) {
+        final Pattern p = Pattern.compile( "(\\d{6})" );
+        final Matcher m = p.matcher( in );
+        if ( m.find() ) {
+            return m.group( 0 );
+        }
+        return "";
+    }
     private void validateItem() {
         try{
 
@@ -363,11 +571,15 @@ return_policcy.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener(
 
             if(TextUtils.isEmpty(ltn.getText().toString()) || TextUtils.isEmpty(ti.getText().toString()) ||  TextUtils.isEmpty(tnmes.getText().toString())
                     ||  TextUtils.isEmpty(pc.getText().toString()) ||  TextUtils.isEmpty(wtp.getText().toString()) ||
-                    TextUtils.isEmpty(priceLT.getText().toString()) ||  spinner1.getSelectedItemPosition()<2 ||  sub_cat.getSelectedItemPosition()<2
-                    ){
+                    TextUtils.isEmpty(priceLT.getText().toString()) || TextUtils.isEmpty(labNme.getText().toString())|| TextUtils.isEmpty(labLoc.getText().toString()) ||  spinner1.getSelectedItemPosition()<2 ||  sub_cat.getSelectedItemPosition()<2
+                    || state.getSelectedItemPosition()<2 || city.getSelectedItemPosition()<2){
                 Toast.makeText(AddLabTest.this, "Please fill all details..", Toast.LENGTH_LONG).show();
 
-            }else if(disprice.getText().toString().equals("Discount Price : --")){
+            }if(extractDigits(labLoc.getText().toString()).equals("")){
+                Toast.makeText(AddLabTest.this, "Please Enter Zipcode in LAB Location..", Toast.LENGTH_LONG).show();
+
+            }
+            else if(disprice.getText().toString().equals("Discount Price : --")){
                 Toast.makeText(AddLabTest.this, "price should be above 100.. ", Toast.LENGTH_SHORT).show();
 
             }
@@ -386,7 +598,13 @@ return_policcy.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener(
                 }
 
             }
+            if(city.getSelectedItemPosition()<2){
+                labLoc.setBackgroundResource(R.drawable.disable);
+                labLoc.setEnabled(false);
+            }else{labLoc.setBackgroundResource(R.drawable.box_style);
+                labLoc.setEnabled(true);
 
+            }
         }
         catch (Exception e){
             e.getMessage();
@@ -424,7 +642,11 @@ return_policcy.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener(
         productMap.put("Flat_discount",discount.getSelectedItem().toString());
         productMap.put("Extra_discount",return_policcy.getSelectedItem().toString());
           productMap.put( "Discount_price",String.valueOf(dis));
-        productref.child(spinner1.getSelectedItem().toString()).child(productRandomKey).updateChildren(productMap).addOnCompleteListener(new OnCompleteListener<Void>() {
+          productMap.put("Avail_state",state.getSelectedItem().toString());
+          productMap.put("Avail_city",city.getSelectedItem().toString());
+          productMap.put("Lab_name",labNme.getText().toString());
+          productMap.put("Lab_location",labLoc.getText().toString());
+         productref.child(spinner1.getSelectedItem().toString()).child(productRandomKey).updateChildren(productMap).addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
             public void onComplete(@NonNull Task<Void> task) {
                 // if(task.isSuccessful()){
@@ -559,6 +781,26 @@ return_policcy.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener(
 
             }
         });
+
+        stateRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                for (DataSnapshot childsnap: snapshot.getChildren()){
+                    String temp=childsnap.getKey();
+
+                    if(!stateAL.contains(temp)){
+                        stateAL.add(temp);
+                    }
+
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
 
     }
 

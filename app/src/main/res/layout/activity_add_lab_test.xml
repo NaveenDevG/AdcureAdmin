@@ -135,7 +135,56 @@ android:background="@drawable/box_style"
                      android:padding="10dp"
                     android:textAlignment="center"
                     android:textColorHint="#9A6C6C" />
+                <EditText
+                    android:id="@+id/labname"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:background="@drawable/box_style"
 
+                    android:hint="Lab Name"
+                    android:inputType="text"
+                    android:padding="10dp"
+                    android:textAlignment="center"
+                    android:textColorHint="#9A6C6C" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:gravity="center_horizontal"
+                    android:orientation="horizontal">
+
+                    <com.toptoche.searchablespinnerlibrary.SearchableSpinner
+                        android:id="@+id/state"
+                        android:padding="10dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/box_style"
+                        />
+
+                    <com.toptoche.searchablespinnerlibrary.SearchableSpinner
+                        android:id="@+id/city"
+                        android:padding="10dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/box_style"
+
+                        android:layout_marginLeft="15dp" />
+
+                </LinearLayout>
+                <EditText
+                    android:id="@+id/testLoc"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:background="@drawable/disable"
+android:enabled="false"
+                     android:hint="Lab test Location"
+                    android:inputType="textMultiLine"
+                    android:padding="10dp"
+                    android:textAlignment="center"
+                    android:textColorHint="#9A6C6C" />
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -148,8 +197,7 @@ android:background="@drawable/box_style"
                         android:padding="10dp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-
-                        />
+                         />
 
                 <com.toptoche.searchablespinnerlibrary.SearchableSpinner
                         android:id="@+id/subcat"

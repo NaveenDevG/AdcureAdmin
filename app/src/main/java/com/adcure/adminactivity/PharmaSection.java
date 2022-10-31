@@ -73,7 +73,9 @@ EditText edNo,edMN,edCN,edP,edD;
     DatabaseReference rootRef,root1,dailyRoot,subroot,root;
       @Override
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+        try{
+          super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_pharma_section);
         weight=findViewById(R.id.stock);
         cat=findViewById(R.id.category);
@@ -518,7 +520,11 @@ StoreProductInfo();
 
         }  }
 });
-    }
+        }
+        catch (Exception e){
+            e.printStackTrace();
+        }
+      }
     private void OpenGallery1() {
 
         Intent galleryintent=new Intent();

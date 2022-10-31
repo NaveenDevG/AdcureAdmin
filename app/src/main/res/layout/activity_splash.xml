@@ -24,12 +24,11 @@ android:text="AdCure"
         android:layout_centerInParent="true"
         android:textColor="#323079"
           />
+
     <ImageView
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="-15dp"
-        android:src="@drawable/pic"
-        android:layout_alignParentBottom="true"
-        />
+         android:layout_alignParentBottom="true"
+         android:src="@drawable/pic" />
 
 </RelativeLayout>

@@ -19,6 +19,7 @@ import android.widget.Toast;
 
 
 import com.adcure.adminactivity.Appointment.Appointments;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -318,6 +319,12 @@ editModelArrayList.add(appointments1);
 
     public void pharma(View view) {startActivity(new Intent(this,PharaCategory.class));
 
+    }
+
+    public void logout(View view) {
+        FirebaseAuth mauth=FirebaseAuth.getInstance();
+        mauth.signOut();
+startActivity(new Intent(this,OtpActivity.class));
     }
 
 //   private void exportToExcel(Cursor cursor) {

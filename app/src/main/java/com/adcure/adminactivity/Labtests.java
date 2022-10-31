@@ -2,7 +2,39 @@ package com.adcure.adminactivity;
 
 public class Labtests {
     private String Lid,Date,Time,Labtest_name,Tests_included,Test_names,Package_covers,Description,Actual_price,Category,
-            Sub_category,Flat_discount,Extra_discount,Discount_price;
+            Sub_category,Flat_discount,Extra_discount,Discount_price,Lab_name,Lab_location,Avail_state,Avail_city;
+
+    public String getLab_name() {
+        return Lab_name;
+    }
+
+    public void setLab_name(String lab_name) {
+        Lab_name = lab_name;
+    }
+
+    public String getLab_location() {
+        return Lab_location;
+    }
+
+    public void setLab_location(String lab_location) {
+        Lab_location = lab_location;
+    }
+
+    public String getAvail_state() {
+        return Avail_state;
+    }
+
+    public void setAvail_state(String avail_state) {
+        Avail_state = avail_state;
+    }
+
+    public String getAvail_city() {
+        return Avail_city;
+    }
+
+    public void setAvail_city(String avail_city) {
+        Avail_city = avail_city;
+    }
 
     public Labtests() {
     }

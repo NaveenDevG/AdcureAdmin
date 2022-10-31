@@ -61,7 +61,7 @@ public class FirebaseNotificationService extends FirebaseMessagingService {
 //    else
 //        createNormalNotification1(mtitle, mmessage, mhisID);
 //} else{
-            if (title.equals("New Message")) {
+            if (title.equals("New Message") || title.equals("Order")) {
                 if (Build.VERSION.SDK_INT > Build.VERSION_CODES.O)
                     createOreoNotification1(title, message, hisID);
                 else
@@ -213,8 +213,17 @@ public class FirebaseNotificationService extends FirebaseMessagingService {
                 .setSound(uri)
                 .setColor(ResourcesCompat.getColor(getResources(), R.color.colorPrimary, null));
 
-        Intent intent = new Intent(this, OrderSection.class);
-        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
+        Intent intent=new Intent();
+        if(title.equals("Order")){
+            intent = intent.setClass(this, OrderSection.class);
+
+        }
+        else{
+
+            intent = intent.setClass(this, DisplayingAddedDoctors.class);
+
+
+        }        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
 
         PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, intent, 0);
 
@@ -238,8 +247,17 @@ public class FirebaseNotificationService extends FirebaseMessagingService {
 
         NotificationManager manager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
         manager.createNotificationChannel(channel);
+        Intent intent=new Intent();
+if(title.equals("Order")){
+    intent = intent.setClass(this, OrderSection.class);
 
-        Intent intent = new Intent(this, OrderSection.class);
+}
+else{
+
+        intent = intent.setClass(this, DisplayingAddedDoctors.class);
+
+
+}
         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
 
         PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, intent, 0);
