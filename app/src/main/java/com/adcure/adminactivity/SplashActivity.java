@@ -25,53 +25,55 @@ public class SplashActivity extends AppCompatActivity {
     private DatabaseReference rootRef; private FirebaseAuth mAuth;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_splash);
-        rootRef= FirebaseDatabase.getInstance().getReference();
+     try{super.onCreate(savedInstanceState);
+         setContentView(R.layout.activity_splash);
+         rootRef= FirebaseDatabase.getInstance().getReference();
 
-        new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                mAuth= FirebaseAuth.getInstance();
-                FirebaseUser firebaseUser=mAuth.getCurrentUser();
-                ConnectivityManager cm=(ConnectivityManager)getSystemService(Context.CONNECTIVITY_SERVICE);
-                if (cm.getActiveNetworkInfo()!=null && cm.getActiveNetworkInfo().isConnected()){
+         new Handler().postDelayed(new Runnable() {
+             @Override
+             public void run() {
+                 mAuth= FirebaseAuth.getInstance();
+                 FirebaseUser firebaseUser=mAuth.getCurrentUser();
+                 ConnectivityManager cm=(ConnectivityManager)getSystemService(Context.CONNECTIVITY_SERVICE);
+                 if (cm.getActiveNetworkInfo()!=null && cm.getActiveNetworkInfo().isConnected()){
 
 
-                    if (firebaseUser  != null){
-                        String   currentUserid =mAuth.getCurrentUser().getUid();
-                    }
-                    currentUser=mAuth.getCurrentUser();
-                    if(firebaseUser!=null){
-                        verifyUserExistance();
-                    }else
-                    {
-                        sendUserToLoginActivity();
-                    }}
-                else {
-                    AlertDialog.Builder builder;
-                    builder = new AlertDialog.Builder(SplashActivity.this);
+                     if (firebaseUser  != null){
+                         String   currentUserid =mAuth.getCurrentUser().getUid();
+                     }
+                     currentUser=mAuth.getCurrentUser();
+                     if(firebaseUser!=null){
+                         verifyUserExistance();
+                     }else
+                     {
+                         sendUserToLoginActivity();
+                     }}
+                 else {
+                     AlertDialog.Builder builder;
+                     builder = new AlertDialog.Builder(SplashActivity.this);
 
-                    builder.setMessage("Please check your internet connection")
-                            .setCancelable(false)
-                            .setPositiveButton("ok", new DialogInterface.OnClickListener() {
-                                public void onClick(DialogInterface dialog, int id) {
+                     builder.setMessage("Please check your internet connection")
+                             .setCancelable(false)
+                             .setPositiveButton("ok", new DialogInterface.OnClickListener() {
+                                 public void onClick(DialogInterface dialog, int id) {
 
-                                    Toast.makeText(getApplicationContext(),"closing your app",
-                                            Toast.LENGTH_SHORT).show();
-                                    onBackPressed();
-                                    finish(); }
-                            });
+                                     Toast.makeText(getApplicationContext(),"closing your app",
+                                             Toast.LENGTH_SHORT).show();
+                                     onBackPressed();
+                                     finish(); }
+                             });
 
-                    //Creating dialog box
-                    AlertDialog alert = builder.create();
-                    //Setting the title manually
-                    alert.setTitle("ALERT");
-                    alert.show();
-                }
+                     //Creating dialog box
+                     AlertDialog alert = builder.create();
+                     //Setting the title manually
+                     alert.setTitle("ALERT");
+                     alert.show();
+                 }
 
-            }
-        },3000);
+             }
+         },3000);}catch (Exception e){
+
+     }
     }
 
     private void verifyUserExistance() {

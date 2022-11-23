@@ -26,4 +26,7 @@ public class LabTestCategories extends AppCompatActivity {
     }
 
 
+    public void orderedLabTests(View view) {
+        startActivity(new Intent(this,PathalogyOrders.class));
+    }
 }

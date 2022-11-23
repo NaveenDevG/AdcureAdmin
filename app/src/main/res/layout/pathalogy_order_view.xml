@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+app:cardCornerRadius="@dimen/padding10"
+    android:layout_margin="10dp"
+    app:cardElevation="10dp"
+    >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@drawable/edt_style"
+
+        >
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Test Name"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            android:id="@+id/tstname"
+            android:layout_marginLeft="10dp"
+
+            android:textColor="#050839"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="10dp"
+            android:textColor="#050839"
+            android:textSize="14sp"
+            android:id="@+id/tests"
+            android:text="tests included"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:layout_marginTop="5dp"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:layout_marginLeft="10dp"
+                android:textColor="#050839"
+                android:textSize="14sp"
+                android:text="Date : "/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/dte_app"
+                android:layout_marginLeft="10dp"
+                android:textColor="#050839"
+                android:textSize="14sp"
+                android:text="28-02-2021"/>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="end">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Paid Amount : ₹ "
+                    android:textColor="#050839"
+                    android:id="@+id/rupee"
+
+                    />
+
+                <TextView
+                    android:id="@+id/amnt_patha"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="20dp"
+                    android:layout_toRightOf="@id/rupee"
+                    android:text="200"
+                    android:textAlignment="textEnd"
+                    android:textColor="#050839"
+
+                    /></RelativeLayout>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#050839"
+                android:textSize="14sp"
+
+                android:layout_marginLeft="9dp"
+                android:text="Time : "/> <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#050839"
+            android:textSize="14sp"
+            android:id="@+id/time_app"
+            android:layout_marginLeft="9dp"
+            android:text="28:02"/></LinearLayout>
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_marginLeft="40dp"
+            android:layout_marginRight="40dp"
+            android:layout_marginTop="10dp"
+
+            android:layout_marginBottom="10dp"
+            android:text="View Details"
+            android:textSize="10sp"
+            android:id="@+id/btn_lab_deatail"
+            android:textColor="@android:color/white"
+            android:background="#3F51B5"/>
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_marginLeft="40dp"
+            android:layout_marginRight="40dp"
+            android:layout_marginTop="5dp"
+android:visibility="gone"
+            android:layout_marginBottom="10dp"
+            android:text="Reports"
+            android:textSize="10sp"
+            android:id="@+id/report"
+            android:textColor="@android:color/white"
+            android:background="#3F51B5"/>
+    </LinearLayout>
+
+
+</androidx.cardview.widget.CardView>

@@ -78,6 +78,8 @@
         <activity android:name=".MainActivity">
 
         </activity>
+        <activity android:name=".PathalogyOrders"></activity>
+        <activity android:name=".LabTestOrderedViewActivity"></activity>
     </application>
 
 </manifest>

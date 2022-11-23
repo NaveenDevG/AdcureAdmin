@@ -61,7 +61,7 @@ public class FirebaseNotificationService extends FirebaseMessagingService {
 //    else
 //        createNormalNotification1(mtitle, mmessage, mhisID);
 //} else{
-            if (title.equals("New Message") || title.equals("Order")) {
+            if (title.equals("New Message") || title.equals("Order") || title.equals("LabTest")) {
                 if (Build.VERSION.SDK_INT > Build.VERSION_CODES.O)
                     createOreoNotification1(title, message, hisID);
                 else

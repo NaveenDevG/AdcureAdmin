@@ -41,9 +41,12 @@
         <entry key="..\:/Users/ce0005/Documents/New folder/app/libs/AdcureAdmin/app/src/main/res/layout/activity_admin_category.xml" value="0.25" />
         <entry key="..\:/Users/ce0005/Documents/New folder/app/libs/AdcureAdmin/app/src/main/res/layout/activity_appointment.xml" value="0.1" />
         <entry key="..\:/Users/ce0005/Documents/New folder/app/libs/AdcureAdmin/app/src/main/res/layout/activity_download_category.xml" value="0.1" />
+        <entry key="..\:/Users/ce0005/Documents/New folder/app/libs/AdcureAdmin/app/src/main/res/layout/activity_lab_test_categories.xml" value="0.22" />
+        <entry key="..\:/Users/ce0005/Documents/New folder/app/libs/AdcureAdmin/app/src/main/res/layout/activity_lab_test_ordered_view.xml" value="0.18" />
         <entry key="..\:/Users/ce0005/Documents/New folder/app/libs/AdcureAdmin/app/src/main/res/layout/activity_main.xml" value="0.22" />
         <entry key="..\:/Users/ce0005/Documents/New folder/app/libs/AdcureAdmin/app/src/main/res/layout/activity_order_section.xml" value="0.1" />
         <entry key="..\:/Users/ce0005/Documents/New folder/app/libs/AdcureAdmin/app/src/main/res/layout/activity_otp.xml" value="0.1921875" />
+        <entry key="..\:/Users/ce0005/Documents/New folder/app/libs/AdcureAdmin/app/src/main/res/layout/activity_pathalogy_orders.xml" value="0.16" />
         <entry key="..\:/Users/ce0005/Documents/New folder/app/libs/AdcureAdmin/app/src/main/res/layout/activity_phara_category.xml" value="0.22" />
         <entry key="..\:/Users/ce0005/Documents/New folder/app/libs/AdcureAdmin/app/src/main/res/layout/activity_pharma_section.xml" value="0.1921875" />
         <entry key="..\:/Users/ce0005/Documents/New folder/app/libs/AdcureAdmin/app/src/main/res/layout/activity_ship_order.xml" value="0.22" />
@@ -56,6 +59,7 @@
         <entry key="..\:/Users/ce0005/Documents/New folder/app/libs/AdcureAdmin/app/src/main/res/layout/labtest_view.xml" value="0.1921875" />
         <entry key="..\:/Users/ce0005/Documents/New folder/app/libs/AdcureAdmin/app/src/main/res/layout/medicine_view.xml" value="0.1921875" />
         <entry key="..\:/Users/ce0005/Documents/New folder/app/libs/AdcureAdmin/app/src/main/res/layout/order_view.xml" value="0.1921875" />
+        <entry key="..\:/Users/ce0005/Documents/New folder/app/libs/AdcureAdmin/app/src/main/res/layout/pathalogy_order_view.xml" value="0.15775972637879435" />
         <entry key="..\:/Users/ce0005/Documents/New folder/app/libs/AdcureAdmin/app/src/main/res/layout/products_view.xml" value="0.1921875" />
       </map>
     </option>
