@@ -44,7 +44,7 @@ public class AddedLabtests extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+        try{ super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_added_labtests);
         recyclerView=(RecyclerView)findViewById(R.id.product_list);
         recyclerView.setHasFixedSize(true);
@@ -136,7 +136,9 @@ holder.lt.setOnClickListener(new View.OnClickListener() {
             public void onCancelled(@NonNull DatabaseError error) {
 
             }
-        });}
+        });}catch (Exception e){
+        Toast.makeText(this, e.getMessage(), Toast.LENGTH_SHORT).show();
+    }}
 
     @Override
     protected void onStart() {

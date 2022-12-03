@@ -49,6 +49,7 @@ public class AdminCategoryActivity extends AppCompatActivity {
     private Button button,button1;private DatabaseReference productRef;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        try{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_category);
    button=(Button)findViewById(R.id.btn);
@@ -107,7 +108,7 @@ pswrd=getIntent().getStringExtra("pass");
         //
         // , Toast.LENGTH_SHORT).show();
 
-    }
+    }catch(Exception e){e.getMessage(); }  }
 
     public void note(View view) {
         startActivity(new Intent(this,Notify.class));

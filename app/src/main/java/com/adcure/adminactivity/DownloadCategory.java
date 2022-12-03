@@ -34,6 +34,7 @@ public class DownloadCategory extends AppCompatActivity {
     }
 
     public void Consulted(View view) {
+        try{
         productRef.child("Appoinments").child("Consulted").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -136,7 +137,9 @@ public class DownloadCategory extends AppCompatActivity {
             }
         });
 
-    }
+    }catch (Exception e){
+        Toast.makeText(this, e.getMessage(), Toast.LENGTH_SHORT).show();
+    }   }
 
     public void appointments(View view) {
         productRef.child("Appoinments").child("Not Consulted").addValueEventListener(new ValueEventListener() {

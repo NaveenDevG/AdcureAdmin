@@ -85,6 +85,7 @@ private Uri imageUri;
     private SharedPreferences sharedPreferences;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        try{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_doctor);
         spinner1 = (SearchableSpinner) findViewById(R.id.sp1);
@@ -237,11 +238,12 @@ private Uri imageUri;
        });
 
 
-    }
+    }catch(Exception e){e.getMessage();} }
 
     @Override
     protected void onStart() {
         super.onStart();
+        try{
 
         root.addValueEventListener(new ValueEventListener() {
             @Override
@@ -275,7 +277,7 @@ private Uri imageUri;
 //            city_spin.setAdapter(adapter6);
 //        }
 
-    }
+    }catch(Exception e){e.getMessage();}  }
 
     private void VlidateProduct() {
         String sp1=spinner1.getSelectedItem().toString();
@@ -502,7 +504,7 @@ private Uri imageUri;
                                                     Intent inten = new Intent(AddDoctorActivity.this, AdminCategoryActivity.class);
 
 
-                                                   onBackPressed();
+                                                   startActivity(inten);
                                                        finish();
                                                     dialog.dismiss();
                                                     Toast.makeText(AddDoctorActivity.this, "Doctor is added SuccessFully..", Toast.LENGTH_SHORT).show();

@@ -41,7 +41,7 @@ FirebaseAuth mAuth;
 String name,email,addr,paid,state,city,num,uid;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+     try{  super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lab_test_ordered_view);
         txt_labtestname=findViewById(R.id.txt_labtestname);
         txt_sample_y_n=findViewById(R.id.txt_sample_y_n);
@@ -139,7 +139,9 @@ txt_sample_pick_date.setVisibility(View.GONE);
 //            cdd.cancel();
 //             }
 //         });
-    }
+     }catch (Exception e){
+         e.getMessage();
+         Toast.makeText(this, e.getMessage(), Toast.LENGTH_SHORT).show();} }
 
     public void toGetInvoice(View view) {
         Intent intent=new Intent();

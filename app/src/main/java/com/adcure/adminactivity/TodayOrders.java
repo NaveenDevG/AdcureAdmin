@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -32,7 +33,7 @@ public class TodayOrders extends AppCompatActivity {
     private TextView txt;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+        try{  super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_today_orders);
         recyclerView=(RecyclerView)findViewById(R.id.tdyorder_list);
          layoutManager=new LinearLayoutManager(this);
@@ -106,5 +107,7 @@ public class TodayOrders extends AppCompatActivity {
             }
         });
 
-    }
+    }catch (Exception e){
+        Toast.makeText(this, e.getMessage(), Toast.LENGTH_SHORT).show();
+    } }
 }

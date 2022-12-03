@@ -40,7 +40,7 @@ public class ViewMedicines extends AppCompatActivity {
     private TextView txt;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+      try{super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_medicines);
         recyclerView=(RecyclerView)findViewById(R.id.product_list);
         recyclerView.setHasFixedSize(true);
@@ -107,7 +107,7 @@ public class ViewMedicines extends AppCompatActivity {
 
                                                             })
                                                     .setNegativeButton("No",
-                                                            (dialog, id) -> {
+                                                                        (dialog, id) -> {
                                                                 // User doesn't want to give the permissions.
                                                                 dialog.cancel();
                                                             })
@@ -141,7 +141,9 @@ public class ViewMedicines extends AppCompatActivity {
             public void onCancelled(@NonNull DatabaseError error) {
 
             }
-        });}
+        });}catch (Exception e){
+        Toast.makeText(this, e.getMessage(), Toast.LENGTH_SHORT).show();
+    } }
 
     @Override
     protected void onStart() {

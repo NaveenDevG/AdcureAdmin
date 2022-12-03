@@ -27,6 +27,7 @@ import com.google.firebase.messaging.RemoteMessage;
 
 import org.apache.poi.ss.formula.functions.Today;
 
+import java.nio.file.Path;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Random;
@@ -187,6 +188,7 @@ public class FirebaseNotificationService extends FirebaseMessagingService {
         PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, intent, 0);
 
         Notification notification = new Notification.Builder(this, AllConstants.CHANNEL_ID)
+
                 .setContentTitle(title)
                 .setContentText(message)
                 .setColor(ResourcesCompat.getColor(getResources(), R.color.colorPrimary, null))
@@ -217,6 +219,8 @@ public class FirebaseNotificationService extends FirebaseMessagingService {
         if(title.equals("Order")){
             intent = intent.setClass(this, OrderSection.class);
 
+        }else if(title.equals("LabTest")){
+            intent = intent.setClass(this, PathalogyOrders.class);
         }
         else{
 
@@ -251,6 +255,8 @@ public class FirebaseNotificationService extends FirebaseMessagingService {
 if(title.equals("Order")){
     intent = intent.setClass(this, OrderSection.class);
 
+}else if(title.equals("LabTest")){
+    intent = intent.setClass(this, PathalogyOrders.class);
 }
 else{
 

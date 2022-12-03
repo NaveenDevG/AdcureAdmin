@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -31,7 +32,7 @@ public class PathalogyOrders extends AppCompatActivity {
     private TextView tw;  private ProgressDialog dialog;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+        try{ super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pathalogy_orders);
         recyclerView=(RecyclerView)findViewById(R.id.rv4);
         recyclerView.setHasFixedSize(true);
@@ -107,7 +108,9 @@ public class PathalogyOrders extends AppCompatActivity {
 
             }
         });dialog.show();
-    }
+    }catch (Exception e){
+        Toast.makeText(this, e.getMessage(), Toast.LENGTH_SHORT).show();
+    }  }
 
     public void toBack1(View view) {
         onBackPressed();

@@ -32,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
     private  com.rey.material.widget.CheckBox checkBox;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+        try{  super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         loginPassword=(EditText)findViewById(R.id.login_password);
         loginPhone=(EditText)findViewById(R.id.login_phone);
@@ -70,7 +70,9 @@ toreg.setOnClickListener(new View.OnClickListener() {
         startActivity(new Intent(MainActivity.this,RegisterActivity.class));
     }
 });
-    }
+    }catch (Exception e){
+        Toast.makeText(this, e.getMessage(), Toast.LENGTH_SHORT).show();
+    }  }
 
     private void LoginAccount() {
         String name=loginPhone.getText().toString();

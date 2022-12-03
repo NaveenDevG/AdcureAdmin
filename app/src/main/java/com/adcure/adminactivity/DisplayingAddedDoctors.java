@@ -53,7 +53,7 @@ public class DisplayingAddedDoctors extends AppCompatActivity {
     private TextView tw;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+        try{  super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_displaying_added_doctors);
 //        Paper.init(this);
         recyclerView=(RecyclerView)findViewById(R.id.recyclerVieww);
@@ -153,7 +153,9 @@ public class DisplayingAddedDoctors extends AppCompatActivity {
             }
         });
    dialog.show();
-   }
+    }catch (Exception e){
+        Toast.makeText(this, e.getMessage(), Toast.LENGTH_SHORT).show();
+    } }
 
 
 }

@@ -44,7 +44,7 @@ private LinearLayout layout1,layout2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+        try{ super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_otp);
 
         layout1=(LinearLayout)findViewById(R.id.num);
@@ -133,7 +133,9 @@ private LinearLayout layout1,layout2;
             }
 
         };
-    }
+    }catch (Exception e){
+        Toast.makeText(this, e.getMessage(), Toast.LENGTH_SHORT).show();
+    }   }
 
     private void signInWithPhoneauthCredential(PhoneAuthCredential credential) {
 

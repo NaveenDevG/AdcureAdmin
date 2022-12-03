@@ -36,7 +36,7 @@ public class UpdateMedicines extends AppCompatActivity {
     Button update;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+        try{  super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_update_medicines);
         pid=getIntent().getStringExtra("pid");
         pname=findViewById(R.id.productName);
@@ -211,6 +211,8 @@ public class UpdateMedicines extends AppCompatActivity {
         });
 
 
-    }
-}
+        }catch (Exception e){
+            Toast.makeText(this, e.getMessage(), Toast.LENGTH_SHORT).show();
+        }  }
+        }
 

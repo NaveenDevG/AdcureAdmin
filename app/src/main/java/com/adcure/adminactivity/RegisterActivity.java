@@ -28,6 +28,7 @@ public class RegisterActivity extends AppCompatActivity {
     private ProgressDialog dialog;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        try{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
 
@@ -49,7 +50,7 @@ public class RegisterActivity extends AppCompatActivity {
                 startActivity(new Intent(RegisterActivity.this,MainActivity.class));
             }
         });
-    }
+    }catch(Exception e){e.getMessage();}   }
     private void CreateAccount() {
         String name=regname.getText().toString();
         String repas=regrepas.getText().toString();
