@@ -40,11 +40,13 @@
 
                 android:textColor="#fff" />
         </androidx.appcompat.widget.Toolbar></com.google.android.material.appbar.AppBarLayout>
-
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"        android:layout_below="@id/mainOne4"
+    >
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/mainOne4"
         android:layout_centerInParent="true"
         android:layout_marginStart="10dp"
         android:layout_marginTop="10dp"
@@ -162,29 +164,31 @@
             android:textSize="18sp"
 
             />
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@color/white"
-android:background="@color/colorPrimaryDark"
-            android:padding="@dimen/padding5"
             android:layout_marginBottom="@dimen/padding10"
+            android:background="@color/colorPrimaryDark"
+            android:onClick="updateSampleStatus"
+            android:padding="@dimen/padding5"
             android:text="Update Sample Pickup Status"
             android:textAlignment="center"
-            android:onClick="updateSampleStatus"
-            android:textStyle="bold"
-            android:textSize="@dimen/margin16dp"/>
+            android:textColor="@color/white"
+            android:textSize="@dimen/margin16dp"
+            android:textStyle="bold" />
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@color/white"
-            android:background="@color/colorPrimaryDark"
-            android:padding="@dimen/padding5"
             android:layout_marginBottom="@dimen/padding10"
+            android:background="@color/colorPrimaryDark"
+            android:onClick="updateReportStatus"
+            android:padding="@dimen/padding5"
             android:text="Update Report Status"
             android:textAlignment="center"
-            android:onClick="updateReportStatus"
-            android:textStyle="bold"
-            android:textSize="@dimen/margin16dp"/>
-    </LinearLayout>
+            android:textColor="@color/white"
+            android:textSize="@dimen/margin16dp"
+            android:textStyle="bold" />
+    </LinearLayout></ScrollView>
 </RelativeLayout>
