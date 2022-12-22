@@ -190,7 +190,7 @@ if(n.equals("s")){
                 reference1.child("pickedup").setValue("y");
 
 //                reference.child("reports").setValue("n");
-                getToken("LabTest","Your Sample PickedUp.. you'be notified soon for reports..");
+                getToken("LabTest","Your Sample PickedUp.. you'll be notified soon for reports..");
 
                 onBackPressed();
                 Toast.makeText(LabTestOrderedViewActivity.this, "Sample Status Updated..", Toast.LENGTH_SHORT).show();
@@ -222,7 +222,7 @@ else if(n.equals("r")){
                     reference1.child("reports").setValue("y");
 
 //                reference.child("reports").setValue("n");
-                    getToken("LabTest","Please check your mail.. Reports are generated.We sent a mail");
+                    getToken("LabTest","Please check your mail.. Reports are generated.");
                     onBackPressed();
                     Toast.makeText(LabTestOrderedViewActivity.this, "Report Status Updated..", Toast.LENGTH_SHORT).show();
                 }else{
