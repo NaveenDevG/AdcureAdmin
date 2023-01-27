@@ -47,7 +47,8 @@ public class SplashActivity extends AppCompatActivity {
                      }else
                      {
                          sendUserToLoginActivity();
-                     }}
+                     }
+                 }
                  else {
                      AlertDialog.Builder builder;
                      builder = new AlertDialog.Builder(SplashActivity.this);
@@ -71,7 +72,8 @@ public class SplashActivity extends AppCompatActivity {
                  }
 
              }
-         },3000);}catch (Exception e){
+         },3000);
+     }catch (Exception e){
 
      }
     }

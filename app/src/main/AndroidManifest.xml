@@ -1,9 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.adcure.adminactivity">
-<uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"></uses-permission>
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"></uses-permission>
-<uses-permission android:name="android.permission.MANAGE_EXTERNAL_STORAGE"></uses-permission>
+
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.MANAGE_EXTERNAL_STORAGE" />
+<uses-permission android:name="android.permission.CALL_PHONE"/>
+
+
     <application
         android:allowBackup="true"
         android:icon="@drawable/app_logo"
@@ -12,6 +16,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity
+            android:name=".OrdersWithPrescription"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
         <activity
             android:name=".OrderSection"
             android:exported="false" />
@@ -39,17 +50,12 @@
         <activity
             android:name=".AddLabTest"
             android:exported="false" />
-        <activity android:name=".TodayOrders">
-
-        </activity>
-
+        <activity android:name=".TodayOrders"></activity>
         <activity android:name=".DownloadCategory" />
         <activity android:name=".DisplayingIssues" />
         <activity android:name=".Notify" />
         <activity android:name=".Empty" />
-        <activity android:name=".TotalOrders">
-
-        </activity>
+        <activity android:name=".TotalOrders"></activity>
 
         <service
             android:name=".FirebaseNotificationService"
@@ -59,6 +65,7 @@
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>
         </service>
+
         <activity android:name=".SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -66,20 +73,17 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-<activity android:name=".ShipOrder"></activity>
+        <activity android:name=".ShipOrder" />
         <activity android:name=".DisplayingAddedDoctors" />
         <activity android:name=".AddDoctorActivity" />
         <activity android:name=".Feedback.PatientStories" />
         <activity android:name=".AdminCategoryActivity" />
         <activity android:name=".Appointment.AppointmentActivity" />
         <activity android:name=".RegisterActivity" />
-        <activity android:name=".OtpActivity">
-           </activity>
-        <activity android:name=".MainActivity">
-
-        </activity>
-        <activity android:name=".PathalogyOrders"></activity>
-        <activity android:name=".LabTestOrderedViewActivity"></activity>
+        <activity android:name=".OtpActivity"></activity>
+        <activity android:name=".MainActivity"></activity>
+        <activity android:name=".PathalogyOrders" />
+        <activity android:name=".LabTestOrderedViewActivity" />
     </application>
 
 </manifest>

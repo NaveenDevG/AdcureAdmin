@@ -26,4 +26,9 @@ public class PharaCategory extends AppCompatActivity {
         startActivity(new Intent(this,OrderSection.class));
 
     }
+
+    public void toOrderPres(View view) {
+        startActivity(new Intent(this,OrdersWithPrescription.class));
+
+    }
 }

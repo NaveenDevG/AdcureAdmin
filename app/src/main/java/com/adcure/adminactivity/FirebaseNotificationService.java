@@ -62,7 +62,7 @@ public class FirebaseNotificationService extends FirebaseMessagingService {
 //    else
 //        createNormalNotification1(mtitle, mmessage, mhisID);
 //} else{
-            if (title.equals("New Message") || title.equals("Order") || title.equals("LabTest")) {
+            if (title.equals("New Message") || title.equals("Order") || title.equals("LabTest") || title.equals("Order With Prescription")) {
                 if (Build.VERSION.SDK_INT > Build.VERSION_CODES.O)
                     createOreoNotification1(title, message, hisID);
                 else
@@ -216,11 +216,13 @@ public class FirebaseNotificationService extends FirebaseMessagingService {
                 .setColor(ResourcesCompat.getColor(getResources(), R.color.colorPrimary, null));
 
         Intent intent=new Intent();
-        if(title.equals("Order")){
+        if(title.equals("Order")  ){
             intent = intent.setClass(this, OrderSection.class);
 
         }else if(title.equals("LabTest")){
             intent = intent.setClass(this, PathalogyOrders.class);
+        }else if(title.equals("Order With Prescription")){
+            intent=intent.setClass(this,OrdersWithPrescription.class);
         }
         else{
 

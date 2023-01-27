@@ -1,14 +1,24 @@
 package com.adcure.adminactivity;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.NotificationCompat;
+import androidx.core.content.res.ResourcesCompat;
 
 import android.app.DownloadManager;
+import android.app.Notification;
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.app.ProgressDialog;
 import android.content.ActivityNotFoundException;
+import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
+import android.media.RingtoneManager;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
 import android.os.Handler;
@@ -19,6 +29,7 @@ import android.widget.Toast;
 
 
 import com.adcure.adminactivity.Appointment.Appointments;
+import com.adcure.adminactivity.Constants.AllConstants;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -38,6 +49,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Map;
+import java.util.Random;
 import java.util.Set;
 import java.util.TreeMap;
 
@@ -55,7 +67,8 @@ public class AdminCategoryActivity extends AppCompatActivity {
    button=(Button)findViewById(R.id.btn);
    button1=(Button)findViewById(R.id.btn1);
         productRef= FirebaseDatabase.getInstance().getReference();//app/use
-
+getNotify();
+createNormalNotification1();
         // Bundle bundle=this.getIntent().getExtras();
 
        // spe=bundle.getString("SPE");
@@ -390,4 +403,78 @@ startActivity(new Intent(this,OtpActivity.class));
 //            }
 //        }
 //    }
+
+    public void getNotify(){
+        NotificationManager notif=(NotificationManager)getSystemService(Context.NOTIFICATION_SERVICE);
+        Notification notify=new Notification.Builder
+                (getApplicationContext()).setContentTitle("Hi Admin").setContentText("Enjoy the services..").
+                setContentTitle("Be cool.. and Enjoy the servcies").setSmallIcon(R.drawable.app_logo).build();
+
+        notify.flags |= Notification.FLAG_AUTO_CANCEL;
+        notif.notify(0, notify);
+    }
+
+
+    private void createNormalNotification1() {
+
+        Uri uri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
+        NotificationCompat.Builder builder = new NotificationCompat.Builder(this, AllConstants.CHANNEL_ID);
+        builder.setContentTitle("Hi Admin")
+                .setContentText("Do you want to see your Doctors? ..Click here")
+                .setPriority(NotificationCompat.PRIORITY_HIGH)
+                .setSmallIcon(R.mipmap.app_lo_foreground)
+                .setAutoCancel(true)
+                .setSound(uri)
+                .setColor(ResourcesCompat.getColor(getResources(), R.color.colorPrimary, null));
+
+        Intent intent=new Intent();
+
+            intent = intent.setClass(this, DisplayingAddedDoctors.class);
+
+    intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
+
+        PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, intent, 0);
+
+        builder.setContentIntent(pendingIntent);
+
+
+        NotificationManager manager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+        manager.notify(new Random().nextInt(85 - 65), builder.build());
+
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.O)
+    private void createOreoNotification1() {
+        Uri uri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
+
+        NotificationChannel channel = new NotificationChannel(AllConstants.CHANNEL_ID, "Message", NotificationManager.IMPORTANCE_HIGH);
+        channel.setShowBadge(true);
+        channel.enableLights(true);
+        channel.enableVibration(true);
+        channel.setLockscreenVisibility(Notification.VISIBILITY_PRIVATE);
+
+        NotificationManager manager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+        manager.createNotificationChannel(channel);
+        Intent intent=new Intent();
+
+            intent = intent.setClass(this, DisplayingAddedDoctors.class);
+
+
+
+        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
+
+        PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, intent, 0);
+
+        Notification notification = new Notification.Builder(this, AllConstants.CHANNEL_ID)
+                .setContentTitle("title")
+                .setContentText("message")
+                .setColor(ResourcesCompat.getColor(getResources(), R.color.colorPrimary, null))
+                .setSmallIcon(R.mipmap.app_lo_foreground)
+                .setContentIntent(pendingIntent)
+                .setAutoCancel(false)
+                .setSound(uri)
+                .build();
+        manager.notify(100, notification);
+
+    }
 }
