@@ -15,6 +15,7 @@ import android.app.ProgressDialog;
 import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.media.RingtoneManager;
 import android.net.Uri;
@@ -69,6 +70,11 @@ public class AdminCategoryActivity extends AppCompatActivity {
         productRef= FirebaseDatabase.getInstance().getReference();//app/use
 getNotify();
 createNormalNotification1();
+//            SharedPreferences prefs  = getPreferences(MODE_PRIVATE);
+//            SharedPreferences.Editor editor = prefs.edit();
+//            editor.putBoolean("key",true); //or you can also use editor.putString("key","value");
+//            editor.commit();
+
         // Bundle bundle=this.getIntent().getExtras();
 
        // spe=bundle.getString("SPE");

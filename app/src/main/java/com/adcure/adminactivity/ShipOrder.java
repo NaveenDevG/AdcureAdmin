@@ -114,7 +114,8 @@ shipbtn.setOnClickListener(new View.OnClickListener() {
                                 databaseReference4.child("delivered").setValue("y");
                                 productRef.child("delivered").setValue("y");
                                 if(getIntent().getStringExtra("paid").contains("COD")){
-                                    String paid=getIntent().getStringExtra("paid").replace("COD - Not paid","");
+                                    String paid=getIntent().getStringExtra("paid").replace("COD - Not paid ","");
+
                                     databaseReference4.child("paid").setValue(paid);
                                     productRef.child("paid").setValue(paid);
                                     startActivity(getIntent());
