@@ -190,5 +190,17 @@
             android:textColor="@color/white"
             android:textSize="@dimen/margin16dp"
             android:textStyle="bold" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:background="@color/colorPrimary"
+            android:padding="@dimen/padding5"
+            android:layout_marginBottom="@dimen/padding10"
+            android:text="Get Invoice"
+            android:textAlignment="center"
+            android:onClick="toGetInvoice"
+            android:textStyle="bold"
+            android:textSize="@dimen/margin16dp"/>
     </LinearLayout></ScrollView>
 </RelativeLayout>

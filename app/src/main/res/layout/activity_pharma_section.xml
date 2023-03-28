@@ -106,13 +106,13 @@
 
                 <com.toptoche.searchablespinnerlibrary.SearchableSpinner
                     android:id="@+id/category"
-                     app:hintText="Category"
+                    app:hintText="Category"
                     android:textAlignment="center"
                     android:layout_width="match_parent"
                     android:layout_margin="10dp"
                     android:layout_height="40dp"
-                      android:layout_gravity="center"
-                   android:background="@drawable/box_style" />
+                    android:layout_gravity="center"
+                    android:background="@drawable/box_style" />
                 <com.toptoche.searchablespinnerlibrary.SearchableSpinner
                     android:id="@+id/sub_cat"
                     app:hintText="Sub-Category"
@@ -164,12 +164,12 @@
                     android:layout_height="wrap_content"
                     android:background="@drawable/box_style"
                     android:layout_margin="10dp"
-android:textAllCaps="false"
+                    android:textAllCaps="false"
                     android:textColor="#70000000"
 
                     android:textSize="16sp"
                     android:text="Purchase Date"
-                       android:padding="10dp"
+                    android:padding="10dp"
                     android:textAlignment="center"
                     android:textColorHint="#9A6C6C" />
 
@@ -182,7 +182,7 @@ android:textAllCaps="false"
                     android:background="@drawable/box_style"
 
                     android:hint="Price "
-                    android:inputType="number"
+                    android:inputType="numberDecimal"
                     android:padding="10dp"
                     android:textAlignment="center"
                     android:textColorHint="#9A6C6C" />
@@ -194,10 +194,10 @@ android:textAllCaps="false"
                     android:layout_height="wrap_content"
                     android:layout_margin="10dp"
                     android:background="@drawable/box_style"
-android:textSize="16sp"
+                    android:textSize="16sp"
                     android:textColor="#70000000"
                     android:text="Expired Date"
-           android:textAllCaps="false"
+                    android:textAllCaps="false"
                     android:padding="10dp"
                     android:textAlignment="center"
                     android:textColorHint="#9A6C6C" />
@@ -210,12 +210,52 @@ android:textSize="16sp"
                     android:layout_height="40dp"
                     android:layout_gravity="center"
                     android:background="@drawable/box_style" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:layout_marginBottom="10dp"
+                    android:visibility="gone"
+                    >   <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Enter Discount Manually?"
+                    android:textSize="16sp"
+
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="15dp"
+                    android:textColor="#F5000000"/>
+                    <RadioGroup
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:orientation="horizontal"
+                        android:id="@+id/rg1"
+                        android:layout_marginLeft="10dp" >
+                        <RadioButton
+                            android:id="@+id/yDis"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Yes"
+
+                            />
+                        <RadioButton
+                            android:id="@+id/nDis"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="No"
+                            android:layout_marginLeft="10dp"
+                            /></RadioGroup>
+
+                </LinearLayout>
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="20dp"
                     android:gravity="center_horizontal"
+                    android:id="@+id/noManualEntry"
+                    android:visibility="gone"
                     android:orientation="horizontal">
 
 
@@ -239,9 +279,40 @@ android:textSize="16sp"
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
                     android:gravity="center_horizontal"
-                 android:layout_marginBottom="10dp"
-                 >   <TextView
+                    android:id="@+id/manualEntry"
+                    android:visibility="visible"
+                    android:orientation="horizontal">
+
+
+                    <EditText
+                        android:id="@+id/fdEdt"
+                        android:padding="10dp"
+                        android:hint="Flat Discount% ?"
+                        android:inputType="numberDecimal"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        />
+                    <EditText
+                        android:id="@+id/extraDisEdt"
+                        android:padding="10dp"
+                        android:inputType="numberDecimal"
+                        android:layout_marginLeft="15dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:hint="Extra Discount% ?"
+                        />
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:layout_marginBottom="10dp"
+                    >   <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Prescription ?"
@@ -249,27 +320,28 @@ android:textSize="16sp"
 
                     android:layout_marginLeft="10dp"
                     android:layout_marginTop="15dp"
-                    android:textColor="#F5000000"/> <RadioGroup
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:orientation="horizontal"
-                    android:id="@+id/rg"
-                    android:layout_marginLeft="10dp" >
-                    <RadioButton
-                        android:id="@+id/ypre"
+                    android:textColor="#F5000000"/>
+                    <RadioGroup
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Yes"
+                        android:layout_marginTop="10dp"
+                        android:orientation="horizontal"
+                        android:id="@+id/rg"
+                        android:layout_marginLeft="10dp" >
+                        <RadioButton
+                            android:id="@+id/ypre"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Yes"
 
-                        />
-                    <RadioButton
-                        android:id="@+id/npre"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="No"
-                        android:layout_marginLeft="10dp"
-                        /></RadioGroup>
+                            />
+                        <RadioButton
+                            android:id="@+id/npre"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="No"
+                            android:layout_marginLeft="10dp"
+                            /></RadioGroup>
 
                 </LinearLayout>
                 <TextView
@@ -298,7 +370,7 @@ android:textSize="16sp"
                         android:layout_marginTop="10dp"
                         android:text="Shipping Calculation : "
                         android:textSize="18sp"
-                         android:textColor="#79000000"/>
+                        android:textColor="#79000000"/>
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -326,7 +398,7 @@ android:textSize="16sp"
                 <EditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                     android:inputType="number"
+                    android:inputType="number"
                     android:padding="20dp"
                     android:layout_marginTop="20dp"
                     android:textColorHint="#3F51B5"

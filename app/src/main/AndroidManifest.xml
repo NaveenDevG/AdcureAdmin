@@ -84,6 +84,10 @@
         <activity android:name=".MainActivity"></activity>
         <activity android:name=".PathalogyOrders" />
         <activity android:name=".LabTestOrderedViewActivity" />
+         <activity android:name=".GenerateInvoice"/>
+        <activity android:name=".InvoiceLabtest"/>
+
+
     </application>
 
 </manifest>

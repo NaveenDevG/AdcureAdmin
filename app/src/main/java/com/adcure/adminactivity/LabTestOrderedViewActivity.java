@@ -151,20 +151,12 @@ public class LabTestOrderedViewActivity extends AppCompatActivity {
         }
     }
 
-    public void toGetInvoice(View view) {
-        Intent intent = new Intent();
-//        intent.setClass(this,InvoiceLabtest.class);
-//        intent.putExtra("pid",pid);
-//
-//        startActivity(intent);
-    }
 
     public void toBack90(View view) {
         onBackPressed();
     }
 
     public void updateSampleStatus(View view) {
-
         String str=amnt.getText().toString();
         String amount= str.replaceAll("[^0-9]", "");
         if(str.contains("POC")){
@@ -390,4 +382,12 @@ public class LabTestOrderedViewActivity extends AppCompatActivity {
                 DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
         requestQueue.add(request);
     }
+    public void toGetInvoice(View view) {
+        Intent intent=new Intent();
+        intent.setClass(this,InvoiceLabtest.class);
+        intent.putExtra("pid",pid);
+        intent.putExtra("date",getIntent().getStringExtra("date"));
+        startActivity(intent);
+    }
+
 }

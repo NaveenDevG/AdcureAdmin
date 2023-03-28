@@ -84,12 +84,14 @@ public class TotalOrders extends AppCompatActivity {
                                             @Override
                                             public void onClick(View v) {
                                                 Intent intent = new Intent(TotalOrders.this, ShipOrder.class);
-                                                intent.putExtra("pid", model.getPaymentid());
-                                                intent.putExtra("addr", model.getGaddress());
-                                                intent.putExtra("num", model.getGphone());
-                                                intent.putExtra("nme", model.getGname());
-                                                intent.putExtra("paid", model.getPaid());
-                                                intent.putExtra("uid", model.getUid());
+
+                                                intent.putExtra("pid",model.getPaymentid());
+                                                intent.putExtra("addr",model.getGaddress());
+                                                intent.putExtra("num",model.getGphone());
+                                                intent.putExtra("nme",model.getGname());
+                                                intent.putExtra("paid",model.getPaid());
+                                                intent.putExtra("uid",model.getUid());
+                                                 intent.putExtra("date",model.getDate());
                                                 startActivity(intent);
 //                                            startActivity(intent);
                                             }

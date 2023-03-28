@@ -10,6 +10,8 @@ public interface AllConstants {
     int RECORDING_REQUEST_CODE = 3000;
     String CHANNEL_ID = "1000";
     int NOTIFICATION_ID = 100;
+    public String FOLDER="AdCure";
+
 
     String NOTIFICATION_URL = "https://fcm.googleapis.com/fcm/send";
     //String SERVER_KEY = "AAAAr_hdF-Y:APA91bE3UCZtHVXALqF75_UHSv-noxYNczK2Yo_Wqdc3W_BoLTYFC02BNmprH7yeP15jKvF58RgwTsdXx9XLfq-x-SYyhw--dmS5qHxRwu4v93u6TVLpOV97hKpF2MZLBRJCqlyjGmgS";

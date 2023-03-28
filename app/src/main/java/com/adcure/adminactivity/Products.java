@@ -2,7 +2,7 @@ package com.adcure.adminactivity;
 
 public class Products {
     private String Category,Company,Date,Time,
-            Description,Img1,img2,Img3,Name,No,Pdate,Edate,Price,Prescription,Stock,Pid,Subcategory;
+            Description,Img1,img2,Img3,Name,No,Pdate,Edate,Price,Prescription,Stock,Pid,Subcategory,Discount_price;
     public Products() {
     }
 
@@ -30,6 +30,14 @@ public class Products {
         Price = price;
         Prescription = prescription;
         Stock = stock;
+    }
+
+    public String getDiscount_price() {
+        return Discount_price;
+    }
+
+    public void setDiscount_price(String discount_price) {
+        Discount_price = discount_price;
     }
 
     public String getCategory() {

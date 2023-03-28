@@ -73,7 +73,7 @@ public class ViewMedicines extends AppCompatActivity {
 
                                     holder.prNo.setText("No : "+model.getNo());
                                     holder.productname.setText("Name : "+model.getName());
-                                    holder.proctPrice.setText("Discount Price : ₹ "+model.getPrice());
+                                    holder.proctPrice.setText("Discount Price : ₹ "+Float.parseFloat(model.getDiscount_price()));
                                     holder.productQnty.setText("Quantity : "+model.getStock());
                                     holder.addedtime.setText("Added Time : "+model.getTime());
                                     holder.addeddate.setText("Added Date : "+model.getDate());

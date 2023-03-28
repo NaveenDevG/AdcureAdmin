@@ -79,7 +79,8 @@ public class TodayOrders extends AppCompatActivity {
                                             intent.putExtra("nme",model.getGname());
                                             intent.putExtra("paid",model.getPaid());
                                             intent.putExtra("uid",model.getUid());
-                                            startActivity(intent);                                            // intent.putExtra("pid",model.getPid());
+                                            intent.putExtra("date",model.getDate());
+                                             startActivity(intent);                                            // intent.putExtra("pid",model.getPid());
 //                                            startActivity(intent);
                                         }
                                     });

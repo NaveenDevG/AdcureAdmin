@@ -78,6 +78,8 @@ public class PathalogyOrders extends AppCompatActivity {
 
                                             intent.putExtra("pid",model.getPayment_id());
                                             intent.putExtra("uid",model.getUser_id());
+                                            intent.putExtra("date",model.getDate());
+
                                             startActivity(intent);
                                             dialog.dismiss();
                                             ////    Toast.makeText(ConsultNowActivity2.this, ""+dctr_num, Toast.LENGTH_SHORT).show();

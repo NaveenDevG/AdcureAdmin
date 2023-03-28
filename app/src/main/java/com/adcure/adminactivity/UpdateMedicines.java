@@ -28,7 +28,7 @@ public class UpdateMedicines extends AppCompatActivity {
     private String value,sub,cat;
     private DatabaseReference databaseReference1;
     private String pid;
-    CircleImageView Image;                int disp,sd;
+    CircleImageView Image;                float disp,sd;
 
     TextInputLayout pname,desc,ap,dis,edis,quan,brnd,num,dcharge;
     TextView dp;
@@ -173,27 +173,31 @@ public class UpdateMedicines extends AppCompatActivity {
 
                                 String dise=edis.getEditText().getText().toString().replace("%","");
 
-                                sd=100-(Integer.parseInt(disd)+Integer.parseInt(dise));
-                                disp = (sd*Integer.parseInt(ap.getEditText().getText().toString()))/100;
+                                sd=100-(Float.parseFloat(disd)+Float.parseFloat(dise));
+                                disp = (sd*Float.parseFloat(ap.getEditText().getText().toString()))/100;
                                 //  dis.getEditText().setText(disp);
                                 productMap.put("Name",pname.getEditText().getText().toString());
                                 productMap.put("Stock", quan.getEditText().getText().toString());
 
                                 productMap.put("Description",desc.getEditText().getText().toString());
 
-                                productMap.put("Flat_Discount",dis.getEditText().getText().toString());
-                                productMap.put("Extra_Discount",edis.getEditText().getText().toString());
+                                productMap.put("Flat_discount",dis.getEditText().getText().toString());
+                                productMap.put("Extra_discount",edis.getEditText().getText().toString());
 
                                 productMap.put("Price",ap.getEditText().getText().toString());
                                 productMap.put("Company",brnd.getEditText().getText().toString());
                                 productMap.put("No",num.getEditText().getText().toString());
                                 productMap.put( "Discount_price", String.valueOf(disp));
-                                Log.i("hashmap", "onDataChange: "+ databaseReference4.updateChildren(productMap));
-                                Log.i("hashmap", "onDataChange: "+ databaseReference5.updateChildren(productMap));
-                                Log.i("hashmap", "onDataChange: "+ databaseReference6.updateChildren(productMap));
+                                if(String.valueOf(disp).contains("-")){
+                                    Toast.makeText(UpdateMedicines.this, "Discount should be less than 100%.", Toast.LENGTH_SHORT).show();
 
-                                Toast.makeText(UpdateMedicines.this, "Your item Updated.", Toast.LENGTH_SHORT).show();
+                                }else {
+                                    Log.i("hashmap", "onDataChange: " + databaseReference4.updateChildren(productMap));
+                                    Log.i("hashmap", "onDataChange: " + databaseReference5.updateChildren(productMap));
+                                    Log.i("hashmap", "onDataChange: " + databaseReference6.updateChildren(productMap));
 
+                                    Toast.makeText(UpdateMedicines.this, "Your item Updated.", Toast.LENGTH_SHORT).show();
+                                }
                             }
 
 

@@ -4,4 +4,8 @@
     <color name="colorPrimaryDark">#3700B3</color>
     <color name="colorAccent">#03DAC5</color>
     <color name="white">#FFFFFF</color>
+    <color name="StripColor">#3F51B5</color>
+    <color name="picker_color_blue">#2196F3</color>
+    <color name="fieldHead">#1a1a1a</color>
+
 </resources>

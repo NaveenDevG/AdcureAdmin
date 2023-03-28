@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+android:layout_marginBottom="@dimen/padding5"    xmlns:android="http://schemas.android.com/apk/res/android">
+
+<LinearLayout android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
+
+    <TextView
+        android:layout_width="110dp"
+        style="@style/InvoiceData"
+        android:id="@+id/slno"
+        android:layout_weight="1"
+        android:paddingLeft="@dimen/margin4dp"
+        android:paddingRight="@dimen/padding10"
+        android:text="1"
+        android:gravity="center"
+        android:textColor="#B5000000"
+        android:textSize="14sp" />
+
+    <TextView
+        style="@style/InvoiceData"
+        android:layout_width="240dp"
+        android:id="@+id/itemName"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:paddingLeft="@dimen/margin4dp"
+        android:layout_gravity="center"
+        android:paddingRight="@dimen/padding10"
+        android:text="Allovera gel Lithium ********"
+        android:textColor="#B5000000"
+        android:textSize="14sp"
+        />
+
+    <TextView
+        style="@style/InvoiceData"
+        android:layout_width="110dp"
+        android:id="@+id/qty"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:paddingLeft="@dimen/margin4dp"
+        android:paddingRight="@dimen/padding10"
+        android:text="2"
+        android:textColor="#B5000000"
+        android:textSize="14sp"  />
+
+
+
+
+    <TextView
+        android:id="@+id/unitprice"
+        style="@style/InvoiceData"
+        android:layout_width="130dp"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:paddingLeft="@dimen/margin4dp"
+        android:paddingRight="@dimen/padding10"
+        android:text="12"
+        android:textColor="#B5000000"
+        android:textSize="14sp"  />
+
+    <TextView
+        android:id="@+id/totalprice"
+        style="@style/InvoiceData"
+        android:layout_width="140dp"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:paddingLeft="@dimen/margin4dp"
+        android:paddingRight="@dimen/padding10"
+        android:text="0"
+        android:textSize="14sp" />
+
+
+
+    <TextView
+        android:id="@+id/tv_minmum_dpd"
+        style="@style/InvoiceFields"
+        android:layout_width="130dp"
+        android:layout_weight="1"
+        android:gravity="left|center_vertical"
+        android:paddingLeft="@dimen/margin4dp"
+        android:paddingRight="@dimen/padding10"
+        android:textColor="@color/fieldHead"
+        android:textSize="@dimen/fieldNameSize"
+        android:visibility="gone"/>
+
+    <TextView
+        android:id="@+id/tv_maximum_dpd"
+        style="@style/InvoiceFields"
+        android:layout_width="130dp"
+        android:layout_weight="1"
+        android:gravity="left|center_vertical"
+        android:paddingLeft="@dimen/margin4dp"
+        android:paddingRight="@dimen/padding10"
+        android:textColor="@color/fieldHead"
+        android:textSize="@dimen/fieldNameSize"
+        android:visibility="gone"/>
+</LinearLayout>
+</LinearLayout>

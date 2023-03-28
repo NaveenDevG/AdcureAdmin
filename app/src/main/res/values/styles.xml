@@ -12,5 +12,25 @@
         <item name="android:windowFullscreen">true</item>
         <item name="android:windowNoTitle">true</item>
     </style>
+    <style name="InvoiceData" parent="@android:style/TextAppearance.Medium">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:textSize">@dimen/text</item>
+        <item name="android:textColor">#445566</item>
+        <item name="android:focusable">false</item>
+        <item name="android:gravity">center_horizontal</item>
+        <item name="android:layout_marginRight">2dp</item>
+        <item name="android:background">@drawable/textbox_view_inflate</item>
+    </style>
+    <style name="InvoiceFields" parent="@android:style/TextAppearance.Medium">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:textSize">@dimen/text</item>
+        <item name="android:textColor">#445566</item>
+        <item name="android:focusable">false</item>
+        <item name="android:gravity">center_horizontal</item>
+        <item name="android:layout_marginRight">2dp</item>
+        <item name="android:background">@color/picker_color_blue</item>
+    </style>
 </resources>
 

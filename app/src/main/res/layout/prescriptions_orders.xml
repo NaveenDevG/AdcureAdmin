@@ -5,6 +5,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_margin="10dp"
+    tools:context=".OrdersWithPrescription"
     android:orientation="vertical"
     android:background="@drawable/layout_design"
     app:cardElevation="10dp"
