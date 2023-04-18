@@ -46,6 +46,7 @@ public class AddLabTest extends AppCompatActivity {
     ProgressDialog dialog;
     EditText priceLT,pc,wtp,ti,tnmes,ltn,labNme,labLoc;
     TextView disprice;
+    String lid;
     private DatabaseReference productref,allProductRef,productRf,stateRef,cityRef;
 Button btn;
     @Override
@@ -53,6 +54,12 @@ Button btn;
         try{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_lab_test);
+if(getIntent().getStringExtra("lid")!=null){
+    lid=getIntent().getStringExtra("lid").toString();
+
+
+}
+
             dialog=new ProgressDialog(this);
             // spinner3=(Spinner)findViewById(R.id.sp3);
             alertDialog = new AlertDialog.Builder(this);

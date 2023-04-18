@@ -2,10 +2,12 @@ package com.adcure.adminactivity;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.FileProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.AlertDialog;
+import android.app.DownloadManager;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -17,6 +19,7 @@ import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
+import android.os.Handler;
 import android.provider.ContactsContract;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
@@ -55,6 +58,8 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.net.URI;
 import java.util.Date;
+
+import io.socket.client.Manager;
 
 public class OrdersWithPrescription extends AppCompatActivity {
     private RecyclerView recyclerView;
@@ -252,7 +257,14 @@ Date date=new Date();
                               out.flush();
                               out.close();
 dialog.dismiss();
+                              Intent intent = new Intent(Intent.ACTION_VIEW);
+//                              File file = new File(Environment.getExternalStorageDirectory() + "/FolderName/" + "yourFile.apk");
+                              Uri data = FileProvider.getUriForFile(OrdersWithPrescription.this, BuildConfig.APPLICATION_ID +".provider",myDir);
+                              intent.setDataAndType(data,"image/");
+                              intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+                              startActivity(intent);
                               Toast.makeText(OrdersWithPrescription.this, "Image saved into "+myDir.getPath(), Toast.LENGTH_LONG).show();
+
                           } catch(Exception e){
                               // some action
                               dialog.dismiss();

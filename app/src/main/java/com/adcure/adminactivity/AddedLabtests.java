@@ -103,7 +103,10 @@ public class AddedLabtests extends AppCompatActivity {
 holder.lt.setOnClickListener(new View.OnClickListener() {
     @Override
     public void onClick(View view) {
-
+        Intent intent=new Intent(AddedLabtests.this,UpdateLabTest.class);
+        intent.putExtra("UPDATE","Y");
+        intent.putExtra("lid",model.getLid());
+        startActivity(intent);
     }
 });
 //                                    holder.itemView.setOnClickListener(new View.OnClickListener() {

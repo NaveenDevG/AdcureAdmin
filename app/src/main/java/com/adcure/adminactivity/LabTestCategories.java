@@ -16,7 +16,9 @@ public class LabTestCategories extends AppCompatActivity {
     }
 
     public void addLabTest(View view) {
-        startActivity(new Intent(this,AddLabTest.class));
+         Intent intent=new Intent(this,AddLabTest.class);
+        intent.putExtra("UPDATE","N");
+        startActivity(intent);
 
     }
 

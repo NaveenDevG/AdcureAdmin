@@ -152,7 +152,7 @@ String num=snapshot.child("number").getValue().toString();
         // convert view group to bitmap
         relativeLayout.setDrawingCacheEnabled(true);
         relativeLayout.buildDrawingCache();
-        Bitmap bm = relativeLayout.getDrawingCache();
+       Bitmap bm = relativeLayout.getDrawingCache();
         Intent share = new Intent(Intent.ACTION_SEND);
         share.setType("image/jpeg");
         ByteArrayOutputStream bytes = new ByteArrayOutputStream();
@@ -205,6 +205,10 @@ String num=snapshot.child("number").getValue().toString();
 
     public void toPrint(View view) {
 //        getToken("Hi","rfe");
+if(pid.contains(":")){pid=pid.replace(":","");}
+        if(pid.contains(" ")){pid=pid.replace(" ","");}
+        if(pid.contains(",")){pid=pid.replace(",","");}
+
         layoutToImage();
         try {
             imageToPDF();

@@ -2,7 +2,9 @@ package com.adcure.adminactivity;
 
 
 import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -10,6 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -51,6 +54,7 @@ public class ShipOrder extends AppCompatActivity {
 String add,nme,num,pid,uid,state="";
     RecyclerView.LayoutManager layoutManager;
     private TextView paid,addr,gnme,gnum,pin;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         try{
@@ -252,7 +256,23 @@ shipbtn.setOnClickListener(new View.OnClickListener() {
                                         holder.price.setText("₹ " + model.getPrice());
                                         int onetypeProductpr= (Integer.valueOf(model.getPrice().replaceAll("\\D+",""))) * Integer.valueOf(model.getQuantity());
                                         orderfina=  orderfina + onetypeProductpr;
-                                }
+                                 if(model.getPresc().equals("yes")){
+                                     holder.ll_imgPresc.setVisibility(View.VISIBLE);
+                                    Picasso.get().load(model.getImgPresc()).into(holder.img_pres);
+
+                                 }else{
+                                     holder.ll_imgPresc.setVisibility(View.GONE);
+
+                                 }
+                                    holder.img_pres.setOnClickListener(new View.OnClickListener() {
+                                        @Override
+                                        public void onClick(View v) {
+
+                                            showPres(model.getImgPresc());
+
+                                        }
+                                    });
+                                    }
 
 
 
@@ -411,4 +431,48 @@ shipbtn.setOnClickListener(new View.OnClickListener() {
         intent.putExtra("date",getIntent().getStringExtra("date"));
         startActivity(intent);
     }
+
+    public void showPres(String uri){
+//        getDownload(uri);
+        AlertDialog.Builder alertadd = new AlertDialog.Builder(ShipOrder.this);
+        LayoutInflater factory = LayoutInflater.from(ShipOrder.this);
+        final View view = factory.inflate(R.layout.sample, null);
+        ImageView img=view.findViewById(R.id.dialog_imageview);
+        alertadd.setView(view);
+        Picasso.get().load(uri).into(img);
+
+//        saveBitmapIntoSDCardImage(OrdersWithPrescription.this,getContactBitmapFromURI(OrdersWithPrescription.this, Uri.parse(uri)));
+//       savefile(Uri.parse(uri));
+        alertadd.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.cancel();
+
+            }
+        });
+//        alertadd.setPositiveButton("Download", new DialogInterface.OnClickListener() {
+//            @Override
+//            public void onClick(DialogInterface dialog, int which) {
+//
+//                egtPicassoDowlnload(uri,name,oid);
+//            }
+//        });
+
+
+
+
+//        alertadd.setNeutralButton("Here!", new DialogInterface.OnClickListener() {
+//            public void onClick(DialogInterface dlg, int sumthin) {
+//                Picasso.get().load(uri).into(img);
+//
+//            }
+//        });
+
+        AlertDialog a=alertadd.create();
+        a.show();
+        Button bq = a.getButton(DialogInterface.BUTTON_POSITIVE);
+        bq.setBackgroundColor(Color.BLUE);
+        bq.setPadding(10,0,10,0);
+    }
+
 }

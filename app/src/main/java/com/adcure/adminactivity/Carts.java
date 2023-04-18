@@ -1,7 +1,7 @@
 package com.adcure.adminactivity;
 
 public class Carts {
-    private  String pid,date,discount,quantity,pname,price,time,umail,uname,uphone,pimg,deliverycharge,ordered;
+    private  String pid,date,discount,quantity,pname,price,time,umail,uname,uphone,pimg,deliverycharge,ordered,presc,imgPresc;
 
     public Carts(String pid, String pimg, String deliverycharge, String date, String discount, String quantity, String pname, String price, String time, String umail, String uname, String uphone) {
         this.pid = pid;
@@ -16,6 +16,22 @@ public class Carts {
         this.uname = uname;
         this.uphone = uphone;
         this.pimg=pimg;
+    }
+
+    public String getPresc() {
+        return presc;
+    }
+
+    public void setPresc(String presc) {
+        this.presc = presc;
+    }
+
+    public String getImgPresc() {
+        return imgPresc;
+    }
+
+    public void setImgPresc(String imgPresc) {
+        this.imgPresc = imgPresc;
     }
 
     public String getDeliverycharge() {
