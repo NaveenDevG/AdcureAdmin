@@ -14,7 +14,7 @@ import de.hdodenhof.circleimageview.CircleImageView;
 
 public class DoctorViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
     public TextView doctorname,doctorSpecialist,doctorExp,doctorState,paid;
-    public Button appoi,feeds;
+    public Button appoi,feeds,manageDoctor;
     public CircleImageView doctorImage;
     public ItemClickListener listener;
     public DoctorViewHolder(@NonNull View itemView) {
@@ -26,6 +26,8 @@ public class DoctorViewHolder extends RecyclerView.ViewHolder implements View.On
         doctorState=(TextView)itemView.findViewById(R.id.doctor_state);
         appoi=(Button)itemView.findViewById(R.id.hisAppo);
         feeds=(Button)itemView.findViewById(R.id.hisFeed);
+        manageDoctor=(Button)itemView.findViewById(R.id.manageDoctor);
+
 
     }
     public void setItemClickListener(ItemClickListener listener){

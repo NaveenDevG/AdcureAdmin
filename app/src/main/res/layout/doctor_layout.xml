@@ -5,8 +5,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_margin="8dp"
-    android:background="@android:color/white"
-    app:cardElevation="10dp"
+    android:background="#74FFFFFF"
+    app:cardElevation="20dp"
     >
    <RelativeLayout
         android:layout_width="wrap_content"
@@ -94,19 +94,38 @@ android:id="@+id/rlr"
         android:background="@color/colorPrimary"
         android:textColor="#fff"
         android:layout_below="@id/rlr" />
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="30dp"
-            android:textSize="15sp"
-            android:textStyle="normal"
-            android:id="@+id/hisFeed"
-            android:text="Feedbacks"
-            android:textAllCaps="false"
-            android:layout_margin="3dp"
-            android:background="@color/colorPrimary"
-            android:textColor="#fff"
-            android:layout_below="@id/hisAppo" />
 
+       <Button
+           android:id="@+id/hisFeed"
+           android:layout_width="match_parent"
+           android:layout_height="30dp"
+           android:layout_below="@id/hisAppo"
+           android:layout_marginStart="3dp"
+           android:layout_marginTop="3dp"
+           android:layout_marginEnd="3dp"
+           android:layout_marginBottom="3dp"
+           android:background="@color/colorPrimary"
+           android:text="Feedbacks"
+           android:textAllCaps="false"
+           android:textColor="#fff"
+           android:textSize="15sp"
+           android:textStyle="normal" />
+       <Button
+           android:id="@+id/manageDoctor"
+           android:layout_width="match_parent"
+           android:layout_height="30dp"
+           android:layout_below="@id/hisFeed"
+
+           android:layout_marginStart="3dp"
+           android:layout_marginTop="3dp"
+           android:layout_marginEnd="3dp"
+           android:layout_marginBottom="3dp"
+           android:background="@color/colorPrimary"
+           android:text="Manage Doctor"
+           android:textAllCaps="false"
+           android:textColor="#fff"
+           android:textSize="15sp"
+           android:textStyle="normal" />
     </RelativeLayout>
 
 

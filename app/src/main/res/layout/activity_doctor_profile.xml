@@ -5,242 +5,241 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".UpdateMedicines"
+    tools:context=".DoctorProfileActivity"
     >
 
     <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar"
         android:layout_width="match_parent"
+        android:id="@+id/toolbar"
         android:layout_height="wrap_content"
-        android:background="@color/colorPrimary">
+        android:background="@color/colorPrimaryDark">
 
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/back"
+            android:src="@drawable/back"
+            />
 
         <TextView
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:text="Manage Doctor"
             android:textColor="#ffffff"
-            android:text="Medicine Updation"
-            android:textAlignment="center"
-            android:textSize="20sp" />
+            android:textSize="20sp"
+            android:layout_marginLeft="30dp"
+            />
 
     </androidx.appcompat.widget.Toolbar>
 
     <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/productImg"
         android:layout_width="100dp"
         android:layout_height="100dp"
+        android:id="@+id/ProfileImage"
         android:layout_below="@id/toolbar"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="20dp"
         android:src="@drawable/profile_image"
+        app:civ_border_width="2dp"
         app:civ_border_color="#9C27B0"
-        app:civ_border_width="2dp" />
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"/>
 
     <ScrollView
-        android:id="@+id/scrollView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/productImg"
-        android:layout_marginTop="10dp">
+        android:layout_below="@id/ProfileImage"
+        android:id="@+id/scrollView"
+        android:layout_marginTop="10dp"
+        >
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_margin="5dp"
-            android:orientation="vertical">
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/num"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
-                android:layout_marginBottom="10dp"
-                android:hint="Medicine No">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@android:color/white"
-                    android:inputType="text">
-
-                </com.google.android.material.textfield.TextInputEditText>
-
-            </com.google.android.material.textfield.TextInputLayout>
+            android:orientation="vertical"
+            android:background="@color/white"
+            android:layout_margin="5dp">
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/productName"
+                android:id="@+id/profileName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:hint="Name (Dr.*)"
                 android:layout_margin="10dp"
-                android:hint="Medicine Name">
+                >
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:inputType="textPersonName"
                     android:background="@android:color/white"
-                    android:inputType="textPersonName">
+                    >
 
                 </com.google.android.material.textfield.TextInputEditText>
 
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/descr"
+                android:id="@+id/profileEmail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:hint="Email Id"
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
                 android:layout_marginBottom="10dp"
-                android:hint="Desription">
+                >
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
-                    android:inputType="textMultiLine"
-                    android:lines="8"
-                    android:minLines="3"
-                    android:gravity="top|start"
                     android:layout_height="wrap_content"
+                    android:inputType="textEmailAddress"
                     android:background="@android:color/white"
-                   >
+                    >
 
                 </com.google.android.material.textfield.TextInputEditText>
 
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/actualPrice"
+                android:id="@+id/profileExp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:hint="Experience"
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
                 android:layout_marginBottom="10dp"
-                android:hint="MRP">
+                >
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:inputType="textEmailAddress"
                     android:background="@android:color/white"
-                    android:inputType="number">
+                    >
 
                 </com.google.android.material.textfield.TextInputEditText>
 
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/brand"
+                android:id="@+id/profileQua"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:hint="Qualification"
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
                 android:layout_marginBottom="10dp"
-                android:hint="Company Name">
+                >
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:inputType="textEmailAddress"
                     android:background="@color/white"
-                    android:inputType="textEmailAddress">
+                    >
 
                 </com.google.android.material.textfield.TextInputEditText>
 
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/quant"
+                android:id="@+id/profileHosName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:hint="Hospital Name"
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
                 android:layout_marginBottom="10dp"
-                android:hint="Stock">
+                >
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:inputType="textEmailAddress"
                     android:background="@android:color/white"
-                    android:inputType="textEmailAddress">
+                    >
 
                 </com.google.android.material.textfield.TextInputEditText>
 
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/fdiscnt"
+                android:id="@+id/profileHosAdd"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:hint="Hospital Address"
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
                 android:layout_marginBottom="10dp"
-                android:hint="Flat Discount %">
+                >
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:inputType="textEmailAddress"
                     android:background="@android:color/white"
-                    android:inputType="textEmailAddress">
+                    >
 
                 </com.google.android.material.textfield.TextInputEditText>
 
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/extraDis"
+                android:id="@+id/profilePrice"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:hint="Price"
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
                 android:layout_marginBottom="10dp"
-                android:hint="Extra Discounnt %">
+                >
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:inputType="textEmailAddress"
                     android:background="@android:color/white"
-                    android:inputType="textEmailAddress">
+                    >
 
                 </com.google.android.material.textfield.TextInputEditText>
 
             </com.google.android.material.textfield.TextInputLayout>
-
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginBottom="10dp"
-                    android:hint="Discounted Price  : "
-                    android:textColor="#000000"
-                    android:textSize="16sp" />
-
-                <TextView
-                    android:id="@+id/discntPrice"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="10dp"
-                    android:hint="₹ 458"
-                    android:textColor="#000000"
-                    android:textSize="16sp" />
-            </LinearLayout>
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/dc"
+                android:id="@+id/profileCity"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:hint="City"
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
                 android:layout_marginBottom="10dp"
-                android:hint="Delivery Charge"
-                android:visibility="gone">
+                >
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:inputType="textEmailAddress"
                     android:background="@android:color/white"
-                    android:inputType="text">
+                    >
+
+                </com.google.android.material.textfield.TextInputEditText>
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/profileState"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="State"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="10dp"
+                >
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textEmailAddress"
+                    android:background="@android:color/white"
+                    >
 
                 </com.google.android.material.textfield.TextInputEditText>
 
@@ -248,41 +247,58 @@
 
 
 
-            <!--
-                        <EditText
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="10dp"
-                            android:layout_marginRight="10dp"
-                            android:hint="Date"
-                            android:id="@+id/profileDate"
-                            />
-            -->
-            <!--
-                        <EditText
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="10dp"
-                            android:layout_marginRight="10dp"
-                            android:hint="Time"
-                            android:id="@+id/profileTime"
-                            />
-            -->
-
+<!--
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:hint="Date"
+                android:id="@+id/profileDate"
+                />
+-->
+<!--
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:hint="Time"
+                android:id="@+id/profileTime"
+                />
+-->
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:weightSum="2">
             <Button
-                android:id="@+id/updatebtn"
                 android:layout_width="wrap_content"
-                android:layout_height="35dp"
-
-                android:layout_gravity="center"
-                android:layout_marginTop="6dp"
-                android:background="@color/colorPrimary"
-                android:paddingLeft="10dp"
-                android:paddingRight="10dp"
+                android:layout_height="wrap_content"
                 android:text="Update"
-                android:textAllCaps="false"
-                android:textColor="@android:color/white"
-                android:textSize="15sp" />
+                android:layout_marginBottom="10dp"
+                android:layout_marginLeft="@dimen/margin20"
+                android:layout_marginRight="@dimen/margin20"
+                android:layout_gravity="center"
+                android:id="@+id/update"
+                android:textColor="@color/white"
+                android:layout_weight="1"
+                android:padding="5dp"
+                android:background="@color/picker_color_blue"/>
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Delete"
+                android:layout_weight="1"
+                android:layout_marginLeft="@dimen/margin20"
+                android:layout_marginRight="@dimen/margin20"
+                android:layout_marginBottom="10dp"
+                android:layout_gravity="center"
+                android:id="@+id/delete"
+                android:textColor="@color/white"
+                android:onClick="deleteDoctorProfile"
+                android:padding="5dp"
+                android:background="@color/picker_color_blue"/>
+        </LinearLayout>
 
         </LinearLayout>
 

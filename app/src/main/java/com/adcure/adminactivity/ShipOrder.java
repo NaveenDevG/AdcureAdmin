@@ -182,6 +182,22 @@ shipbtn.setOnClickListener(new View.OnClickListener() {
 //                            DatabaseReference db6=FirebaseDatabase.getInstance().getReference().child("Products in Category").child(model.getCategory()).child(model.getPid());
                                 databaseReference4.child("shipped").setValue("y");
                                 productRef.child("shipped").setValue("y");
+                                databaseReference4.addValueEventListener(new ValueEventListener() {
+                                    @Override
+                                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                        if(snapshot.child("paid").getValue().toString().contains("COD")){
+
+                                            databaseReference4.child("paid").setValue(snapshot.child("paid").getValue().toString().replace("COD - Not paid ",""));
+                                            productRef.child("paid").setValue(snapshot.child("paid").getValue().toString().replace("COD - Not paid ",""));
+
+                                        }
+                                    }
+
+                                    @Override
+                                    public void onCancelled(@NonNull DatabaseError error) {
+
+                                    }
+                                });
                                 databaseReference5.addValueEventListener(
                                         new ValueEventListener() {
                                             @Override

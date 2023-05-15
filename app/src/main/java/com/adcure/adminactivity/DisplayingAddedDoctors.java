@@ -17,6 +17,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 
+import com.adcure.adminactivity.Interface.ItemClickListener;
 import com.esotericsoftware.kryo.util.IntMap;
 import com.adcure.adminactivity.Appointment.AppointmentActivity;
 import com.adcure.adminactivity.Feedback.PatientStories;
@@ -107,6 +108,19 @@ public class DisplayingAddedDoctors extends AppCompatActivity {
                                 dialog.dismiss();
                                         }
                                     });
+
+                                    holder.manageDoctor.setOnClickListener(new View.OnClickListener() {
+                                        @Override
+                                        public void onClick(View v) {
+                                            Intent intent=new Intent(DisplayingAddedDoctors.this, DoctorProfileActivity.class);
+                                            intent.putExtra("did",model.getNumber());
+                                            intent.putExtra("id",model.getId());
+                                            intent.putExtra("sp",model.getSpecialist());
+
+                                            startActivity(intent);
+                                            dialog.dismiss();
+                                        }
+                                    });
                                     holder.feeds.setOnClickListener(new View.OnClickListener() {
                                         @Override
                                         public void onClick(View view) {
@@ -114,6 +128,7 @@ public class DisplayingAddedDoctors extends AppCompatActivity {
                                             String name=model.getName();
                                             Intent intent=new Intent(DisplayingAddedDoctors.this, PatientStories.class);
                                             intent.putExtra("did",number);
+
                                             startActivity(intent);
                                             dialog.dismiss();
                                         }

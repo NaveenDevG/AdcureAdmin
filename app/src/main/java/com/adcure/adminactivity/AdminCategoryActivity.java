@@ -68,8 +68,8 @@ public class AdminCategoryActivity extends AppCompatActivity {
    button=(Button)findViewById(R.id.btn);
    button1=(Button)findViewById(R.id.btn1);
         productRef= FirebaseDatabase.getInstance().getReference();//app/use
-getNotify();
-createNormalNotification1();
+//getNotify();
+//createNormalNotification1();
 //            SharedPreferences prefs  = getPreferences(MODE_PRIVATE);
 //            SharedPreferences.Editor editor = prefs.edit();
 //            editor.putBoolean("key",true); //or you can also use editor.putString("key","value");

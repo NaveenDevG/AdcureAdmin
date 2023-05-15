@@ -398,7 +398,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="AdCure\n(Walrus Lifesciences Pvt.Ltd.)\nH.No.: 13,Gokul Marg,\nNorth S. K. Puri,\nPatna - 800013, Bihar(India)\nEmail ID: support@adcure.co.in\nWebsite: www.adcure.co.in"
+                            android:text="AdCure\n(Walrus Lifesciences Pvt.Ltd.)\nGST No.: 10AAACW7591D1ZJ\nH.No.: 13,Gokul Marg,\nNorth S. K. Puri,\nPatna - 800013, Bihar(India)\nEmail ID: support@adcure.co.in\nWebsite: www.adcure.co.in"
                             android:textColor="@color/StripColor"
                             android:textSize="15sp" />
                     </LinearLayout>
