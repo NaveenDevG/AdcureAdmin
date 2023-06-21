@@ -15,7 +15,6 @@ android {
         targetSdkVersion 30
         versionCode 1
         versionName "1.0"
-
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
@@ -79,4 +78,9 @@ dependencies {
         // Exclude org.json provided by Android
         exclude group: 'org.json', module: 'json'
     }
+//    implementation 'com.google.firebase:firebase-inappmessaging-display:17.2.0'
+    implementation 'com.google.guava:guava:27.0.1-android'
+    implementation 'androidx.browser:browser:1.2.0'
+
+
 }

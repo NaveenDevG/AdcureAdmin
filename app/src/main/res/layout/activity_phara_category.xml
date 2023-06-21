@@ -20,7 +20,22 @@
         android:onClick="addMedicine"
         android:textAllCaps="false"
         android:textColor="@android:color/white"
-        android:textSize="15sp" />  <Button
+        android:textSize="15sp" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="6dp"
+        android:layout_marginRight="15dp"
+        android:background="#673AB7"
+        android:padding="20dp"
+        android:text="Bulk CSV File upload"
+        android:onClick="uploadCSV"
+        android:textAllCaps="false"
+        android:textColor="@android:color/white"
+        android:textSize="15sp" />
+    <Button
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginLeft="15dp"

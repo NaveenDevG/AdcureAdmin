@@ -67,8 +67,11 @@ public class ViewMedicines extends AppCompatActivity {
 
                                 @Override
                                 protected void onBindViewHolder(@NonNull ProductViewHolder holder, int position, @NonNull final Products model) {
-
-                                    Picasso.get().load(model.getImg1()).into(holder.productImage);
+if(!model.getImg1().equals(""))
+{                Picasso.get().load(model.getImg1()).into(holder.productImage);}
+else {
+    holder.productImage.setVisibility(View.INVISIBLE);
+}
                                     String n=model.getName();
 
                                     holder.prNo.setText("No : "+model.getNo());
@@ -82,9 +85,14 @@ public class ViewMedicines extends AppCompatActivity {
                                     holder.update.setOnClickListener(new View.OnClickListener() {
                                         @Override
                                         public void onClick(View v) {
+//                                            if(!model.getImg1().equals("") || model.getImg1()!=null){
                                             Intent intent=new Intent(ViewMedicines.this,UpdateMedicines.class);
                                             intent.putExtra("pid",model.getPid());
                                             startActivity(intent);
+//                                            }
+//                                            else{
+//
+//                                            }
                                         }
                                     });
                                     holder.delete.setOnClickListener( new View.OnClickListener() {

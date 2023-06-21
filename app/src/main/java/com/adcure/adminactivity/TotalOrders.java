@@ -66,6 +66,25 @@ public class TotalOrders extends AppCompatActivity {
                                         }
                                         holder.payid.setText("Payment id : " + model.getPaymentid());
                                         holder.num.setText("Mobile Number : " + model.getGphone());
+                                        holder.toViewPastOrder.setOnClickListener(new View.OnClickListener() {
+                                            @Override
+                                            public void onClick(View v) {
+
+                                                    Intent intent = new Intent(TotalOrders.this, UserPastOrders.class);
+
+                                                    intent.putExtra("pid",model.getPaymentid());
+                                                    intent.putExtra("addr",model.getGaddress());
+                                                    intent.putExtra("num",model.getGphone());
+                                                    intent.putExtra("nme",model.getGname());
+                                                    intent.putExtra("paid",model.getPaid());
+                                                    intent.putExtra("uid",model.getUid());
+                                                    intent.putExtra("date",model.getDate());
+                                                    if(model.getInvoiceid()!=null){
+                                                        intent.putExtra("inv",model.getInvoiceid());
+                                                    }
+                                                    startActivity(intent);
+                                            }
+                                        });
                                         if(model.getShipped().equals("y") && model.getDelivered().equals("y")){}
                                         else if (model.getShipped().equals("y")) {
                                             holder.shipstate.setText("shipping state: shipped");
@@ -92,6 +111,9 @@ public class TotalOrders extends AppCompatActivity {
                                                 intent.putExtra("paid",model.getPaid());
                                                 intent.putExtra("uid",model.getUid());
                                                  intent.putExtra("date",model.getDate());
+                                                if(model.getInvoiceid()!=null){
+                                                    intent.putExtra("inv",model.getInvoiceid());
+                                                }
                                                 startActivity(intent);
 //                                            startActivity(intent);
                                             }
@@ -126,4 +148,5 @@ public class TotalOrders extends AppCompatActivity {
         catch(Exception e){
         e.getMessage();
     }}
+
 }

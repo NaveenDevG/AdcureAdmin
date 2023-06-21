@@ -12,6 +12,29 @@ public class Medicine implements Serializable {
 
     }
 
+    public Medicine(String img1, String img2, String img3, String pid, String no, String name, String category, String description, String company, String pdate, String price, String stock, String subcategory, String edate, String flat_discount, String extra_discount, String discount_price, String prescription, String date, String time) {
+        Img1 = img1;
+        Img2 = img2;
+        Img3 = img3;
+        Pid = pid;
+        No = no;
+        Name = name;
+        Category = category;
+        Description = description;
+        Company = company;
+        Pdate = pdate;
+        Price = price;
+        Stock = stock;
+        Subcategory = subcategory;
+        Edate = edate;
+        Flat_discount = flat_discount;
+        Extra_discount = extra_discount;
+        Discount_price = discount_price;
+        Prescription = prescription;
+        Date = date;
+        Time = time;
+    }
+
     public String getImg1() {
         return Img1;
     }

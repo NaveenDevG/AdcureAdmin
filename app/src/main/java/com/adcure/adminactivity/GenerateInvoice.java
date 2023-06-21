@@ -59,7 +59,7 @@ public class GenerateInvoice extends AppCompatActivity {
     ImageView toprof;int i=0;
     String shippedstatus,pid;
     RecyclerView.LayoutManager layoutManager;
-    private TextView paid,addr,gnme,gnum,dte,ship,itemcharge,deliverycharge;
+    private TextView paid,addr,gnme,gnum,dte,ship,itemcharge,deliverycharge,invId;
     private float ic,dc;
     String dirpath;
     RelativeLayout relativeLayout;
@@ -71,7 +71,7 @@ public class GenerateInvoice extends AppCompatActivity {
         setContentView(R.layout.activity_generate_invoice);
          relativeLayout=findViewById(R.id.sc);
             final Calendar c = Calendar.getInstance();
-
+invId=findViewById(R.id.invoiceId);
             SimpleDateFormat format1 = new SimpleDateFormat("dd-MM-yyyy");
 
             String formatted = format1.format(c.getTime());
@@ -166,6 +166,12 @@ public class GenerateInvoice extends AppCompatActivity {
             });
 
 
+            if(getIntent().getStringExtra("inv")!=null){
+                invId.setVisibility(View.VISIBLE);
+                invId.setText("Invoice No : "+getIntent().getStringExtra("inv"));
+
+            }else{
+                invId.setVisibility(View.GONE);            }
         } catch (Exception e) {
             e.printStackTrace();
             Log.e("excc", e.getMessage());

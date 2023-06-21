@@ -80,6 +80,9 @@ public class TodayOrders extends AppCompatActivity {
                                             intent.putExtra("paid",model.getPaid());
                                             intent.putExtra("uid",model.getUid());
                                             intent.putExtra("date",model.getDate());
+                                            if(model.getInvoiceid()!=null){
+                                                intent.putExtra("inv",model.getInvoiceid());
+                                            }
                                              startActivity(intent);                                            // intent.putExtra("pid",model.getPid());
 //                                            startActivity(intent);
                                         }

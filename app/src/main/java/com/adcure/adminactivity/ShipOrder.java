@@ -187,8 +187,8 @@ shipbtn.setOnClickListener(new View.OnClickListener() {
                                     public void onDataChange(@NonNull DataSnapshot snapshot) {
                                         if(snapshot.child("paid").getValue().toString().contains("COD")){
 
-                                            databaseReference4.child("paid").setValue(snapshot.child("paid").getValue().toString().replace("COD - Not paid ",""));
-                                            productRef.child("paid").setValue(snapshot.child("paid").getValue().toString().replace("COD - Not paid ",""));
+//                                            databaseReference4.child("paid").setValue(snapshot.child("paid").getValue().toString().replace("COD - Not paid ",""));
+//                                            productRef.child("paid").setValue(snapshot.child("paid").getValue().toString().replace("COD - Not paid ",""));
 
                                         }
                                     }
@@ -445,6 +445,10 @@ shipbtn.setOnClickListener(new View.OnClickListener() {
         intent.putExtra("uid",getIntent().getStringExtra("uid"));
         intent.putExtra("shipped",getIntent().getStringExtra("shipped"));
         intent.putExtra("date",getIntent().getStringExtra("date"));
+        if(getIntent().getStringExtra("inv")!=null){
+            intent.putExtra("inv",getIntent().getStringExtra("inv"));
+
+        }
         startActivity(intent);
     }
 

@@ -4,6 +4,7 @@ package com.adcure.adminactivity;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.FileProvider;
 
 import android.annotation.SuppressLint;
 import android.app.AlertDialog;
@@ -12,9 +13,14 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.database.Cursor;
+import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Environment;
+import android.provider.MediaStore;
+import android.provider.OpenableColumns;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
@@ -28,7 +34,9 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.adcure.adminactivity.Appointment.Appointments;
 import com.adcure.adminactivity.Prevalent.DoctorDetails;
+import com.adcure.adminactivity.Prevalent.Medicine;
 import com.adcure.adminactivity.Prevalent.TaskMode;
 import com.adcure.adminactivity.Prevalent.Users;
 import com.adcure.adminactivity.Prevalent.Prevalent;
@@ -51,7 +59,10 @@ import com.opencsv.CSVReader;
 import com.toptoche.searchablespinnerlibrary.SearchableSpinner;
 
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.FileReader;
+import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -63,16 +74,15 @@ import io.paperdb.Paper;
 public class AddDoctorActivity extends AppCompatActivity {
     private static final String SHARED_PREF_FILE = "";
     private static final int ACTIVITY_CHOOSE_FILE1 = 4;
-    private SearchableSpinner spinner1,spinner2,amnt_spin;
+     private SearchableSpinner spinner1,spinner2,amnt_spin;
     private ImageView img;
     private String  saveCurrentdate,saveCurentTime;
-
+  private  static ArrayList<Medicine> detailsArrayList=new ArrayList<Medicine>();
 private EditText qua,nme_dtcr,hsptl,hsptlAdres;
 private Button btn_submit;
 private Uri imageUri;
     private ProgressDialog dialog;private static int GALLERYINTENT=1;
     private String doctorRandomKey, DownloadUri,availyn;
-
     private StorageReference imageRef;
     private EditText cost,spincountry,state_spin,city_spin,from,to,no_of_patients;
     private ArrayList<String> arrayList;
@@ -83,12 +93,17 @@ private Uri imageUri;
     TextView yesavialbtn,nobtn;
     private DatabaseReference dctrref,dctrrefAdmin,availRef,addedDcotorRef;
     private SharedPreferences sharedPreferences;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         try{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_doctor);
-        spinner1 = (SearchableSpinner) findViewById(R.id.sp1);
+//            readDataLineByLine(String.valueOf(new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS),"PharmaBulkUpload.csv")));
+//
+//            readDataLineByLine(String.valueOf(new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS),"PharmaBulkUpload.csv")));
+
+            spinner1 = (SearchableSpinner) findViewById(R.id.sp1);
         hsptl=(EditText)findViewById(R.id.hsptl_nme);
         yesavialbtn=findViewById(R.id.yesavail);
         nobtn=findViewById(R.id.noavial);
@@ -100,6 +115,7 @@ private Uri imageUri;
           @Override
           public void onClick(View view) {
 //              OpenFiley();
+
               yesavialbtn.setBackgroundColor(Color.YELLOW);
               yesavialbtn.setBackgroundColor(R.color.colorAccent);
               nobtn.setBackgroundColor(Color.parseColor("#23000000"));
@@ -569,13 +585,13 @@ private Uri imageUri;
         if(requestCode==ACTIVITY_CHOOSE_FILE1 && resultCode==RESULT_OK &&   data!=null){
 
             imageUri=data.getData();
+//          getRealPathFromURI(getApplicationContext(),imageUri);
+//proImportCSV(new File(data.getData().getLastPathSegment().replace("raw:","")));
+
+//           proImportCSV(new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS),"Appointments.csv"));
 
 
-
-           proImportCSV(new File(imageUri.getPath()));
-
-
-            readDataLineByLine(data.getData().getPath());
+            readDataLineByLine(String.valueOf(new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS),"PharmaBulkUpload.csv")));
 
         }
     }
@@ -597,14 +613,42 @@ private Uri imageUri;
             // file reader as a parameter
             CSVReader csvReader = new CSVReader(filereader);
             String[] nextRecord;
-
+Medicine medicine;
             // we are going to read data line by line
-            while ((nextRecord = csvReader.readNext()) != null) {
-                for (String cell : nextRecord) {
-                    System.out.print(cell + "\t");
-                }
-                System.out.println();
-            }
+          try{          while ((nextRecord = csvReader.readNext()) != null) {
+              medicine=new Medicine();
+
+//                for (String cell : nextRecord) {
+//                    System.out.print(cell + "\t");
+//                }
+              medicine.setPid(nextRecord[0]);
+              medicine.setNo(nextRecord[1]);
+              medicine.setName(nextRecord[2]);
+              medicine.setCategory(nextRecord[3]);
+              medicine.setDescription(nextRecord[4]);
+              medicine.setCompany(nextRecord[5]);
+              medicine.setPdate(nextRecord[6]);
+              medicine.setPrice(nextRecord[7]);
+              medicine.setStock(nextRecord[8]);
+              medicine.setSubcategory(nextRecord[9]);
+              medicine.setEdate(nextRecord[10]);
+              medicine.setFlat_discount(nextRecord[11]);
+              medicine.setExtra_discount(nextRecord[12]);
+              medicine.setDiscount_price(nextRecord[13]);
+              medicine.setPrescription(nextRecord[14]);
+              medicine.setDate(nextRecord[15]);
+              medicine.setTime(nextRecord[16]);
+              detailsArrayList.add(medicine);
+//                medicine.setFlat_discount(nextRecord[0]);
+
+              System.out.println();
+          }
+          }catch (Exception e){
+              e.printStackTrace();
+          }
+            Log.v("toto",String.valueOf(detailsArrayList.size()));
+            Log.v("toto",String.valueOf(detailsArrayList));
+
         }
         catch (Exception e) {
             e.printStackTrace();
@@ -614,13 +658,17 @@ private Uri imageUri;
     private void OpenFiley() {
         try{
 
-            Intent chooseFile;
-            Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
-         //// intent.addCategory(Intent.CATEGORY_OPENABLE);
-           intent.setType("text/*");
-            startActivityForResult(intent
-                    , ACTIVITY_CHOOSE_FILE1);
+//            Intent chooseFile;
+//            Intent intent = new Intent(Intent.ACTION_OPEN_DOCUMENT);
+//         //// intent.addCategory(Intent.CATEGORY_OPENABLE);
+//           intent.setType("text/*");
+//            startActivityForResult(intent
+//                    , ACTIVITY_CHOOSE_FILE1);
 
+//            Intent intent = new Intent(Intent.ACTION_OPEN_DOCUMENT );
+//            intent.addCategory(Intent.CATEGORY_OPENABLE);
+//            intent.setType("text/*");
+//            startActivityForResult(Intent.createChooser(intent, "Open CSV"), ACTIVITY_CHOOSE_FILE1);
         }
         catch (Exception e){
             e.getMessage();
@@ -631,7 +679,7 @@ private Uri imageUri;
             // Delete everything above here since we're reading from the File we already have
            // ContentValues cv = new ContentValues();
             // reading CSV and writing table
-            CSVReader dataRead = new CSVReader(new FileReader(from)); // <--- This line is key, and why it was reading the wrong file
+             CSVReader dataRead = new CSVReader(new FileReader(from)); // <--- This line is key, and why it was reading the wrong file
 
            // SQLiteDatabase db = mHelper.getWritableDatabase(); // LEt's just put this here since you'll probably be using it a lot more than once
             String[] vv = null;
@@ -643,6 +691,7 @@ private Uri imageUri;
                 String eDDte;
                 try {
                     Date nDate = currFormater.parse(vv[0]);
+
                     eDDte = postFormater.format(nDate);
                     //cv.put(Table.DATA,eDDte);
                 }
@@ -657,5 +706,65 @@ private Uri imageUri;
 
         }
     }
+    private String getRealPathFromURI(Uri contentURI) {
+        Cursor cursor = getContentResolver().query(contentURI, null, null, null, null);
+        if (cursor == null) { // Source is Dropbox or other similar local file path
+            return contentURI.getPath();
+        } else {
+            cursor.moveToFirst();
+            int idx = cursor.getColumnIndex(MediaStore.Images.ImageColumns.DATA);
+            return cursor.getString(idx);
+        }
+    }
+    public String getRealPathFromURI(Context context, Uri contentUri) {
+        Cursor cursor = null;
+        try {
+            String[] proj = { MediaStore.Images.Media.DATA };
+            cursor = context.getContentResolver().query(contentUri,  proj, null, null, null);
+            int column_index = cursor.getColumnIndexOrThrow(MediaStore.Images.Media.DATA);
+            cursor.moveToFirst();
+            return cursor.getString(column_index);
+        } finally {
+            if (cursor != null) {
+                cursor.close();
+            }
+        }
+    }
+    public String getFileName(Uri uri) {
+        String result = null;
+        if (uri.getScheme().equals("content")) {
+            Cursor cursor = getContentResolver().query(uri, null, null, null, null);
+            try {
+                if (cursor != null && cursor.moveToFirst()) {
+                    result = cursor.getString(cursor.getColumnIndex(OpenableColumns.DISPLAY_NAME));
+                }
+            } finally {
+                cursor.close();
+            }
+        }
+        if (result == null) {
+            result = uri.getPath();
+            int cut = result.lastIndexOf('/');
+            if (cut != -1) {
+                result = result.substring(cut + 1);
+            }
+        }
+        return result;
+    }
+    public String getPath(Uri uri) {
+        Cursor cursor = getContentResolver().query(uri, null, null, null, null);
+        cursor.moveToFirst();
+        String document_id = cursor.getString(0);
+        document_id = document_id.substring(document_id.lastIndexOf(":") + 1);
+        cursor.close();
 
+        cursor = getContentResolver().query(
+                android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI,
+                null, MediaStore.Images.Media._ID + " = ? ", new String[]{document_id}, null);
+        cursor.moveToFirst();
+        String path = cursor.getString(cursor.getColumnIndex(MediaStore.Images.Media.DATA));
+        cursor.close();
+
+        return path;
+    }
 }

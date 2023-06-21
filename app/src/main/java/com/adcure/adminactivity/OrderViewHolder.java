@@ -9,7 +9,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 public class OrderViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
     public TextView payid,nme,num,paid,itemcount,orderDate,shipstate;
-    public Button toViewPro;
+    public Button toViewPro,toViewPastOrder;
     public OrderViewHolder(@NonNull View itemView) {
         super(itemView);
         paid=itemView.findViewById(R.id.txtPaid);
@@ -20,6 +20,7 @@ public class OrderViewHolder extends RecyclerView.ViewHolder implements View.OnC
         itemcount=itemView.findViewById(R.id.txtItemscount);
         orderDate=itemView.findViewById(R.id.txtOrderdate);
         toViewPro=itemView.findViewById(R.id.btnView);
+        toViewPastOrder=itemView.findViewById(R.id.btnViewPast);
     }
 
     @Override

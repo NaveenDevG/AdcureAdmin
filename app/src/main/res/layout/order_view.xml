@@ -76,18 +76,38 @@ android:layout_margin="10dp"
             android:id="@+id/txtshipstate"
             android:textColor="#80000000"/>
         </LinearLayout>
-       <Button
+      <LinearLayout
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_gravity="center"
+        android:orientation="vertical">
+          <Button
            android:layout_width="wrap_content"
            android:layout_height="wrap_content"
            android:textAllCaps="false"
            android:background="@drawable/buttonsstyle"
           android:gravity="center"
            android:text="View"
+              android:layout_marginBottom="@dimen/padding10"
            android:id="@+id/btnView"
            android:layout_marginEnd="5dp"
             android:textColor="#fff"
            android:layout_gravity="center"
-           />
+           />   <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAllCaps="false"
+        android:background="@drawable/buttonsstyle"
+        android:gravity="center"
+        android:text="Past Orders"
+          android:paddingLeft="@dimen/margin2dp"
+          android:paddingRight="@dimen/margin2dp"
+        android:id="@+id/btnViewPast"
+
+        android:layout_marginEnd="5dp"
+        android:textColor="#fff"
+        android:layout_gravity="center"
+        /></LinearLayout>
     </LinearLayout>
 
 </androidx.cardview.widget.CardView>

@@ -24,6 +24,55 @@
             android:textSize="20sp" />
 
     </androidx.appcompat.widget.Toolbar>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:gravity="center"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/toolbar"
+        android:layout_centerHorizontal="true"
+         android:visibility="visible"
+        android:id="@+id/rl_imgs"
+
+         >
+
+        <ImageView
+            android:id="@+id/select_Image"
+            android:layout_width="100dp"
+            android:layout_height="110dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginRight="15dp"
+            android:cropToPadding="false"
+            android:scaleType="fitXY"
+            android:src="@drawable/uploade"
+
+            />
+
+        <ImageView
+            android:id="@+id/select_Image2"
+            android:layout_width="100dp"
+            android:layout_height="110dp"
+            android:layout_marginLeft="10dp"
+
+            android:layout_marginTop="15dp"
+            android:layout_toRightOf="@id/select_Image1"
+            android:cropToPadding="false"
+            android:scaleType="fitXY"
+            android:src="@drawable/uploade" />
+
+        <ImageView
+            android:id="@+id/select_Image1"
+            android:layout_width="100dp"
+            android:layout_height="110dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_toRightOf="@id/select_Image"
+            android:cropToPadding="false"
+            android:scaleType="fitXY"
+            android:src="@drawable/uploade"
+
+            /></RelativeLayout>
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/productImg"
