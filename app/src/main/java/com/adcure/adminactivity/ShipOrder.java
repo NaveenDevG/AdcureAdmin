@@ -89,7 +89,6 @@ String add,nme,num,pid,uid,state="";
                 else if(snapshot.child("shipped").getValue().equals("y")){
                     shipbtn.setText("Delivered ?");
                     state="shipped";
-
                 }
 //                else if(snapshot.child("shipped").equals("n") || snapshot.child("delivered").equals("n")){
 //                    shipbtn.setVisibility(View.GONE);
@@ -449,6 +448,8 @@ shipbtn.setOnClickListener(new View.OnClickListener() {
             intent.putExtra("inv",getIntent().getStringExtra("inv"));
 
         }
+        intent.putExtra("cashback", getIntent().getStringExtra("cashback"));
+
         startActivity(intent);
     }
 

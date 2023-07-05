@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -73,7 +74,13 @@ public class GenerateInvoice extends AppCompatActivity {
             final Calendar c = Calendar.getInstance();
 invId=findViewById(R.id.invoiceId);
             SimpleDateFormat format1 = new SimpleDateFormat("dd-MM-yyyy");
-
+          LinearLayout linearLayout = findViewById(R.id.ll_cb);
+           String cashBack = getIntent().getStringExtra("cashback");
+            if (cashBack.equals("y")) {
+                linearLayout.setVisibility(View.VISIBLE);
+            } else {
+                linearLayout.setVisibility(View.GONE);
+            }
             String formatted = format1.format(c.getTime());
          dte=findViewById(R.id.dateTdy);
 

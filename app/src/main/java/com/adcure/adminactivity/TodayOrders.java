@@ -83,6 +83,14 @@ public class TodayOrders extends AppCompatActivity {
                                             if(model.getInvoiceid()!=null){
                                                 intent.putExtra("inv",model.getInvoiceid());
                                             }
+                                            if (model.getCashback() == null) {
+                                                intent.putExtra("cashback", "");
+                                            } else {
+                                                intent.putExtra("cashback", model.getCashback());
+                                            }
+                                            if (model.getInvoiceid() != null) {
+                                                intent.putExtra("inv", model.getInvoiceid());
+                                            }
                                              startActivity(intent);                                            // intent.putExtra("pid",model.getPid());
 //                                            startActivity(intent);
                                         }

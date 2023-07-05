@@ -1,7 +1,8 @@
 package com.adcure.adminactivity;
 
 public class Orders {
-    String date,gaddress,gcity,gname,gphone,gpincode,gstate,uid,paid,paymentid,time,umail,uphone,items,placed,shipped,delivered,invoiceid;
+    String date,gaddress,gcity,gname,gphone,gpincode,gstate,uid,paid,paymentid,time,umail,uphone,items,placed,shipped,delivered,invoiceid,cashback,fivepercentcoupon;
+
 
     public Orders(String date, String gaddress, String gcity, String gname,String items, String gphone, String gpincode, String gstate, String uid, String paid, String paymentid, String time, String umail, String uphone) {
         this.date = date;
@@ -21,6 +22,22 @@ public class Orders {
     }
 
     public Orders() {
+    }
+
+    public String getCashback() {
+        return cashback;
+    }
+
+    public void setCashback(String cashback) {
+        this.cashback = cashback;
+    }
+
+    public String getFivepercentcoupon() {
+        return fivepercentcoupon;
+    }
+
+    public void setFivepercentcoupon(String fivepercentcoupon) {
+        this.fivepercentcoupon = fivepercentcoupon;
     }
 
     public String getInvoiceid() {
