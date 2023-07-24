@@ -41,10 +41,13 @@ import com.squareup.picasso.Picasso;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.security.Timestamp;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Random;
 
 public class ShipOrder extends AppCompatActivity {
     private long count;private int orderfina;
@@ -174,13 +177,32 @@ shipbtn.setOnClickListener(new View.OnClickListener() {
                                 DatabaseReference  databaseReference4 = FirebaseDatabase.getInstance().getReference().child("Pharmacy").child("All Payments").child(uid);
                                 DatabaseReference productRef= FirebaseDatabase.getInstance().getReference().child("Users").child(uid).child("Pharmacy").child("Orders").child(pid);
                                 Calendar calendar=Calendar.getInstance();
-                                SimpleDateFormat currentDate=new  SimpleDateFormat("MMM dd,yyyy");
-                                String saveCurrentdate=currentDate.format(calendar.getTime());
+                                 String saveCurrentdate,saveCurentTime;
+
                                 DatabaseReference  databaseReference5= FirebaseDatabase.getInstance().getReference().child("Pharmacy").child("Today Payments");
 //                            DatabaseReference db5=FirebaseDatabase.getInstance().getReference().child("Products in Sub-Category").child(model.getCategory()).child(model.getSub_category()).child(model.getPid());
 //                            DatabaseReference db6=FirebaseDatabase.getInstance().getReference().child("Products in Category").child(model.getCategory()).child(model.getPid());
                                 databaseReference4.child("shipped").setValue("y");
                                 productRef.child("shipped").setValue("y");
+
+                                Random rand = new Random();
+
+                                String randomPin = String.format("%04d", rand.nextInt(10000));
+
+//                                System.out.println("Random double value between 0.0 and 1.0 : " + id);
+                                SimpleDateFormat currentDate=new SimpleDateFormat("MMM dd,yyyy HH:mm:ss a");
+                                saveCurrentdate=currentDate.format(calendar.getTime());
+                                HashMap hashMap=new HashMap<>();
+                                hashMap.put("pin",randomPin);
+                                hashMap.put("uid",uid);
+                                hashMap.put("date",saveCurrentdate);
+                                hashMap.put("oid",pid);
+                                hashMap.put("name",nme);
+                                hashMap.put("num",num);
+                                DatabaseReference databaseReference=FirebaseDatabase.getInstance().getReference();
+                                databaseReference.child("Order Pin").child(pid).updateChildren(hashMap);
+                                databaseReference.child("Users").child(uid).child("Order Pins").child(pid).updateChildren(hashMap);
+
                                 databaseReference4.addValueEventListener(new ValueEventListener() {
                                     @Override
                                     public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -449,6 +471,8 @@ shipbtn.setOnClickListener(new View.OnClickListener() {
 
         }
         intent.putExtra("cashback", getIntent().getStringExtra("cashback"));
+        intent.putExtra("5%offer", getIntent().getStringExtra("5%offer"));
+        intent.putExtra("couponamount", getIntent().getStringExtra("couponamount"));
 
         startActivity(intent);
     }

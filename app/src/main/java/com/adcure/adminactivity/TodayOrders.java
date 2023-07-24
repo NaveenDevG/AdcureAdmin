@@ -91,6 +91,16 @@ public class TodayOrders extends AppCompatActivity {
                                             if (model.getInvoiceid() != null) {
                                                 intent.putExtra("inv", model.getInvoiceid());
                                             }
+                                            if(model.getFivepercentcoupon() == null){
+
+                                                intent.putExtra("5%offer", "");
+                                                intent.putExtra("couponamount", "");
+
+                                            } else {
+                                                intent.putExtra("5%offer", model.getFivepercentcoupon());
+                                                intent.putExtra("couponamount", model.getCouponamount());
+
+                                            }
                                              startActivity(intent);                                            // intent.putExtra("pid",model.getPid());
 //                                            startActivity(intent);
                                         }

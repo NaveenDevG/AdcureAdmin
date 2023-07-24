@@ -330,6 +330,30 @@ android:textColor="@color/white"
             android:textColor="#B5000000" />
 
     </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/padding5"
+        android:id="@+id/ll_fiveCoupon">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="3dp"
+            android:text="Cashback Applied"
+            android:textColor="@color/picker_color_blue" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="3dp"
+            android:layout_marginRight="@dimen/padding10"
+            android:gravity="end"
+            android:text="-/-"
+            android:id="@+id/cA"
+            android:textColor="#B5000000" />
+
+    </LinearLayout>
 
         <View
             android:layout_width="match_parent"

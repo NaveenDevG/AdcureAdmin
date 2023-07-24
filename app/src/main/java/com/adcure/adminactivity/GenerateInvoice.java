@@ -62,8 +62,10 @@ public class GenerateInvoice extends AppCompatActivity {
     RecyclerView.LayoutManager layoutManager;
     private TextView paid,addr,gnme,gnum,dte,ship,itemcharge,deliverycharge,invId;
     private float ic,dc;
-    String dirpath;
+    String dirpath, cashBack,fO,cA;
+    TextView cATV;
     RelativeLayout relativeLayout;
+    LinearLayout ll_data, linearLayout,linearLayoutC;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -76,10 +78,20 @@ invId=findViewById(R.id.invoiceId);
             SimpleDateFormat format1 = new SimpleDateFormat("dd-MM-yyyy");
           LinearLayout linearLayout = findViewById(R.id.ll_cb);
            String cashBack = getIntent().getStringExtra("cashback");
+            cATV=findViewById(R.id.cA);
+            linearLayoutC=findViewById(R.id.ll_fiveCoupon);
+            fO=  getIntent().getStringExtra("5%offer");
+            cA= getIntent().getStringExtra("couponamount");
             if (cashBack.equals("y")) {
                 linearLayout.setVisibility(View.VISIBLE);
             } else {
                 linearLayout.setVisibility(View.GONE);
+            }
+            if (fO.equals("y")) {
+                linearLayoutC.setVisibility(View.VISIBLE);
+                cATV.setText("-"+String.valueOf(cA)+"/-");
+            } else {
+                linearLayoutC.setVisibility(View.GONE);
             }
             String formatted = format1.format(c.getTime());
          dte=findViewById(R.id.dateTdy);
@@ -101,13 +113,30 @@ invId=findViewById(R.id.invoiceId);
             paid.setText(getIntent().getStringExtra("paid").toString());
 
         }else{
-            paid.setText(getIntent().getStringExtra("paid").toString()+"/-");
-            if(Float.parseFloat(getIntent().getStringExtra("paid") )< 599){
-                ic=Float.parseFloat(getIntent().getStringExtra("paid") )-49;
-                dc=49;
-            }else{
-                ic=Float.parseFloat(getIntent().getStringExtra("paid") );
-                dc=0;
+            paid.setText(getIntent().getStringExtra("paid").toString() + "/-");
+            if (Float.parseFloat(getIntent().getStringExtra("paid")) < 599) {
+                ic = Float.parseFloat(getIntent().getStringExtra("paid")) - 49;
+                if (getIntent().getStringExtra("cashback").toString().equals("y") && fO.equals("y")) {
+                    ic = Float.parseFloat(getIntent().getStringExtra("paid")) - 49 + 100+Float.parseFloat(cA);
+                }
+                else if (getIntent().getStringExtra("cashback").toString().equals("y")) {
+                    ic = Float.parseFloat(getIntent().getStringExtra("paid")) - 49 + 100;
+                }else  if (fO.equals("y")) {
+                    ic = Float.parseFloat(getIntent().getStringExtra("paid")) -49 + Float.parseFloat(cA);
+
+                }
+                dc = 49;
+            } else {
+                ic = Float.parseFloat(getIntent().getStringExtra("paid"));
+                if (getIntent().getStringExtra("cashback").toString().equals("y") && fO.equals("y")) {
+                    ic = Float.parseFloat(getIntent().getStringExtra("paid")) + 100+Float.parseFloat(cA);
+
+                }else  if (getIntent().getStringExtra("cashback").toString().equals("y")) {
+                    ic = Float.parseFloat(getIntent().getStringExtra("paid")) + 100;
+                }else  if (fO.equals("y")) {
+                    ic = Float.parseFloat(getIntent().getStringExtra("paid")) + Float.parseFloat(cA);
+                }
+                dc = 0;
             }
 
         }

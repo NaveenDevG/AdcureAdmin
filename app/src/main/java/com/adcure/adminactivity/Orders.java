@@ -1,10 +1,17 @@
 package com.adcure.adminactivity;
 
 public class Orders {
-    String date,gaddress,gcity,gname,gphone,gpincode,gstate,uid,paid,paymentid,time,umail,uphone,items,placed,shipped,delivered,invoiceid,cashback,fivepercentcoupon;
+    String date,gaddress,gcity,gname,gphone,gpincode,gstate,uid,paid,paymentid,time,umail,uphone,items,placed,shipped,delivered,invoiceid,cashback,fivepercentcoupon,couponamount;
 
+    public String getCouponamount() {
+        return couponamount;
+    }
 
-    public Orders(String date, String gaddress, String gcity, String gname,String items, String gphone, String gpincode, String gstate, String uid, String paid, String paymentid, String time, String umail, String uphone) {
+    public void setCouponamount(String couponamount) {
+        this.couponamount = couponamount;
+    }
+
+    public Orders(String date, String gaddress, String gcity, String gname, String items, String gphone, String gpincode, String gstate, String uid, String paid, String paymentid, String time, String umail, String uphone) {
         this.date = date;
         this.gaddress = gaddress;
         this.gcity = gcity;

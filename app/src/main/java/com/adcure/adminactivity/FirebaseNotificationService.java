@@ -11,6 +11,7 @@ import android.media.Ringtone;
 import android.media.RingtoneManager;
 import android.net.Uri;
 import android.os.Build;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
@@ -20,8 +21,11 @@ import androidx.core.content.res.ResourcesCompat;
 
 import com.adcure.adminactivity.Constants.AllConstants;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.messaging.FirebaseMessagingService;
 import com.google.firebase.messaging.RemoteMessage;
 
@@ -36,7 +40,7 @@ public class FirebaseNotificationService extends FirebaseMessagingService {
 
 
     MediaPlayer mediaPlayer;
-
+String email="j";
     @Override
     public void onMessageReceived(@NonNull RemoteMessage remoteMessage) {
 
@@ -62,7 +66,7 @@ public class FirebaseNotificationService extends FirebaseMessagingService {
 //    else
 //        createNormalNotification1(mtitle, mmessage, mhisID);
 //} else{
-            if (title.equals("New Message") || title.equals("Order") || title.equals("LabTest") || title.equals("Order With Prescription")) {
+            if (title.equals("New Message") || title.equals("Order") || title.equals("LabTest") || title.equals("Order With Prescription") || title.equals("Carts")) {
                 if (Build.VERSION.SDK_INT > Build.VERSION_CODES.O)
                     createOreoNotification1(title, message, hisID);
                 else
@@ -223,11 +227,14 @@ public class FirebaseNotificationService extends FirebaseMessagingService {
             intent = intent.setClass(this, PathalogyOrders.class);
         }else if(title.equals("Order With Prescription")){
             intent=intent.setClass(this,OrdersWithPrescription.class);
-        }
+        }else if(title.equals("Carts")){
+            intent = intent.setClass(this, AdminCategoryActivity.class);
+//            getDetails(hisID);
+//     intent=intent.putExtra("uid",hisID);
+//            intent=intent.putExtra("euid",email);
+  }
         else{
-
             intent = intent.setClass(this, DisplayingAddedDoctors.class);
-
 
         }        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
 
@@ -259,13 +266,16 @@ if(title.equals("Order")){
 
 }else if(title.equals("LabTest")){
     intent = intent.setClass(this, PathalogyOrders.class);
+}else if(title.equals("Carts")){
+    intent = intent.setClass(this, AdminCategoryActivity.class);
+//    getDetails(hisID);
+//     intent=intent.putExtra("uid",hisID);
+//    intent=intent.putExtra("euid",email);
 }
 else{
-
         intent = intent.setClass(this, DisplayingAddedDoctors.class);
-
-
 }
+
         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
 
         PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, intent, 0);
@@ -288,4 +298,64 @@ else{
         super.onDestroy();
 
     }
+//public void getDetails(String uuid){
+//    DatabaseReference databaseReference= FirebaseDatabase.getInstance().getReference();
+//    databaseReference.child("Users").child(uuid).child("Details").addListenerForSingleValueEvent(new ValueEventListener() {
+//        @Override
+//        public void onDataChange(@NonNull DataSnapshot snapshot) {
+//            if(snapshot.child("email").exists()){
+////                email.setText(snapshot.child("email").getValue().toString());
+//                email=snapshot.child("email").getValue().toString();
+////                Toast.makeText(getBaseContext(), snapshot.child("email").getValue().toString(), Toast.LENGTH_SHORT).show();
+//                databaseReference.child("Users").child(uuid).child("Udetails").addListenerForSingleValueEvent(new ValueEventListener() {
+//                    @Override
+//                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+//                        if(snapshot.exists()){
+//                            String numS=snapshot.child("phone").getValue().toString();
+////                            num.setText("Contact : "+numS);
+////                            name.setText(snapshot.child("name").getValue().toString());
+////                            if(!snapshot.child("address").getValue().toString().equals(""))
+////                            {addr.setText(snapshot.child("address").getValue().toString());}
+//
+//                        }
+//                    }
+//
+//                    @Override
+//                    public void onCancelled(@NonNull DatabaseError error) {
+//
+//                    }
+//                });
+//            }
+//            else if(snapshot.child("phone").exists()){
+////                num.setText(snapshot.child("phone").getValue().toString());
+//
+//                databaseReference.child("Users").child(uuid).child("Udetails").addListenerForSingleValueEvent(new ValueEventListener() {
+//                    @Override
+//                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+//                        if(snapshot.exists()){
+//
+////                                num.setText(snapshot.child("phone").getValue().toString());
+////                            name.setText(snapshot.child("name").getValue().toString());
+////                            if(!snapshot.child("address").getValue().toString().equals(""))
+////                            {addr.setText(snapshot.child("address").getValue().toString());}
+//
+//                        }
+//                    }
+//
+//                    @Override
+//                    public void onCancelled(@NonNull DatabaseError error) {
+//
+//                    }
+//                });
+//
+//            }
+//        }
+//
+//        @Override
+//        public void onCancelled(@NonNull DatabaseError error) {
+//
+//        }
+//    });
+//
+//}
 }
