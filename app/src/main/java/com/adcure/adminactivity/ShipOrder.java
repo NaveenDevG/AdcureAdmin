@@ -113,135 +113,135 @@ shipbtn.setOnClickListener(new View.OnClickListener() {
                 .setMessage("Ship product")
                 .setPositiveButton("Yes",
                         (dialog, id) -> {
-                            // User wants to try giving the permissions again.
-                            if(state.equals("shipped")){
+            // User wants to try giving the permissions again.
+            if(state.equals("shipped")){
 
-                                DatabaseReference  databaseReference4 = FirebaseDatabase.getInstance().getReference().child("Pharmacy").child("All Payments").child(uid);
-                                DatabaseReference productRef= FirebaseDatabase.getInstance().getReference().child("Users").child(uid).child("Pharmacy").child("Orders").child(pid);
-                                Calendar calendar=Calendar.getInstance();
-                                SimpleDateFormat currentDate=new  SimpleDateFormat("MMM dd,yyyy");
-                                String saveCurrentdate=currentDate.format(calendar.getTime());
-                                DatabaseReference  databaseReference5= FirebaseDatabase.getInstance().getReference().child("Pharmacy").child("Today Payments");
+                DatabaseReference  databaseReference4 = FirebaseDatabase.getInstance().getReference().child("Pharmacy").child("All Payments").child(uid);
+                DatabaseReference productRef= FirebaseDatabase.getInstance().getReference().child("Users").child(uid).child("Pharmacy").child("Orders").child(pid);
+                Calendar calendar=Calendar.getInstance();
+                SimpleDateFormat currentDate=new  SimpleDateFormat("MMM dd,yyyy");
+                String saveCurrentdate=currentDate.format(calendar.getTime());
+                DatabaseReference  databaseReference5= FirebaseDatabase.getInstance().getReference().child("Pharmacy").child("Today Payments");
 //                            DatabaseReference db5=FirebaseDatabase.getInstance().getReference().child("Products in Sub-Category").child(model.getCategory()).child(model.getSub_category()).child(model.getPid());
 //                            DatabaseReference db6=FirebaseDatabase.getInstance().getReference().child("Products in Category").child(model.getCategory()).child(model.getPid());
-                                databaseReference4.child("delivered").setValue("y");
-                                productRef.child("delivered").setValue("y");
-                                databaseReference5.addValueEventListener(
-                                        new ValueEventListener() {
-                                            @Override
-                                            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                                                if(snapshot.child(saveCurrentdate).child(uid).exists()){
-                                                    databaseReference5.child(saveCurrentdate).child(uid).child("delivered").setValue("y");
-                                                 }
-                                            }
+                databaseReference4.child("delivered").setValue("y");
+                productRef.child("delivered").setValue("y");
+                databaseReference5.addValueEventListener(
+                        new ValueEventListener() {
+                            @Override
+                            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                if(snapshot.child(saveCurrentdate).child(uid).exists()){
+                                    databaseReference5.child(saveCurrentdate).child(uid).child("delivered").setValue("y");
+                                }
+                            }
 
-                                            @Override
-                                            public void onCancelled(@NonNull DatabaseError error) {
+                            @Override
+                            public void onCancelled(@NonNull DatabaseError error) {
 
-                                            }
-                                        }
-                                );
-                                if(getIntent().getStringExtra("paid").contains("COD")){
-                                    String paid=getIntent().getStringExtra("paid").replace("COD - Not paid ","");
+                            }
+                        }
+                );
+                if(getIntent().getStringExtra("paid").contains("COD")){
+                    String paid=getIntent().getStringExtra("paid").replace("COD - Not paid ","");
 
-                                    databaseReference4.child("paid").setValue(paid);
-                                    productRef.child("paid").setValue(paid);
+                    databaseReference4.child("paid").setValue(paid);
+                    productRef.child("paid").setValue(paid);
 
-                              databaseReference5.addValueEventListener(
-                                      new ValueEventListener() {
-                                          @Override
-                                          public void onDataChange(@NonNull DataSnapshot snapshot) {
-                                              if(snapshot.child(saveCurrentdate).child(uid).exists()){
-                                                  databaseReference5.child(saveCurrentdate).child(uid).child("paid").setValue(paid);
-                                               }
-                                          }
-
-                                          @Override
-                                          public void onCancelled(@NonNull DatabaseError error) {
-
-                                          }
-                                      }
-                              );
-
-                                    startActivity(getIntent());
-
-
+                    databaseReference5.addValueEventListener(
+                            new ValueEventListener() {
+                                @Override
+                                public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                    if(snapshot.child(saveCurrentdate).child(uid).exists()){
+                                        databaseReference5.child(saveCurrentdate).child(uid).child("paid").setValue(paid);
+                                    }
                                 }
 
+                                @Override
+                                public void onCancelled(@NonNull DatabaseError error) {
 
-                                getToken("Order","Your Final Order delivered successfully..\nThank you for choosing us");
-                                startActivity(getIntent());
-                                 Toast.makeText(ShipOrder.this, "Product delivered to\n"+"User Name : "+nme+"\nUser Number : "+num+"\nUser Id : "+uid, Toast.LENGTH_SHORT).show();
-                                    }
-                            else{
-                                DatabaseReference  databaseReference4 = FirebaseDatabase.getInstance().getReference().child("Pharmacy").child("All Payments").child(uid);
-                                DatabaseReference productRef= FirebaseDatabase.getInstance().getReference().child("Users").child(uid).child("Pharmacy").child("Orders").child(pid);
-                                Calendar calendar=Calendar.getInstance();
-                                 String saveCurrentdate,saveCurentTime;
+                                }
+                            }
+                    );
 
-                                DatabaseReference  databaseReference5= FirebaseDatabase.getInstance().getReference().child("Pharmacy").child("Today Payments");
+                    startActivity(getIntent());
+
+
+                }
+
+
+                getToken("Order","Your Final Order delivered successfully..\nThank you for choosing us");
+                startActivity(getIntent());
+                Toast.makeText(ShipOrder.this, "Product delivered to\n"+"User Name : "+nme+"\nUser Number : "+num+"\nUser Id : "+uid, Toast.LENGTH_SHORT).show();
+            }
+            else{
+                DatabaseReference  databaseReference4 = FirebaseDatabase.getInstance().getReference().child("Pharmacy").child("All Payments").child(uid);
+                DatabaseReference productRef= FirebaseDatabase.getInstance().getReference().child("Users").child(uid).child("Pharmacy").child("Orders").child(pid);
+                Calendar calendar=Calendar.getInstance();
+                String saveCurrentdate,saveCurentTime;
+
+                DatabaseReference  databaseReference5= FirebaseDatabase.getInstance().getReference().child("Pharmacy").child("Today Payments");
 //                            DatabaseReference db5=FirebaseDatabase.getInstance().getReference().child("Products in Sub-Category").child(model.getCategory()).child(model.getSub_category()).child(model.getPid());
 //                            DatabaseReference db6=FirebaseDatabase.getInstance().getReference().child("Products in Category").child(model.getCategory()).child(model.getPid());
-                                databaseReference4.child("shipped").setValue("y");
-                                productRef.child("shipped").setValue("y");
+                databaseReference4.child("shipped").setValue("y");
+                productRef.child("shipped").setValue("y");
 
-                                Random rand = new Random();
+                Random rand = new Random();
 
-                                String randomPin = String.format("%04d", rand.nextInt(10000));
+                String randomPin = String.format("%04d", rand.nextInt(10000));
 
 //                                System.out.println("Random double value between 0.0 and 1.0 : " + id);
-                                SimpleDateFormat currentDate=new SimpleDateFormat("MMM dd,yyyy HH:mm:ss a");
-                                saveCurrentdate=currentDate.format(calendar.getTime());
-                                HashMap hashMap=new HashMap<>();
-                                hashMap.put("pin",randomPin);
-                                hashMap.put("uid",uid);
-                                hashMap.put("date",saveCurrentdate);
-                                hashMap.put("oid",pid);
-                                hashMap.put("name",nme);
-                                hashMap.put("num",num);
-                                DatabaseReference databaseReference=FirebaseDatabase.getInstance().getReference();
-                                databaseReference.child("Order Pin").child(pid).updateChildren(hashMap);
-                                databaseReference.child("Users").child(uid).child("Order Pins").child(pid).updateChildren(hashMap);
+                SimpleDateFormat currentDate=new SimpleDateFormat("MMM dd,yyyy HH:mm:ss a");
+                saveCurrentdate=currentDate.format(calendar.getTime());
+                HashMap hashMap=new HashMap<>();
+                hashMap.put("pin",randomPin);
+                hashMap.put("uid",uid);
+                hashMap.put("date",saveCurrentdate);
+                hashMap.put("oid",pid);
+                hashMap.put("name",nme);
+                hashMap.put("num",num);
+                DatabaseReference databaseReference=FirebaseDatabase.getInstance().getReference();
+                databaseReference.child("Order Pin").child(pid).updateChildren(hashMap);
+                databaseReference.child("Users").child(uid).child("Order Pins").child(pid).updateChildren(hashMap);
 
-                                databaseReference4.addValueEventListener(new ValueEventListener() {
-                                    @Override
-                                    public void onDataChange(@NonNull DataSnapshot snapshot) {
-                                        if(snapshot.child("paid").getValue().toString().contains("COD")){
+                databaseReference4.addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        if(snapshot.child("paid").getValue().toString().contains("COD")){
 
 //                                            databaseReference4.child("paid").setValue(snapshot.child("paid").getValue().toString().replace("COD - Not paid ",""));
 //                                            productRef.child("paid").setValue(snapshot.child("paid").getValue().toString().replace("COD - Not paid ",""));
 
-                                        }
-                                    }
+                        }
+                    }
 
-                                    @Override
-                                    public void onCancelled(@NonNull DatabaseError error) {
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
 
-                                    }
-                                });
-                                databaseReference5.addValueEventListener(
-                                        new ValueEventListener() {
-                                            @Override
-                                            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                                                if(snapshot.child(saveCurrentdate).child(uid).exists()){
-                                                    databaseReference5.child(saveCurrentdate).child(uid).child("shipped").setValue("y");
-                                                 }
-                                            }
-
-                                            @Override
-                                            public void onCancelled(@NonNull DatabaseError error) {
-
-                                            }
-                                        }
-                                );
-
-                                getToken("Order","Your Final Order Shippeed successfully..");
-
-                                startActivity(getIntent());
-                                  Toast.makeText(ShipOrder.this, "Product shipped successfully to\n"+"User Name : "+nme+"\nUser Number : "+num+"\nUser Id : "+uid, Toast.LENGTH_SHORT).show();
+                    }
+                });
+                databaseReference5.addValueEventListener(
+                        new ValueEventListener() {
+                            @Override
+                            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                if(snapshot.child(saveCurrentdate).child(uid).exists()){
+                                    databaseReference5.child(saveCurrentdate).child(uid).child("shipped").setValue("y");
+                                }
                             }
 
-                        })
+                            @Override
+                            public void onCancelled(@NonNull DatabaseError error) {
+
+                            }
+                        }
+                );
+
+                getToken("Order","Your Final Order Shippeed successfully..");
+
+                startActivity(getIntent());
+                Toast.makeText(ShipOrder.this, "Product shipped successfully to\n"+"User Name : "+nme+"\nUser Number : "+num+"\nUser Id : "+uid, Toast.LENGTH_SHORT).show();
+            }
+
+        })
                 .setNegativeButton("No",
                         (dialog, id) -> {
                             // User doesn't want to give the permissions.

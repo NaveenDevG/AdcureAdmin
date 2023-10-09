@@ -50,7 +50,7 @@ ProgressDialog loadingbar;
 
     public void addMedicine(View view) {
 
-    startActivity(new Intent(this,PharmaSection.class));
+        startActivity(new Intent(this,PharmaSection.class));
     }
 
     public void toOrder(View view) {
