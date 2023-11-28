@@ -41,7 +41,8 @@ public class AddLabTest extends AppCompatActivity {
     private SearchableSpinner spinner1,discount,amnt_spin,sub_cat,return_policcy,state,city;
     private AlertDialog.Builder alertDialog ;
     private ArrayList<String> arrayList,arrayList1,arrayList2,cityAL,stateAL;
-    DatabaseReference  root,root1,dailyRoot;    private String saveCurrentdate,saveCurentTime,productRandomKey;
+    DatabaseReference  root,root1,dailyRoot;
+    private String saveCurrentdate,saveCurentTime,productRandomKey;
 
     ProgressDialog dialog;
     EditText priceLT,pc,wtp,ti,tnmes,ltn,labNme,labLoc;
@@ -56,11 +57,9 @@ Button btn;
         setContentView(R.layout.activity_add_lab_test);
 if(getIntent().getStringExtra("lid")!=null){
     lid=getIntent().getStringExtra("lid").toString();
-
-
 }
 
-            dialog=new ProgressDialog(this);
+dialog=new ProgressDialog(this);
             // spinner3=(Spinner)findViewById(R.id.sp3);
             alertDialog = new AlertDialog.Builder(this);
             labNme=findViewById(R.id.labname);
@@ -87,7 +86,7 @@ btn.setOnClickListener(new View.OnClickListener() {
         validateItem();
     }
 });
-             allProductRef=FirebaseDatabase.getInstance().getReference().child("Lab Tests").child("All Labtests");
+            allProductRef=FirebaseDatabase.getInstance().getReference().child("Lab Tests").child("All Labtests");
             discount = (SearchableSpinner) findViewById(R.id.sp2);
             return_policcy = (SearchableSpinner) findViewById(R.id.retunpol);
             priceLT=findViewById(R.id.price_lt);

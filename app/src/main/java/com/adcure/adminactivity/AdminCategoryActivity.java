@@ -483,4 +483,8 @@ startActivity(new Intent(this,OtpActivity.class));
         manager.notify(100, notification);
 
     }
+
+    public void toAddState(View view) {
+        startActivity(new Intent(AdminCategoryActivity.this,AddStatePincode.class));
+    }
 }
